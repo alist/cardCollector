@@ -32,7 +32,6 @@
     [super viewDidLoad];
 	
 	[self.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
-	[self.view setFrame:CGRectMake(0, 0, self.view.superview.size.width, self.view.superview.size.height - 49)];//tab bar sizing
 	[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"historyBGTile"]]];
 }
 
