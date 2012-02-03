@@ -85,6 +85,7 @@
 		7962717414DC685900E5D17A = {
 			isa = PBXGroup;
 			children = (
+				796271C014DC703600E5D17A /* external frameworks */,
 				7962718B14DC685900E5D17A /* swyp */,
 				7962718214DC685900E5D17A /* Frameworks */,
 				7962718014DC685900E5D17A /* Products */,
@@ -118,10 +119,8 @@
 		7962718B14DC685900E5D17A /* swyp */ = {
 			isa = PBXGroup;
 			children = (
-				796271A414DC6BBA00E5D17A /* libSwyp.xcodeproj */,
-				7962719414DC685900E5D17A /* ISAppDelegate.h */,
-				7962719514DC685900E5D17A /* ISAppDelegate.m */,
-				7962719714DC685900E5D17A /* swyp.xcdatamodeld */,
+				796271C114DC705500E5D17A /* logic */,
+				796271BE14DC703200E5D17A /* controllers */,
 				7962718C14DC685900E5D17A /* Supporting Files */,
 			);
 			path = swyp;
@@ -144,6 +143,32 @@
 				796271AC14DC6BBB00E5D17A /* liblibSwyp.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		796271BE14DC703200E5D17A /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		796271C014DC703600E5D17A /* external frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				796271A414DC6BBA00E5D17A /* libSwyp.xcodeproj */,
+			);
+			name = "external frameworks";
+			path = swyp;
+			sourceTree = "<group>";
+		};
+		796271C114DC705500E5D17A /* logic */ = {
+			isa = PBXGroup;
+			children = (
+				7962719714DC685900E5D17A /* swyp.xcdatamodeld */,
+				7962719414DC685900E5D17A /* ISAppDelegate.h */,
+				7962719514DC685900E5D17A /* ISAppDelegate.m */,
+			);
+			name = logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
