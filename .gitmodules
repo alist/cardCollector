@@ -1,3 +1,6 @@
 [submodule "libSwyp"]
 	path = libSwyp
 	url = git@github.com:swyp/swyp.git
+[submodule "nimbus"]
+	path = nimbus
+	url = git@github.com:jverkoey/nimbus.git
