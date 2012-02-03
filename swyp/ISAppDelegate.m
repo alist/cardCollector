@@ -7,6 +7,7 @@
 //
 
 #import "ISAppDelegate.h"
+#import "ISSwypActionSelectorVC.h"
 
 @implementation ISAppDelegate
 
@@ -27,8 +28,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor blackColor];
+	
+	ISSwypActionSelectorVC	*	swypActionVC	=	[[ISSwypActionSelectorVC alloc] initWithObjectContext:[self managedObjectContext]];
+	[self.window setRootViewController:swypActionVC];
     [self.window makeKeyAndVisible];
     return YES;
 }
