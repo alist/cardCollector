@@ -51,13 +51,16 @@
     ISPasteboardVC *pasteboardVC = [[ISPasteboardVC alloc] initWithNibName:nil bundle:nil];
     
     NSArray *viewControllers = [NSArray arrayWithObjects:contactVC, photoVC, calendarVC, pasteboardVC, nil];
+    NSMutableArray *tabBarItems = [NSMutableArray array];
+    for (UIViewController *VC in viewControllers) {
+        [tabBarItems addObject:VC.tabBarItem];
+    }
 	
-	_actionTabBar		=	[[UITabBarController alloc] init];
-    _actionTabBar.view.frame = CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49);
+	_actionTabBar		=	[[UITabBar alloc] initWithFrame:CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49)];
     
-    _actionTabBar.viewControllers = viewControllers;
+    _actionTabBar.items = tabBarItems;
     
-    [self.view addSubview:_actionTabBar.view];
+    [self.view addSubview:_actionTabBar];
     
 	//tab bar at bottom
 	

@@ -13,7 +13,7 @@
 @interface ISSwypActionSelectorVC : UIViewController <UITabBarControllerDelegate>{
 
 	ISHistoryScrollVC	*			_historyScrollView;
-	UITabBarController *			_actionTabBar;
+	UITabBar *                      _actionTabBar;
 	
 	NSManagedObjectContext *		_objectContext;
 	
