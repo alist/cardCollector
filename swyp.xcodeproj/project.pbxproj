@@ -267,6 +267,7 @@
 				7962719E14DC685900E5D17A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
