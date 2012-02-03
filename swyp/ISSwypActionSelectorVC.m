@@ -46,6 +46,11 @@
 	_historyScrollView	=	[[ISHistoryScrollVC alloc] initWithObjectContext:_objectContext swypWorkspace:[self swypWorkspace]];
 	[self.view addSubview:_historyScrollView.view];
 	
+	_actionTabBar		=	[[UITabBarController alloc] init];
+	//tab bar at bottom
+	
+	//we get callbacks from tab bar, then add views above the histroy scrollview
+	
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
