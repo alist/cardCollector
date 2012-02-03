@@ -41,8 +41,24 @@
 		7962725614DC7AA400E5D17A /* NSData+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962724014DC7AA400E5D17A /* NSData+NimbusCore.m */; };
 		7962725714DC7AA400E5D17A /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962724214DC7AA400E5D17A /* NSString+NimbusCore.m */; };
 		7962725814DC7AA400E5D17A /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962724414DC7AA400E5D17A /* UIView+NimbusCore.m */; };
-		7962726714DC7CD000E5D17A /* ISHistoryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962726614DC7CD000E5D17A /* ISHistoryScrollView.m */; };
-		7962726A14DC7D2700E5D17A /* ISSwypActionSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962726914DC7D2700E5D17A /* ISSwypActionSelector.m */; };
+		7962726A14DC7D2700E5D17A /* ISSwypActionSelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */; };
+		7962726C14DC802600E5D17A /* ISHistoryScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */; };
+		7962728014DC81D100E5D17A /* bluetooth-logo-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727114DC81D100E5D17A /* bluetooth-logo-enabled.png */; };
+		7962728114DC81D100E5D17A /* bluetooth-logo-enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727214DC81D100E5D17A /* bluetooth-logo-enabled@2x.png */; };
+		7962728214DC81D100E5D17A /* connectivity-bluetooth-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727314DC81D100E5D17A /* connectivity-bluetooth-disabled.png */; };
+		7962728314DC81D100E5D17A /* connectivity-bluetooth-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727414DC81D100E5D17A /* connectivity-bluetooth-disabled@2x.png */; };
+		7962728414DC81D100E5D17A /* connectivity-bluetooth-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727514DC81D100E5D17A /* connectivity-bluetooth-enabled.png */; };
+		7962728514DC81D100E5D17A /* connectivity-bluetooth-enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727614DC81D100E5D17A /* connectivity-bluetooth-enabled@2x.png */; };
+		7962728614DC81D100E5D17A /* connectivity-world-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727714DC81D100E5D17A /* connectivity-world-disabled.png */; };
+		7962728714DC81D100E5D17A /* connectivity-world-disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727814DC81D100E5D17A /* connectivity-world-disabled@2x.png */; };
+		7962728814DC81D100E5D17A /* connectivity-world-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727914DC81D100E5D17A /* connectivity-world-enabled.png */; };
+		7962728914DC81D100E5D17A /* connectivity-world-enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727A14DC81D100E5D17A /* connectivity-world-enabled@2x.png */; };
+		7962728A14DC81D100E5D17A /* swypPromptHud.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727B14DC81D100E5D17A /* swypPromptHud.png */; };
+		7962728B14DC81D100E5D17A /* swypPromptHud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727C14DC81D100E5D17A /* swypPromptHud@2x.png */; };
+		7962728C14DC81D100E5D17A /* swypWorkspaceBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727D14DC81D100E5D17A /* swypWorkspaceBackground.png */; };
+		7962728D14DC81D100E5D17A /* top_curl.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727E14DC81D100E5D17A /* top_curl.png */; };
+		7962728E14DC81D100E5D17A /* top_curl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727F14DC81D100E5D17A /* top_curl@2x.png */; };
+		7962729014DC81DD00E5D17A /* historyBGTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962728F14DC81DD00E5D17A /* historyBGTile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,10 +143,26 @@
 		7962724214DC7AA400E5D17A /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
 		7962724314DC7AA400E5D17A /* UIView+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NimbusCore.h"; sourceTree = "<group>"; };
 		7962724414DC7AA400E5D17A /* UIView+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NimbusCore.m"; sourceTree = "<group>"; };
-		7962726514DC7CD000E5D17A /* ISHistoryScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHistoryScrollView.h; path = swyp/ISHistoryScrollView.h; sourceTree = "<group>"; };
-		7962726614DC7CD000E5D17A /* ISHistoryScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryScrollView.m; path = swyp/ISHistoryScrollView.m; sourceTree = "<group>"; };
-		7962726814DC7D2700E5D17A /* ISSwypActionSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypActionSelector.h; path = swyp/ISSwypActionSelector.h; sourceTree = "<group>"; };
-		7962726914DC7D2700E5D17A /* ISSwypActionSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypActionSelector.m; path = swyp/ISSwypActionSelector.m; sourceTree = "<group>"; };
+		7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHistoryScrollVC.h; path = swyp/ISHistoryScrollVC.h; sourceTree = "<group>"; };
+		7962726814DC7D2700E5D17A /* ISSwypActionSelectorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypActionSelectorVC.h; path = swyp/ISSwypActionSelectorVC.h; sourceTree = "<group>"; };
+		7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypActionSelectorVC.m; path = swyp/ISSwypActionSelectorVC.m; sourceTree = "<group>"; };
+		7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryScrollVC.m; path = swyp/ISHistoryScrollVC.m; sourceTree = "<group>"; };
+		7962727114DC81D100E5D17A /* bluetooth-logo-enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bluetooth-logo-enabled.png"; sourceTree = "<group>"; };
+		7962727214DC81D100E5D17A /* bluetooth-logo-enabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bluetooth-logo-enabled@2x.png"; sourceTree = "<group>"; };
+		7962727314DC81D100E5D17A /* connectivity-bluetooth-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-bluetooth-disabled.png"; sourceTree = "<group>"; };
+		7962727414DC81D100E5D17A /* connectivity-bluetooth-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-bluetooth-disabled@2x.png"; sourceTree = "<group>"; };
+		7962727514DC81D100E5D17A /* connectivity-bluetooth-enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-bluetooth-enabled.png"; sourceTree = "<group>"; };
+		7962727614DC81D100E5D17A /* connectivity-bluetooth-enabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-bluetooth-enabled@2x.png"; sourceTree = "<group>"; };
+		7962727714DC81D100E5D17A /* connectivity-world-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-world-disabled.png"; sourceTree = "<group>"; };
+		7962727814DC81D100E5D17A /* connectivity-world-disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-world-disabled@2x.png"; sourceTree = "<group>"; };
+		7962727914DC81D100E5D17A /* connectivity-world-enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-world-enabled.png"; sourceTree = "<group>"; };
+		7962727A14DC81D100E5D17A /* connectivity-world-enabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connectivity-world-enabled@2x.png"; sourceTree = "<group>"; };
+		7962727B14DC81D100E5D17A /* swypPromptHud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swypPromptHud.png; sourceTree = "<group>"; };
+		7962727C14DC81D100E5D17A /* swypPromptHud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "swypPromptHud@2x.png"; sourceTree = "<group>"; };
+		7962727D14DC81D100E5D17A /* swypWorkspaceBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swypWorkspaceBackground.png; sourceTree = "<group>"; };
+		7962727E14DC81D100E5D17A /* top_curl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top_curl.png; sourceTree = "<group>"; };
+		7962727F14DC81D100E5D17A /* top_curl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_curl@2x.png"; sourceTree = "<group>"; };
+		7962728F14DC81DD00E5D17A /* historyBGTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = historyBGTile.png; path = resources/historyBGTile.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +225,7 @@
 			children = (
 				796271F314DC790100E5D17A /* View Controllers */,
 				796271F114DC78FF00E5D17A /* Logic */,
+				7962726D14DC818A00E5D17A /* Resources */,
 				796271DA14DC788200E5D17A /* Supporting Files */,
 			);
 			path = swyp;
@@ -223,10 +256,10 @@
 		796271F314DC790100E5D17A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7962726514DC7CD000E5D17A /* ISHistoryScrollView.h */,
-				7962726614DC7CD000E5D17A /* ISHistoryScrollView.m */,
-				7962726814DC7D2700E5D17A /* ISSwypActionSelector.h */,
-				7962726914DC7D2700E5D17A /* ISSwypActionSelector.m */,
+				7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */,
+				7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */,
+				7962726814DC7D2700E5D17A /* ISSwypActionSelectorVC.h */,
+				7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */,
 			);
 			name = "View Controllers";
 			path = ..;
@@ -311,6 +344,38 @@
 			path = nimbus/src/core/src;
 			sourceTree = "<group>";
 		};
+		7962726D14DC818A00E5D17A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7962728F14DC81DD00E5D17A /* historyBGTile.png */,
+				7962727014DC81D100E5D17A /* swypBundleResources */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7962727014DC81D100E5D17A /* swypBundleResources */ = {
+			isa = PBXGroup;
+			children = (
+				7962727114DC81D100E5D17A /* bluetooth-logo-enabled.png */,
+				7962727214DC81D100E5D17A /* bluetooth-logo-enabled@2x.png */,
+				7962727314DC81D100E5D17A /* connectivity-bluetooth-disabled.png */,
+				7962727414DC81D100E5D17A /* connectivity-bluetooth-disabled@2x.png */,
+				7962727514DC81D100E5D17A /* connectivity-bluetooth-enabled.png */,
+				7962727614DC81D100E5D17A /* connectivity-bluetooth-enabled@2x.png */,
+				7962727714DC81D100E5D17A /* connectivity-world-disabled.png */,
+				7962727814DC81D100E5D17A /* connectivity-world-disabled@2x.png */,
+				7962727914DC81D100E5D17A /* connectivity-world-enabled.png */,
+				7962727A14DC81D100E5D17A /* connectivity-world-enabled@2x.png */,
+				7962727B14DC81D100E5D17A /* swypPromptHud.png */,
+				7962727C14DC81D100E5D17A /* swypPromptHud@2x.png */,
+				7962727D14DC81D100E5D17A /* swypWorkspaceBackground.png */,
+				7962727E14DC81D100E5D17A /* top_curl.png */,
+				7962727F14DC81D100E5D17A /* top_curl@2x.png */,
+			);
+			name = swypBundleResources;
+			path = libSwyp/swypBundleResources;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +445,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				796271DE14DC788200E5D17A /* InfoPlist.strings in Resources */,
+				7962728014DC81D100E5D17A /* bluetooth-logo-enabled.png in Resources */,
+				7962728114DC81D100E5D17A /* bluetooth-logo-enabled@2x.png in Resources */,
+				7962728214DC81D100E5D17A /* connectivity-bluetooth-disabled.png in Resources */,
+				7962728314DC81D100E5D17A /* connectivity-bluetooth-disabled@2x.png in Resources */,
+				7962728414DC81D100E5D17A /* connectivity-bluetooth-enabled.png in Resources */,
+				7962728514DC81D100E5D17A /* connectivity-bluetooth-enabled@2x.png in Resources */,
+				7962728614DC81D100E5D17A /* connectivity-world-disabled.png in Resources */,
+				7962728714DC81D100E5D17A /* connectivity-world-disabled@2x.png in Resources */,
+				7962728814DC81D100E5D17A /* connectivity-world-enabled.png in Resources */,
+				7962728914DC81D100E5D17A /* connectivity-world-enabled@2x.png in Resources */,
+				7962728A14DC81D100E5D17A /* swypPromptHud.png in Resources */,
+				7962728B14DC81D100E5D17A /* swypPromptHud@2x.png in Resources */,
+				7962728C14DC81D100E5D17A /* swypWorkspaceBackground.png in Resources */,
+				7962728D14DC81D100E5D17A /* top_curl.png in Resources */,
+				7962728E14DC81D100E5D17A /* top_curl@2x.png in Resources */,
+				7962729014DC81DD00E5D17A /* historyBGTile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,8 +494,8 @@
 				7962725614DC7AA400E5D17A /* NSData+NimbusCore.m in Sources */,
 				7962725714DC7AA400E5D17A /* NSString+NimbusCore.m in Sources */,
 				7962725814DC7AA400E5D17A /* UIView+NimbusCore.m in Sources */,
-				7962726714DC7CD000E5D17A /* ISHistoryScrollView.m in Sources */,
-				7962726A14DC7D2700E5D17A /* ISSwypActionSelector.m in Sources */,
+				7962726A14DC7D2700E5D17A /* ISSwypActionSelectorVC.m in Sources */,
+				7962726C14DC802600E5D17A /* ISHistoryScrollVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

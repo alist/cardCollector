@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ISHistoryScrollView.h"
-@interface ISSwypActionSelector : UIViewController{
+#import "ISHistoryScrollVC.h"
 
-	ISHistoryScrollView	*			_swypHistoryScrollView;
+///Hosts the swyp history view, presents a tab bar for actions at the bottom, the displays action views over the scrolling history
+@interface ISSwypActionSelectorVC : UIViewController{
+
+	ISHistoryScrollVC	*			_historyScrollView;
+	UITabBarController *			_actionTabBar;
 	
 	NSManagedObjectContext *		_objectContext;
 	
@@ -18,4 +21,6 @@
 }
 @property (nonatomic, retain) NSManagedObjectContext *		objectContext;
 @property (nonatomic, retain) swypWorkspaceViewController *	swypWorkspace;
+
+-(id) initWithObjectContext:(NSManagedObjectContext*)context;
 @end
