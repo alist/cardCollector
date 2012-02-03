@@ -19,10 +19,13 @@
 	NSManagedObjectContext *		_objectContext;
 	
 	swypWorkspaceViewController *	_swypWorkspace;
+    NSArray *                       _pasteboardItems;
 }
 @property (nonatomic, strong) NSManagedObjectContext *		objectContext;
 @property (nonatomic, strong) swypWorkspaceViewController *	swypWorkspace;
 
 -(id) initWithObjectContext:(NSManagedObjectContext*)context;
+
+- (void)updatePasteboard;
 
 @end

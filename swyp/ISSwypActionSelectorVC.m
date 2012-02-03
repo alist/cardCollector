@@ -62,11 +62,10 @@
     _actionTabBar.delegate = self;
     
     [self.view addSubview:_actionTabBar];
-    
+        
 	//tab bar at bottom
 	
 	//we get callbacks from tab bar, then add views above the histroy scrollview
-	
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
@@ -75,6 +74,17 @@
         _selectedTab = -1;
     } else {
         _selectedTab = item.tag;
+    }
+}
+
+- (void)updatePasteboard {
+    NSArray *pbItems = [UIPasteboard generalPasteboard].items;
+    if (![_pasteboardItems isEqualToArray:pbItems]) {
+        _pasteboardItems = pbItems;
+        NSLog(@"%@", pbItems);
+        [[_actionTabBar.items objectAtIndex:3] setBadgeValue:@"!"];
+    } else {
+        [[_actionTabBar.items objectAtIndex:3] setBadgeValue:nil];
     }
 }
 

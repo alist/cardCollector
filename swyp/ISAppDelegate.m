@@ -7,11 +7,11 @@
 //
 
 #import "ISAppDelegate.h"
-#import "ISSwypActionSelectorVC.h"
 
 @implementation ISAppDelegate
 
 @synthesize window = _window;
+@synthesize swypActionVC = _swypActionVC;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
@@ -22,8 +22,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor blackColor];
 	
-	ISSwypActionSelectorVC	*	swypActionVC	=	[[ISSwypActionSelectorVC alloc] initWithObjectContext:[self managedObjectContext]];
-	[self.window setRootViewController:swypActionVC];
+	self.swypActionVC	=	[[ISSwypActionSelectorVC alloc] initWithObjectContext:[self managedObjectContext]];
+	[self.window setRootViewController:self.swypActionVC];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -56,6 +56,8 @@
 	/*
 	 Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 	 */
+    
+    [self.swypActionVC updatePasteboard];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
