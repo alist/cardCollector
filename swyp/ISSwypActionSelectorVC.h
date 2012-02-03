@@ -10,7 +10,7 @@
 #import "ISHistoryScrollVC.h"
 
 ///Hosts the swyp history view, presents a tab bar for actions at the bottom, the displays action views over the scrolling history
-@interface ISSwypActionSelectorVC : UIViewController{
+@interface ISSwypActionSelectorVC : UIViewController <UITabBarControllerDelegate>{
 
 	ISHistoryScrollVC	*			_historyScrollView;
 	UITabBarController *			_actionTabBar;
