@@ -59,6 +59,11 @@
 		796272D114DC865700E5D17A /* NSData+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BB14DC865700E5D17A /* NSData+NimbusCore.m */; };
 		796272D214DC865700E5D17A /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BD14DC865700E5D17A /* NSString+NimbusCore.m */; };
 		796272D314DC865700E5D17A /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BF14DC865700E5D17A /* UIView+NimbusCore.m */; };
+		796272DE14DC887500E5D17A /* NICellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272D614DC887500E5D17A /* NICellFactory.m */; };
+		796272DF14DC887500E5D17A /* NIFormCellCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272D814DC887500E5D17A /* NIFormCellCatalog.m */; };
+		796272E014DC887500E5D17A /* NITableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272DD14DC887500E5D17A /* NITableViewModel.m */; };
+		796272E814DC9B1100E5D17A /* ISSwypDropZoneCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272E714DC9B1100E5D17A /* ISSwypDropZoneCellManager.m */; };
+		796272EB14DC9BCC00E5D17A /* ISSwypDropZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272EA14DC9BCC00E5D17A /* ISSwypDropZoneCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +168,19 @@
 		796272BD14DC865700E5D17A /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
 		796272BE14DC865700E5D17A /* UIView+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NimbusCore.h"; sourceTree = "<group>"; };
 		796272BF14DC865700E5D17A /* UIView+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NimbusCore.m"; sourceTree = "<group>"; };
+		796272D514DC887500E5D17A /* NICellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NICellFactory.h; sourceTree = "<group>"; };
+		796272D614DC887500E5D17A /* NICellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NICellFactory.m; sourceTree = "<group>"; };
+		796272D714DC887500E5D17A /* NIFormCellCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFormCellCatalog.h; sourceTree = "<group>"; };
+		796272D814DC887500E5D17A /* NIFormCellCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIFormCellCatalog.m; sourceTree = "<group>"; };
+		796272D914DC887500E5D17A /* NimbusModels+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbusModels+Namespace.h"; sourceTree = "<group>"; };
+		796272DA14DC887500E5D17A /* NimbusModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusModels.h; sourceTree = "<group>"; };
+		796272DB14DC887500E5D17A /* NITableViewModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NITableViewModel+Private.h"; sourceTree = "<group>"; };
+		796272DC14DC887500E5D17A /* NITableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NITableViewModel.h; sourceTree = "<group>"; };
+		796272DD14DC887500E5D17A /* NITableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NITableViewModel.m; sourceTree = "<group>"; };
+		796272E614DC9B1100E5D17A /* ISSwypDropZoneCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypDropZoneCellManager.h; path = swyp/ISSwypDropZoneCellManager.h; sourceTree = "<group>"; };
+		796272E714DC9B1100E5D17A /* ISSwypDropZoneCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypDropZoneCellManager.m; path = swyp/ISSwypDropZoneCellManager.m; sourceTree = "<group>"; };
+		796272E914DC9BCC00E5D17A /* ISSwypDropZoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypDropZoneCell.h; path = swyp/ISSwypDropZoneCell.h; sourceTree = "<group>"; };
+		796272EA14DC9BCC00E5D17A /* ISSwypDropZoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypDropZoneCell.m; path = swyp/ISSwypDropZoneCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,8 +274,7 @@
 		796271F314DC790100E5D17A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */,
-				7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */,
+				796272E514DC9AD300E5D17A /* History Scroll */,
 				7962726814DC7D2700E5D17A /* ISSwypActionSelectorVC.h */,
 				7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */,
 			);
@@ -285,6 +302,7 @@
 		7962721514DC7A3D00E5D17A /* Nimbus */ = {
 			isa = PBXGroup;
 			children = (
+				796272D414DC887500E5D17A /* model src */,
 				7962729114DC865700E5D17A /* core src */,
 			);
 			name = Nimbus;
@@ -374,6 +392,36 @@
 			);
 			name = "core src";
 			path = nimbus/src/core/src;
+			sourceTree = "<group>";
+		};
+		796272D414DC887500E5D17A /* model src */ = {
+			isa = PBXGroup;
+			children = (
+				796272D514DC887500E5D17A /* NICellFactory.h */,
+				796272D614DC887500E5D17A /* NICellFactory.m */,
+				796272D714DC887500E5D17A /* NIFormCellCatalog.h */,
+				796272D814DC887500E5D17A /* NIFormCellCatalog.m */,
+				796272D914DC887500E5D17A /* NimbusModels+Namespace.h */,
+				796272DA14DC887500E5D17A /* NimbusModels.h */,
+				796272DB14DC887500E5D17A /* NITableViewModel+Private.h */,
+				796272DC14DC887500E5D17A /* NITableViewModel.h */,
+				796272DD14DC887500E5D17A /* NITableViewModel.m */,
+			);
+			name = "model src";
+			path = nimbus/src/models/src;
+			sourceTree = "<group>";
+		};
+		796272E514DC9AD300E5D17A /* History Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */,
+				7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */,
+				796272E614DC9B1100E5D17A /* ISSwypDropZoneCellManager.h */,
+				796272E714DC9B1100E5D17A /* ISSwypDropZoneCellManager.m */,
+				796272E914DC9BCC00E5D17A /* ISSwypDropZoneCell.h */,
+				796272EA14DC9BCC00E5D17A /* ISSwypDropZoneCell.m */,
+			);
+			name = "History Scroll";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +544,11 @@
 				796272D114DC865700E5D17A /* NSData+NimbusCore.m in Sources */,
 				796272D214DC865700E5D17A /* NSString+NimbusCore.m in Sources */,
 				796272D314DC865700E5D17A /* UIView+NimbusCore.m in Sources */,
+				796272DE14DC887500E5D17A /* NICellFactory.m in Sources */,
+				796272DF14DC887500E5D17A /* NIFormCellCatalog.m in Sources */,
+				796272E014DC887500E5D17A /* NITableViewModel.m in Sources */,
+				796272E814DC9B1100E5D17A /* ISSwypDropZoneCellManager.m in Sources */,
+				796272EB14DC9BCC00E5D17A /* ISSwypDropZoneCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,7 +628,7 @@
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"/**";
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -591,7 +644,7 @@
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"/**";
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

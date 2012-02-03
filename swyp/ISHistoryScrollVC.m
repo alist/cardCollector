@@ -19,11 +19,6 @@
 	return self;
 }
 
--(void) dealloc{
-	_swypWorkspace = nil;
-	_objectContext = nil;
-}
-
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
@@ -33,6 +28,10 @@
 	
 	[self.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 	[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"historyBGTile"]]];
+	
+	_swypHistoryTableView		=	[[UITableView alloc] init];
+	[_swypHistoryTableView setDataSource:[self _sectionedModelForSwypHistoryAndDropZone]];
+	
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
@@ -42,5 +41,13 @@
 		return TRUE;
 	}
 }
+
+#pragma mark - private
+-(NITableViewModel*) _sectionedModelForSwypHistoryAndDropZone{
+	NSMutableArray;
+	return [[NITableViewModel alloc] initWithSectionedArray:nil delegate:(id)[NICellFactory class]];
+}
+
+
 
 @end
