@@ -23,11 +23,11 @@
 		7962718514DC685900E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7962718714DC685900E5D17A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7962718914DC685900E5D17A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7962718D14DC685900E5D17A /* swyp-Info.plist */ = {isa = PBXFileReference; path = "swyp-Info.plist"; sourceTree = "<group>"; };
+		7962718D14DC685900E5D17A /* swyp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "swyp-Info.plist"; sourceTree = "<group>"; };
 		7962718F14DC685900E5D17A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7962719114DC685900E5D17A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7962719314DC685900E5D17A /* swyp-Prefix.pch */ = {isa = PBXFileReference; path = "swyp-Prefix.pch"; sourceTree = "<group>"; };
-		7962719414DC685900E5D17A /* ISAppDelegate.h */ = {isa = PBXFileReference; path = ISAppDelegate.h; sourceTree = "<group>"; };
+		7962719314DC685900E5D17A /* swyp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swyp-Prefix.pch"; sourceTree = "<group>"; };
+		7962719414DC685900E5D17A /* ISAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISAppDelegate.h; sourceTree = "<group>"; };
 		7962719514DC685900E5D17A /* ISAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISAppDelegate.m; sourceTree = "<group>"; };
 		7962719814DC685900E5D17A /* swyp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = swyp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
