@@ -19,8 +19,8 @@
 	
 	swypWorkspaceViewController *	_swypWorkspace;
 }
-@property (nonatomic, retain) NSManagedObjectContext *		objectContext;
-@property (nonatomic, retain) swypWorkspaceViewController *	swypWorkspace;
+@property (nonatomic, strong) NSManagedObjectContext *		objectContext;
+@property (nonatomic, strong) swypWorkspaceViewController *	swypWorkspace;
 
 -(id) initWithObjectContext:(NSManagedObjectContext*)context;
 @end

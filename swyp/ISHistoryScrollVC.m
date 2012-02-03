@@ -13,16 +13,15 @@
 #pragma mark - UIViewController
 -(id) initWithObjectContext:(NSManagedObjectContext*)context swypWorkspace:(swypWorkspaceViewController*)workspace{
 	if (self  = [super initWithNibName:nil bundle:nil]){
-		_objectContext	=	[context retain];
-		_swypWorkspace	=	[workspace retain];
+		_objectContext	=	context;
+		_swypWorkspace	=	workspace;
 	}
 	return self;
 }
 
 -(void) dealloc{
-	SRELS(_swypWorkspace);
-	SRELS(_objectContext);
-	[super dealloc];
+	_swypWorkspace = nil;
+	_objectContext = nil;
 }
 
 - (void)didReceiveMemoryWarning{

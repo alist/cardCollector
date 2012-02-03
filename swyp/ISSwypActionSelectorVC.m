@@ -21,17 +21,11 @@
 #pragma mark - NSObject
 -(id) initWithObjectContext:(NSManagedObjectContext*)context{
 	if (self  = [super initWithNibName:nil bundle:nil]){
-		_objectContext	=	[context retain];
+		_objectContext	=	context;
 	}
 	return self;
 }
 
--(void) dealloc{
-	SRELS(_swypWorkspace);
-	SRELS(_objectContext);
-	
-	[super dealloc];
-}
 #pragma mark - UIViewController
 
 - (void)didReceiveMemoryWarning{
