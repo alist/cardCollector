@@ -15,7 +15,30 @@
 		7962719214DC685900E5D17A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962719114DC685900E5D17A /* main.m */; };
 		7962719614DC685900E5D17A /* ISAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962719514DC685900E5D17A /* ISAppDelegate.m */; };
 		7962719914DC685900E5D17A /* swyp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7962719714DC685900E5D17A /* swyp.xcdatamodeld */; };
+		796271AF14DC6BE300E5D17A /* liblibSwyp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271AC14DC6BBB00E5D17A /* liblibSwyp.a */; };
+		796271B514DC6C9B00E5D17A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271B014DC6C9B00E5D17A /* GameKit.framework */; };
+		796271B614DC6C9B00E5D17A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271B114DC6C9B00E5D17A /* SystemConfiguration.framework */; };
+		796271B714DC6C9B00E5D17A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271B214DC6C9B00E5D17A /* CoreFoundation.framework */; };
+		796271B814DC6C9B00E5D17A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271B314DC6C9B00E5D17A /* CFNetwork.framework */; };
+		796271B914DC6C9B00E5D17A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271B414DC6C9B00E5D17A /* Security.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		796271AB14DC6BBB00E5D17A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 796271A414DC6BBA00E5D17A /* libSwyp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = libSwyp;
+		};
+		796271AD14DC6BDB00E5D17A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 796271A414DC6BBA00E5D17A /* libSwyp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = libSwyp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7962717F14DC685900E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +53,12 @@
 		7962719414DC685900E5D17A /* ISAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ISAppDelegate.h; sourceTree = "<group>"; };
 		7962719514DC685900E5D17A /* ISAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ISAppDelegate.m; sourceTree = "<group>"; };
 		7962719814DC685900E5D17A /* swyp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = swyp.xcdatamodel; sourceTree = "<group>"; };
+		796271A414DC6BBA00E5D17A /* libSwyp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libSwyp.xcodeproj; path = libSwyp/libSwyp/libSwyp.xcodeproj; sourceTree = SOURCE_ROOT; };
+		796271B014DC6C9B00E5D17A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		796271B114DC6C9B00E5D17A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		796271B214DC6C9B00E5D17A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		796271B314DC6C9B00E5D17A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		796271B414DC6C9B00E5D17A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,10 +66,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796271AF14DC6BE300E5D17A /* liblibSwyp.a in Frameworks */,
 				7962718414DC685900E5D17A /* UIKit.framework in Frameworks */,
 				7962718614DC685900E5D17A /* Foundation.framework in Frameworks */,
 				7962718814DC685900E5D17A /* CoreGraphics.framework in Frameworks */,
 				7962718A14DC685900E5D17A /* CoreData.framework in Frameworks */,
+				796271B514DC6C9B00E5D17A /* GameKit.framework in Frameworks */,
+				796271B614DC6C9B00E5D17A /* SystemConfiguration.framework in Frameworks */,
+				796271B714DC6C9B00E5D17A /* CoreFoundation.framework in Frameworks */,
+				796271B814DC6C9B00E5D17A /* CFNetwork.framework in Frameworks */,
+				796271B914DC6C9B00E5D17A /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +102,11 @@
 		7962718214DC685900E5D17A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				796271B014DC6C9B00E5D17A /* GameKit.framework */,
+				796271B114DC6C9B00E5D17A /* SystemConfiguration.framework */,
+				796271B214DC6C9B00E5D17A /* CoreFoundation.framework */,
+				796271B314DC6C9B00E5D17A /* CFNetwork.framework */,
+				796271B414DC6C9B00E5D17A /* Security.framework */,
 				7962718314DC685900E5D17A /* UIKit.framework */,
 				7962718514DC685900E5D17A /* Foundation.framework */,
 				7962718714DC685900E5D17A /* CoreGraphics.framework */,
@@ -78,6 +118,7 @@
 		7962718B14DC685900E5D17A /* swyp */ = {
 			isa = PBXGroup;
 			children = (
+				796271A414DC6BBA00E5D17A /* libSwyp.xcodeproj */,
 				7962719414DC685900E5D17A /* ISAppDelegate.h */,
 				7962719514DC685900E5D17A /* ISAppDelegate.m */,
 				7962719714DC685900E5D17A /* swyp.xcdatamodeld */,
@@ -97,6 +138,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		796271A514DC6BBB00E5D17A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				796271AC14DC6BBB00E5D17A /* liblibSwyp.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,6 +160,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				796271AE14DC6BDB00E5D17A /* PBXTargetDependency */,
 			);
 			name = swyp;
 			productName = swyp;
@@ -136,12 +186,28 @@
 			mainGroup = 7962717414DC685900E5D17A;
 			productRefGroup = 7962718014DC685900E5D17A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 796271A514DC6BBB00E5D17A /* Products */;
+					ProjectRef = 796271A414DC6BBA00E5D17A /* libSwyp.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7962717E14DC685900E5D17A /* swyp */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		796271AC14DC6BBB00E5D17A /* liblibSwyp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liblibSwyp.a;
+			remoteRef = 796271AB14DC6BBB00E5D17A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7962717D14DC685900E5D17A /* Resources */ = {
@@ -166,6 +232,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		796271AE14DC6BDB00E5D17A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libSwyp;
+			targetProxy = 796271AD14DC6BDB00E5D17A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7962718E14DC685900E5D17A /* InfoPlist.strings */ = {
@@ -231,7 +305,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"";
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -242,7 +318,9 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"";
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
