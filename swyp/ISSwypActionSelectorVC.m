@@ -59,6 +59,7 @@
 	_actionTabBar		=	[[UITabBar alloc] initWithFrame:CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49)];
     
     _actionTabBar.items = tabBarItems;
+    _actionTabBar.delegate = self;
     
     [self.view addSubview:_actionTabBar];
     
@@ -66,6 +67,15 @@
 	
 	//we get callbacks from tab bar, then add views above the histroy scrollview
 	
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    if (tabBar.selectedItem.tag == _selectedTab) {
+        tabBar.selectedItem = nil;
+        _selectedTab = -1;
+    } else {
+        _selectedTab = item.tag;
+    }
 }
 
 
