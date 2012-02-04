@@ -8,6 +8,7 @@
 
 #import "ISPasteboardVC.h"
 #import "UIImage+Resize.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation ISPasteboardVC
 
@@ -61,7 +62,6 @@
 - (void)updatePasteboard {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
     if (!pasteboardItems || ![pasteboardItems isEqualToArray:pasteBoard.items]) {
-
         pasteboardItems = pasteBoard.items;
         
         self.tabBarItem.badgeValue = @"!";
@@ -75,6 +75,18 @@
         } else if (pasteBoard.URL) {
             textView.text = [pasteBoard.URL absoluteString];
         } else if (pasteBoard.string) {
+            
+            NSDataDetector *addressDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:NULL];
+            
+            NSArray *matches = [addressDetector matchesInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
+            
+            if ([matches objectAtIndex:0]) {
+                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+                [geocoder geocodeAddressString:[matches objectAtIndex:0] completionHandler:^(NSArray *plcemarks, NSError *error){
+                    NSLog(@"%@", [matches objectAtIndex:0]);
+                }];
+            }
+            
             textView.text = pasteBoard.string;
         }
             
