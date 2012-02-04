@@ -12,7 +12,14 @@
 @implementation ISDoodleRecognizingGestureRecognizer
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{	
 	[super touchesBegan:touches withEvent:event];
-	startPoint	=	[self locationInView:self.view];
+	
+	CGPoint location	=	[self locationInView:self.view];
+	UIView * hitTest	=	[self.view hitTest:location withEvent:event];
+	if (hitTest == nil || [hitTest isKindOfClass:[swypWorkspaceBackgroundView class]] == NO){
+		self.state	=	UIGestureRecognizerStateFailed;
+	}else{
+		startPoint	=	[self locationInView:self.view];
+	}
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
 	[super touchesMoved:touches withEvent:event];

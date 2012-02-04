@@ -9,16 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "NimbusModels.h"
 
-@interface ISHistoryScrollVC : UIViewController <UITableViewDelegate>{
+
+///The view that shows a swyp workspace drop-zone in the header, and the history of all swyp-received content below
+@interface ISHistoryScrollVC : UIViewController <UITableViewDelegate, NSFetchedResultsControllerDelegate>{
 	NSManagedObjectContext *		_objectContext;
 	swypWorkspaceViewController *	_swypWorkspace;
 	
 	UITableView *					_swypHistoryTableView;
 	
 }
-@property (nonatomic, strong) UIView *				swypDropZoneView;
-@property (nonatomic, strong) NITableViewModel *	sectionedDataModel;
+@property (nonatomic, strong) UIView *						swypDropZoneView;
+@property (nonatomic, strong) NITableViewModel *			sectionedDataModel;
+@property (nonatomic, strong) NSFetchedResultsController*	resultsController;
 
 -(id) initWithObjectContext:(NSManagedObjectContext*)context swypWorkspace:(swypWorkspaceViewController*)workspace;
 
+
+//
+//private
+-(NSFetchRequest*)	_newOrUpdatedFetchRequest;
+-(void)				_refreshDataModel;
 @end

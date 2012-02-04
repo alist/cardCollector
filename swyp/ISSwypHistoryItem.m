@@ -2,7 +2,7 @@
 //  ISSwypHistoryItem.m
 //  swyp
 //
-//  Created by Alexander List on 2/3/12.
+//  Created by Alexander List on 2/4/12.
 //  Copyright (c) 2012 ExoMachina. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 #import "ISImageHistoryCell.h"
 
 @implementation ISSwypHistoryItem
+
 @dynamic dateAdded;
 @dynamic itemData;
 @dynamic itemPreviewImage;
@@ -35,4 +36,5 @@
 - (UITableViewCellStyle)cellStyle{
 	return UITableViewCellStyleDefault;
 }
+
 @end

@@ -25,6 +25,8 @@
 		3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */; };
 		3EC3F0AA14DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */; };
+		7935171A14DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7935171914DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m */; };
+		7935171D14DDCA74000E406C /* ISSwypHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -129,6 +131,10 @@
 		3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3EC3F0A814DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISDoodleRecognizingGestureRecognizer.h; path = swyp/ISDoodleRecognizingGestureRecognizer.h; sourceTree = "<group>"; };
 		3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISDoodleRecognizingGestureRecognizer.m; path = swyp/ISDoodleRecognizingGestureRecognizer.m; sourceTree = "<group>"; };
+		7935171814DDA6DC000E406C /* UIApplication+ISApplicationAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+ISApplicationAddtions.h"; sourceTree = "<group>"; };
+		7935171914DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+ISApplicationAddtions.m"; sourceTree = "<group>"; };
+		7935171B14DDCA73000E406C /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
+		7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -274,6 +280,8 @@
 			isa = PBXGroup;
 			children = (
 				3E9A375E14DCBAC7007B6DD7 /* UIImage Additions */,
+				7935171814DDA6DC000E406C /* UIApplication+ISApplicationAddtions.h */,
+				7935171914DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -358,6 +366,8 @@
 				796271E214DC788200E5D17A /* ISAppDelegate.h */,
 				796271E314DC788200E5D17A /* ISAppDelegate.m */,
 				796271E514DC788200E5D17A /* swyp.xcdatamodeld */,
+				7935171B14DDCA73000E406C /* ISSwypHistoryItem.h */,
+				7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */,
 			);
 			name = Logic;
 			path = ..;
@@ -671,6 +681,8 @@
 				7962735F14DCBF3500E5D17A /* ISImageHistoryCell.m in Sources */,
 				7962736214DCBF3500E5D17A /* ISTextHistoryCell.m in Sources */,
 				3EC3F0AA14DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
+				7935171A14DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m in Sources */,
+				7935171D14DDCA74000E406C /* ISSwypHistoryItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

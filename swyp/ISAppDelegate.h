@@ -20,4 +20,5 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+-(void) prefillDatabase;
 @end

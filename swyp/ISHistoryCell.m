@@ -15,6 +15,8 @@
 	if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
 		self.selectionStyle		=	UITableViewCellSelectionStyleGray;
 		
+		[self setHeight:100];
+		
 		UIView	* backgroundView		=	[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
 		[backgroundView setAutoresizingMask:UIViewAutoresizingFlexibleWidth |UIViewAutoresizingFlexibleHeight];
 		backgroundView.backgroundColor	=	[UIColor whiteColor];

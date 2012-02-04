@@ -30,6 +30,7 @@
 }
 
 -(void)	updateCellContents{
-	
+	NSString * contentString = [[NSString  alloc] initWithBytes:[[[self historyItem] itemData] bytes] length:[[[self historyItem] itemData] length] encoding:NSUTF8StringEncoding];
+	[[self contentDisplayView] setText:contentString];
 }
 @end
