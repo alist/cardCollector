@@ -24,6 +24,7 @@
 		3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */; };
+		3EC3F0AA14DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -79,14 +80,11 @@
 		796272DE14DC887500E5D17A /* NICellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272D614DC887500E5D17A /* NICellFactory.m */; };
 		796272DF14DC887500E5D17A /* NIFormCellCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272D814DC887500E5D17A /* NIFormCellCatalog.m */; };
 		796272E014DC887500E5D17A /* NITableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272DD14DC887500E5D17A /* NITableViewModel.m */; };
-		796272E814DC9B1100E5D17A /* ISSwypDropZoneCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272E714DC9B1100E5D17A /* ISSwypDropZoneCellManager.m */; };
-		796272EB14DC9BCC00E5D17A /* ISSwypDropZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272EA14DC9BCC00E5D17A /* ISSwypDropZoneCell.m */; };
 		7962733414DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733314DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m */; };
 		7962733714DCB06F00E5D17A /* ISSwypHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */; };
 		7962733B14DCB17600E5D17A /* ISImageHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733A14DCB17600E5D17A /* ISImageHistoryCell.m */; };
 		7962733E14DCB1D200E5D17A /* ISHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733D14DCB1D200E5D17A /* ISHistoryCell.m */; };
 		7962734114DCB35300E5D17A /* ISTextHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962734014DCB35300E5D17A /* ISTextHistoryCell.m */; };
-		7962735D14DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735214DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m */; };
 		7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735414DCBF3500E5D17A /* ISHistoryCell.m */; };
 		7962735F14DCBF3500E5D17A /* ISImageHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735614DCBF3500E5D17A /* ISImageHistoryCell.m */; };
 		7962736214DCBF3500E5D17A /* ISTextHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735C14DCBF3500E5D17A /* ISTextHistoryCell.m */; };
@@ -134,6 +132,8 @@
 		3E9A376314DCBAC7007B6DD7 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3EC3F0A814DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISDoodleRecognizingGestureRecognizer.h; path = swyp/ISDoodleRecognizingGestureRecognizer.h; sourceTree = "<group>"; };
+		3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISDoodleRecognizingGestureRecognizer.m; path = swyp/ISDoodleRecognizingGestureRecognizer.m; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -227,16 +227,12 @@
 		796272DB14DC887500E5D17A /* NITableViewModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NITableViewModel+Private.h"; sourceTree = "<group>"; };
 		796272DC14DC887500E5D17A /* NITableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NITableViewModel.h; sourceTree = "<group>"; };
 		796272DD14DC887500E5D17A /* NITableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NITableViewModel.m; sourceTree = "<group>"; };
-		796272E714DC9B1100E5D17A /* ISSwypDropZoneCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypDropZoneCellManager.m; path = swyp/ISSwypDropZoneCellManager.m; sourceTree = "<group>"; };
-		796272EA14DC9BCC00E5D17A /* ISSwypDropZoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypDropZoneCell.m; path = swyp/ISSwypDropZoneCell.m; sourceTree = "<group>"; };
 		7962733314DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISDoodleRecognizingGestureRecognizer.m; path = swyp/ISDoodleRecognizingGestureRecognizer.m; sourceTree = "<group>"; };
 		7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
 		7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
 		7962733A14DCB17600E5D17A /* ISImageHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISImageHistoryCell.m; path = swyp/ISImageHistoryCell.m; sourceTree = "<group>"; };
 		7962733D14DCB1D200E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
 		7962734014DCB35300E5D17A /* ISTextHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISTextHistoryCell.m; path = swyp/ISTextHistoryCell.m; sourceTree = "<group>"; };
-		7962735114DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISDoodleRecognizingGestureRecognizer.h; path = swyp/ISDoodleRecognizingGestureRecognizer.h; sourceTree = "<group>"; };
-		7962735214DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISDoodleRecognizingGestureRecognizer.m; path = swyp/ISDoodleRecognizingGestureRecognizer.m; sourceTree = "<group>"; };
 		7962735314DCBF3500E5D17A /* ISHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHistoryCell.h; path = swyp/ISHistoryCell.h; sourceTree = "<group>"; };
 		7962735414DCBF3500E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
 		7962735514DCBF3500E5D17A /* ISImageHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISImageHistoryCell.h; path = swyp/ISImageHistoryCell.h; sourceTree = "<group>"; };
@@ -528,8 +524,8 @@
 		7962735014DCBF0E00E5D17A /* History View */ = {
 			isa = PBXGroup;
 			children = (
-				7962735114DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.h */,
-				7962735214DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m */,
+				3EC3F0A814DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.h */,
+				3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */,
 				7962735314DCBF3500E5D17A /* ISHistoryCell.h */,
 				7962735414DCBF3500E5D17A /* ISHistoryCell.m */,
 				7962735514DCBF3500E5D17A /* ISImageHistoryCell.h */,
@@ -677,8 +673,6 @@
 				796272DE14DC887500E5D17A /* NICellFactory.m in Sources */,
 				796272DF14DC887500E5D17A /* NIFormCellCatalog.m in Sources */,
 				796272E014DC887500E5D17A /* NITableViewModel.m in Sources */,
-				796272E814DC9B1100E5D17A /* ISSwypDropZoneCellManager.m in Sources */,
-				796272EB14DC9BCC00E5D17A /* ISSwypDropZoneCell.m in Sources */,
 				7962733414DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
 				7962733714DCB06F00E5D17A /* ISSwypHistoryItem.m in Sources */,
 				7962733B14DCB17600E5D17A /* ISImageHistoryCell.m in Sources */,
@@ -687,10 +681,10 @@
 				3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */,
 				3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */,
 				3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */,
-				7962735D14DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
 				7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */,
 				7962735F14DCBF3500E5D17A /* ISImageHistoryCell.m in Sources */,
 				7962736214DCBF3500E5D17A /* ISTextHistoryCell.m in Sources */,
+				3EC3F0AA14DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

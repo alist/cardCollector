@@ -83,7 +83,7 @@
             if ([matches objectAtIndex:0]) {
                 CLGeocoder *geocoder = [[CLGeocoder alloc] init];
                 [geocoder geocodeAddressString:[matches objectAtIndex:0] completionHandler:^(NSArray *plcemarks, NSError *error){
-                    
+                    NSLog(@"%@", [matches objectAtIndex:0]);
                 }];
             }
             

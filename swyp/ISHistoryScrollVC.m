@@ -7,7 +7,6 @@
 //
 
 #import "ISHistoryScrollVC.h"
-#import "ISSwypDropZoneCellManager.h"
 #import "ISDoodleRecognizingGestureRecognizer.h"
 
 @implementation ISHistoryScrollVC
