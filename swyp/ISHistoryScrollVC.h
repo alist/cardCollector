@@ -14,8 +14,11 @@
 	swypWorkspaceViewController *	_swypWorkspace;
 	
 	UITableView *					_swypHistoryTableView;
+	
 }
+@property (nonatomic, strong) UIView *				swypDropZoneView;
+@property (nonatomic, strong) NITableViewModel *	sectionedDataModel;
+
 -(id) initWithObjectContext:(NSManagedObjectContext*)context swypWorkspace:(swypWorkspaceViewController*)workspace;
 
--(NITableViewModel*) _sectionedModelForSwypHistoryAndDropZone;
 @end

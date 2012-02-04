@@ -7,8 +7,31 @@
 //
 
 #import "ISHistoryScrollVC.h"
+#import "ISSwypDropZoneCellManager.h"
+#import "ISDoodleRecognizingGestureRecognizer.h"
 
 @implementation ISHistoryScrollVC
+@synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel;
+
+#pragma mark - public
+-(UIView*)swypDropZoneView{
+	if (_swypDropZoneView == nil){
+		_swypDropZoneView = [[swypWorkspaceBackgroundView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, (deviceIsPad)?300:200)];
+		[_swypDropZoneView setAutoresizingMask:UIViewAutoresizingNone];
+		
+		
+		ISDoodleRecognizingGestureRecognizer * doodleGest	=	[[ISDoodleRecognizingGestureRecognizer alloc] initWithTarget:nil action:nil];
+		
+		[[self swypDropZoneView] addGestureRecognizer:doodleGest];
+		
+		assert(_swypHistoryTableView != nil);
+		for (UIGestureRecognizer *gesture in _swypHistoryTableView.gestureRecognizers){
+			[gesture requireGestureRecognizerToFail:doodleGest];
+		}
+		
+	}
+	return _swypDropZoneView;
+}
 
 #pragma mark - UIViewController
 -(id) initWithObjectContext:(NSManagedObjectContext*)context swypWorkspace:(swypWorkspaceViewController*)workspace{
@@ -29,9 +52,14 @@
 	[self.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 	[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"historyBGTile"]]];
 	
-	_swypHistoryTableView		=	[[UITableView alloc] init];
-	[_swypHistoryTableView setDataSource:[self _sectionedModelForSwypHistoryAndDropZone]];
+	_swypHistoryTableView		=	[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
+	[_swypHistoryTableView setBackgroundColor:[UIColor clearColor]];
+	[_swypHistoryTableView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 	
+	[_swypHistoryTableView setDataSource:[self sectionedDataModel]];
+	[_swypHistoryTableView setTableHeaderView:[self swypDropZoneView]]; 
+	[self.view addSubview:_swypHistoryTableView];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
@@ -43,9 +71,15 @@
 }
 
 #pragma mark - private
--(NITableViewModel*) _sectionedModelForSwypHistoryAndDropZone{
-	NSMutableArray;
-	return [[NITableViewModel alloc] initWithSectionedArray:nil delegate:(id)[NICellFactory class]];
+-(NITableViewModel*) sectionedDataModel{
+	if (_sectionedDataModel == nil){
+		NSMutableArray	* sectionArray	=	[[NSMutableArray alloc] init];
+//		[sectionArray addObject:LocStr(@"Swÿp Drop Zone",@"On history view for people to swyp-in stuff")];
+//		[sectionArray addObject:[[ISSwypDropZoneCellManager alloc] initWithSwypDropView:[self swypDropZoneView]]];
+		[sectionArray addObject:LocStr(@"recently recieved",@"On history view for people to view stuff received")];
+		_sectionedDataModel	=	[[NITableViewModel alloc] initWithSectionedArray:sectionArray delegate:(id)[NICellFactory class]];
+	}
+	return _sectionedDataModel;
 }
 
 
