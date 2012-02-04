@@ -14,6 +14,7 @@
     NINetworkImageView *imageView;
     UILabel     *textView;
     NSArray     *pasteboardItems;
+    NSString    *address;
 }
 
 @property (nonatomic, strong) NSArray *pasteboardItems;
