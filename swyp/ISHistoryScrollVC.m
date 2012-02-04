@@ -75,7 +75,8 @@
 	_swypHistoryTableView		=	[[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
 	[_swypHistoryTableView setBackgroundColor:[UIColor clearColor]];
 	[_swypHistoryTableView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
-//	[_swypHistoryTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+	[_swypHistoryTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+	[_swypHistoryTableView setDelegate:self];
 	
 	[_swypHistoryTableView setTableHeaderView:[self swypDropZoneView]]; 
 	[self.view addSubview:_swypHistoryTableView];
@@ -123,6 +124,19 @@
 }
 
 #pragma mark - delegation
+
+#pragma mark UITableViewDelegate
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	CGFloat height	=	0;
+	
+	id object	=	[[self sectionedDataModel] objectAtIndexPath:indexPath];
+	id class	=	[object cellClass];
+	if ([class respondsToSelector:@selector(heightForObject:atIndexPath:tableView:)]){
+		height	=	[class heightForObject:object atIndexPath:indexPath tableView:tableView];
+	}
+	return height;
+}
+
 #pragma mark NSFetchedResultsController
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
 }
