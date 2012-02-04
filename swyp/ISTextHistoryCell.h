@@ -10,5 +10,6 @@
 #import "ISHistoryCell.h"
 
 @interface ISTextHistoryCell : ISHistoryCell
+@property (nonatomic, strong) UITextView *			contentDisplayView;
 
 @end

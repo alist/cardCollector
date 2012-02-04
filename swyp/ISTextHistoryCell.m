@@ -9,10 +9,16 @@
 #import "ISTextHistoryCell.h"
 
 @implementation ISTextHistoryCell
+@synthesize contentDisplayView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 	if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
+		UITextView	* textDisplay	=	[[UITextView alloc] initWithFrame:CGRectInset([[self backgroundView] frame],25,25)];
+		[textDisplay setEditable:FALSE];
+		[textDisplay setScrollEnabled:FALSE];
+		[textDisplay setDataDetectorTypes:UIDataDetectorTypeAll];
 		
+		[self setContentDisplayView:textDisplay];
 	}
 	return self;
 }	
