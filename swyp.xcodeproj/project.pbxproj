@@ -76,6 +76,20 @@
 		796272D114DC865700E5D17A /* NSData+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BB14DC865700E5D17A /* NSData+NimbusCore.m */; };
 		796272D214DC865700E5D17A /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BD14DC865700E5D17A /* NSString+NimbusCore.m */; };
 		796272D314DC865700E5D17A /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BF14DC865700E5D17A /* UIView+NimbusCore.m */; };
+		796272DE14DC887500E5D17A /* NICellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272D614DC887500E5D17A /* NICellFactory.m */; };
+		796272DF14DC887500E5D17A /* NIFormCellCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272D814DC887500E5D17A /* NIFormCellCatalog.m */; };
+		796272E014DC887500E5D17A /* NITableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272DD14DC887500E5D17A /* NITableViewModel.m */; };
+		796272E814DC9B1100E5D17A /* ISSwypDropZoneCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272E714DC9B1100E5D17A /* ISSwypDropZoneCellManager.m */; };
+		796272EB14DC9BCC00E5D17A /* ISSwypDropZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272EA14DC9BCC00E5D17A /* ISSwypDropZoneCell.m */; };
+		7962733414DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733314DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m */; };
+		7962733714DCB06F00E5D17A /* ISSwypHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */; };
+		7962733B14DCB17600E5D17A /* ISImageHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733A14DCB17600E5D17A /* ISImageHistoryCell.m */; };
+		7962733E14DCB1D200E5D17A /* ISHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733D14DCB1D200E5D17A /* ISHistoryCell.m */; };
+		7962734114DCB35300E5D17A /* ISTextHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962734014DCB35300E5D17A /* ISTextHistoryCell.m */; };
+		7962735D14DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735214DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m */; };
+		7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735414DCBF3500E5D17A /* ISHistoryCell.m */; };
+		7962735F14DCBF3500E5D17A /* ISImageHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735614DCBF3500E5D17A /* ISImageHistoryCell.m */; };
+		7962736214DCBF3500E5D17A /* ISTextHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735C14DCBF3500E5D17A /* ISTextHistoryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +218,31 @@
 		796272BD14DC865700E5D17A /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
 		796272BE14DC865700E5D17A /* UIView+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NimbusCore.h"; sourceTree = "<group>"; };
 		796272BF14DC865700E5D17A /* UIView+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NimbusCore.m"; sourceTree = "<group>"; };
+		796272D514DC887500E5D17A /* NICellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NICellFactory.h; sourceTree = "<group>"; };
+		796272D614DC887500E5D17A /* NICellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NICellFactory.m; sourceTree = "<group>"; };
+		796272D714DC887500E5D17A /* NIFormCellCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIFormCellCatalog.h; sourceTree = "<group>"; };
+		796272D814DC887500E5D17A /* NIFormCellCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIFormCellCatalog.m; sourceTree = "<group>"; };
+		796272D914DC887500E5D17A /* NimbusModels+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NimbusModels+Namespace.h"; sourceTree = "<group>"; };
+		796272DA14DC887500E5D17A /* NimbusModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NimbusModels.h; sourceTree = "<group>"; };
+		796272DB14DC887500E5D17A /* NITableViewModel+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NITableViewModel+Private.h"; sourceTree = "<group>"; };
+		796272DC14DC887500E5D17A /* NITableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NITableViewModel.h; sourceTree = "<group>"; };
+		796272DD14DC887500E5D17A /* NITableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NITableViewModel.m; sourceTree = "<group>"; };
+		796272E714DC9B1100E5D17A /* ISSwypDropZoneCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypDropZoneCellManager.m; path = swyp/ISSwypDropZoneCellManager.m; sourceTree = "<group>"; };
+		796272EA14DC9BCC00E5D17A /* ISSwypDropZoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypDropZoneCell.m; path = swyp/ISSwypDropZoneCell.m; sourceTree = "<group>"; };
+		7962733314DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISDoodleRecognizingGestureRecognizer.m; path = swyp/ISDoodleRecognizingGestureRecognizer.m; sourceTree = "<group>"; };
+		7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
+		7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
+		7962733A14DCB17600E5D17A /* ISImageHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISImageHistoryCell.m; path = swyp/ISImageHistoryCell.m; sourceTree = "<group>"; };
+		7962733D14DCB1D200E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
+		7962734014DCB35300E5D17A /* ISTextHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISTextHistoryCell.m; path = swyp/ISTextHistoryCell.m; sourceTree = "<group>"; };
+		7962735114DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISDoodleRecognizingGestureRecognizer.h; path = swyp/ISDoodleRecognizingGestureRecognizer.h; sourceTree = "<group>"; };
+		7962735214DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISDoodleRecognizingGestureRecognizer.m; path = swyp/ISDoodleRecognizingGestureRecognizer.m; sourceTree = "<group>"; };
+		7962735314DCBF3500E5D17A /* ISHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHistoryCell.h; path = swyp/ISHistoryCell.h; sourceTree = "<group>"; };
+		7962735414DCBF3500E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
+		7962735514DCBF3500E5D17A /* ISImageHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISImageHistoryCell.h; path = swyp/ISImageHistoryCell.h; sourceTree = "<group>"; };
+		7962735614DCBF3500E5D17A /* ISImageHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISImageHistoryCell.m; path = swyp/ISImageHistoryCell.m; sourceTree = "<group>"; };
+		7962735B14DCBF3500E5D17A /* ISTextHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISTextHistoryCell.h; path = swyp/ISTextHistoryCell.h; sourceTree = "<group>"; };
+		7962735C14DCBF3500E5D17A /* ISTextHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISTextHistoryCell.m; path = swyp/ISTextHistoryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +366,8 @@
 		796271F114DC78FF00E5D17A /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */,
+				7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */,
 				796271E214DC788200E5D17A /* ISAppDelegate.h */,
 				796271E314DC788200E5D17A /* ISAppDelegate.m */,
 				796271E514DC788200E5D17A /* swyp.xcdatamodeld */,
@@ -338,9 +379,8 @@
 		796271F314DC790100E5D17A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7962735014DCBF0E00E5D17A /* History View */,
 				3E06EB4314DC89DE00BA055D /* Tab Bar */,
-				7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */,
-				7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */,
 				7962726814DC7D2700E5D17A /* ISSwypActionSelectorVC.h */,
 				7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */,
 			);
@@ -368,6 +408,7 @@
 		7962721514DC7A3D00E5D17A /* Nimbus */ = {
 			isa = PBXGroup;
 			children = (
+				796272D414DC887500E5D17A /* model src */,
 				7962729114DC865700E5D17A /* core src */,
 			);
 			name = Nimbus;
@@ -465,6 +506,40 @@
 			);
 			name = "core src";
 			path = nimbus/src/core/src;
+			sourceTree = "<group>";
+		};
+		796272D414DC887500E5D17A /* model src */ = {
+			isa = PBXGroup;
+			children = (
+				796272D514DC887500E5D17A /* NICellFactory.h */,
+				796272D614DC887500E5D17A /* NICellFactory.m */,
+				796272D714DC887500E5D17A /* NIFormCellCatalog.h */,
+				796272D814DC887500E5D17A /* NIFormCellCatalog.m */,
+				796272D914DC887500E5D17A /* NimbusModels+Namespace.h */,
+				796272DA14DC887500E5D17A /* NimbusModels.h */,
+				796272DB14DC887500E5D17A /* NITableViewModel+Private.h */,
+				796272DC14DC887500E5D17A /* NITableViewModel.h */,
+				796272DD14DC887500E5D17A /* NITableViewModel.m */,
+			);
+			name = "model src";
+			path = nimbus/src/models/src;
+			sourceTree = "<group>";
+		};
+		7962735014DCBF0E00E5D17A /* History View */ = {
+			isa = PBXGroup;
+			children = (
+				7962735114DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.h */,
+				7962735214DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m */,
+				7962735314DCBF3500E5D17A /* ISHistoryCell.h */,
+				7962735414DCBF3500E5D17A /* ISHistoryCell.m */,
+				7962735514DCBF3500E5D17A /* ISImageHistoryCell.h */,
+				7962735614DCBF3500E5D17A /* ISImageHistoryCell.m */,
+				7962735B14DCBF3500E5D17A /* ISTextHistoryCell.h */,
+				7962735C14DCBF3500E5D17A /* ISTextHistoryCell.m */,
+				7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */,
+				7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */,
+			);
+			name = "History View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -599,9 +674,23 @@
 				796272D114DC865700E5D17A /* NSData+NimbusCore.m in Sources */,
 				796272D214DC865700E5D17A /* NSString+NimbusCore.m in Sources */,
 				796272D314DC865700E5D17A /* UIView+NimbusCore.m in Sources */,
+				796272DE14DC887500E5D17A /* NICellFactory.m in Sources */,
+				796272DF14DC887500E5D17A /* NIFormCellCatalog.m in Sources */,
+				796272E014DC887500E5D17A /* NITableViewModel.m in Sources */,
+				796272E814DC9B1100E5D17A /* ISSwypDropZoneCellManager.m in Sources */,
+				796272EB14DC9BCC00E5D17A /* ISSwypDropZoneCell.m in Sources */,
+				7962733414DCAD8A00E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
+				7962733714DCB06F00E5D17A /* ISSwypHistoryItem.m in Sources */,
+				7962733B14DCB17600E5D17A /* ISImageHistoryCell.m in Sources */,
+				7962733E14DCB1D200E5D17A /* ISHistoryCell.m in Sources */,
+				7962734114DCB35300E5D17A /* ISTextHistoryCell.m in Sources */,
 				3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */,
 				3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */,
 				3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */,
+				7962735D14DCBF3500E5D17A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
+				7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */,
+				7962735F14DCBF3500E5D17A /* ISImageHistoryCell.m in Sources */,
+				7962736214DCBF3500E5D17A /* ISTextHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +770,7 @@
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"/**";
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -697,7 +786,7 @@
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"/**";
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
