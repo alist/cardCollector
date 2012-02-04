@@ -14,7 +14,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Photos", @"Your photos.") image:[UIImage imageNamed:@"photos"] tag:1];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Photos", @"Your photos.") 
+                                                        image:[UIImage imageNamed:@"photos"] tag:1];
     }
     return self;
 }

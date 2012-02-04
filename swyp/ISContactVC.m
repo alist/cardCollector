@@ -14,7 +14,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Contact", @"Your contact card.") image:[UIImage imageNamed:@"user"] tag:0];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Contact", @"Your contact card.") 
+                                                        image:[UIImage imageNamed:@"user"] tag:0];
     }
     return self;
 }

@@ -20,12 +20,16 @@
 	
 	swypWorkspaceViewController *	_swypWorkspace;
     NSArray *                       _pasteboardItems;
+    NSArray *                       _viewControllers;
 }
 @property (nonatomic, strong) NSManagedObjectContext *		objectContext;
 @property (nonatomic, strong) swypWorkspaceViewController *	swypWorkspace;
 
 -(id) initWithObjectContext:(NSManagedObjectContext*)context;
-
 - (void)updatePasteboard;
+
+
+// Private methods
+- (void)_reframeTabBar;
 
 @end
