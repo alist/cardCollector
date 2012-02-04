@@ -19,6 +19,10 @@
 		3E06EB5E14DC99CD00BA055D /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5C14DC99CD00BA055D /* calendar@2x.png */; };
 		3E06EB6114DC9A6400BA055D /* photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5F14DC9A6400BA055D /* photos.png */; };
 		3E06EB6214DC9A6400BA055D /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB6014DC9A6400BA055D /* photos@2x.png */; };
+		3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */; };
+		3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -107,6 +111,13 @@
 		3E06EB5C14DC99CD00BA055D /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "resources/calendar@2x.png"; sourceTree = SOURCE_ROOT; };
 		3E06EB5F14DC9A6400BA055D /* photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photos.png; path = resources/photos.png; sourceTree = SOURCE_ROOT; };
 		3E06EB6014DC9A6400BA055D /* photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photos@2x.png"; path = "resources/photos@2x.png"; sourceTree = SOURCE_ROOT; };
+		3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		3E9A375F14DCBAC7007B6DD7 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		3E9A376114DCBAC7007B6DD7 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		3E9A376314DCBAC7007B6DD7 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7962720A14DC799000E5D17A /* liblibSwyp.a in Frameworks */,
+				3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */,
 				796271D214DC788200E5D17A /* UIKit.framework in Frameworks */,
 				796271D414DC788200E5D17A /* Foundation.framework in Frameworks */,
 				796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */,
@@ -229,6 +241,27 @@
 			name = "Tab Bar";
 			sourceTree = "<group>";
 		};
+		3E9A375714DCB93C007B6DD7 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				3E9A375E14DCBAC7007B6DD7 /* UIImage Additions */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
+		3E9A375E14DCBAC7007B6DD7 /* UIImage Additions */ = {
+			isa = PBXGroup;
+			children = (
+				3E9A375F14DCBAC7007B6DD7 /* UIImage+Alpha.h */,
+				3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */,
+				3E9A376114DCBAC7007B6DD7 /* UIImage+Resize.h */,
+				3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */,
+				3E9A376314DCBAC7007B6DD7 /* UIImage+RoundedCorner.h */,
+				3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */,
+			);
+			path = "UIImage Additions";
+			sourceTree = "<group>";
+		};
 		796271C214DC788200E5D17A = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +283,7 @@
 		796271D014DC788200E5D17A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */,
 				7962720B14DC79A300E5D17A /* GameKit.framework */,
 				7962720C14DC79A300E5D17A /* SystemConfiguration.framework */,
 				7962720D14DC79A300E5D17A /* CoreFoundation.framework */,
@@ -266,6 +300,7 @@
 		796271D914DC788200E5D17A /* swyp */ = {
 			isa = PBXGroup;
 			children = (
+				3E9A375714DCB93C007B6DD7 /* Additions */,
 				796271F314DC790100E5D17A /* View Controllers */,
 				796271F114DC78FF00E5D17A /* Logic */,
 				7962726D14DC818A00E5D17A /* Resources */,
@@ -560,6 +595,9 @@
 				796272D114DC865700E5D17A /* NSData+NimbusCore.m in Sources */,
 				796272D214DC865700E5D17A /* NSString+NimbusCore.m in Sources */,
 				796272D314DC865700E5D17A /* UIView+NimbusCore.m in Sources */,
+				3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */,
+				3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */,
+				3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

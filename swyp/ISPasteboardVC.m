@@ -7,8 +7,11 @@
 //
 
 #import "ISPasteboardVC.h"
+#import "UIImage+Resize.h"
 
 @implementation ISPasteboardVC
+
+@synthesize pasteboardItems;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,6 +23,14 @@
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.frame = CGRectMake(0, screenSize.height-(120+49+20), 320, 120);
+    
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 120)];
+    imageView.hidden = YES;
+    [self.view addSubview:imageView];
+    
+    textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 120)];
+    textView.hidden = YES;
+    [self.view addSubview:textView];
     
     return self;
 }
@@ -46,6 +57,33 @@
     [super viewDidLoad];
 }
 */
+
+- (void)updatePasteboard {
+    UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+    if (!pasteboardItems || ![pasteboardItems isEqualToArray:pasteBoard.items]) {
+
+        pasteboardItems = pasteBoard.items;
+        
+        self.tabBarItem.badgeValue = @"!";
+        
+        imageView.image = nil;
+        
+        if (pasteBoard.image) {
+            UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:imageView.size interpolationQuality:0.8];
+            [imageView setImage:croppedImage];
+            textView.text = nil;
+        } else if (pasteBoard.URL) {
+            textView.text = [pasteBoard.URL absoluteString];
+        } else if (pasteBoard.string) {
+            textView.text = pasteBoard.string;
+        }
+            
+        textView.hidden = (textView.text) ? NO : YES;
+        imageView.hidden = (imageView.image) ? NO : YES;
+    } else {
+        self.tabBarItem.badgeValue = nil;
+    }
+}
 
 - (void)viewDidUnload
 {

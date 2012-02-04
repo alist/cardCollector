@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/UTCoreTypes.h>
 
-@interface ISPasteboardVC : UIViewController
+@interface ISPasteboardVC : UIViewController {
+    UIImageView *imageView;
+    UILabel     *textView;
+    NSArray     *pasteboardItems;
+}
+
+@property (nonatomic, strong) NSArray *pasteboardItems;
+
+- (void)updatePasteboard;
 
 @end

@@ -10,7 +10,6 @@
 #import "ISContactVC.h"
 #import "ISPhotoVC.h"
 #import "ISCalendarVC.h"
-#import "ISPasteboardVC.h"
 #import "NIDeviceOrientation.h"
 
 @implementation ISSwypActionSelectorVC
@@ -50,9 +49,9 @@
     ISContactVC *contactVC = [[ISContactVC alloc] initWithNibName:nil bundle:nil];
     ISPhotoVC *photoVC = [[ISPhotoVC alloc] initWithNibName:nil bundle:nil];
     ISCalendarVC *calendarVC = [[ISCalendarVC alloc] initWithNibName:nil bundle:nil];
-    ISPasteboardVC *pasteboardVC = [[ISPasteboardVC alloc] initWithNibName:nil bundle:nil];
+    _pasteboardVC = [[ISPasteboardVC alloc] initWithNibName:nil bundle:nil];
     
-    _viewControllers = [NSArray arrayWithObjects:contactVC, photoVC, calendarVC, pasteboardVC, nil];
+    _viewControllers = [NSArray arrayWithObjects:contactVC, photoVC, calendarVC, _pasteboardVC, nil];
     NSMutableArray *tabBarItems = [NSMutableArray array];
     for (UIViewController *VC in _viewControllers) {
         [tabBarItems addObject:VC.tabBarItem];
@@ -93,19 +92,15 @@
         UIViewController *VC = [_viewControllers objectAtIndex:item.tag];
         [self.view addSubview:VC.view];
     }
-}
-
-- (void)updatePasteboard {
-    NSArray *pbItems = [UIPasteboard generalPasteboard].items;
-    if (![_pasteboardItems isEqualToArray:pbItems]) {
-        _pasteboardItems = pbItems;
-        NSLog(@"%@", pbItems);
-        [[_actionTabBar.items objectAtIndex:3] setBadgeValue:@"!"];
-    } else {
-        [[_actionTabBar.items objectAtIndex:3] setBadgeValue:nil];
+    
+    if (item.tag == 3) {
+        item.badgeValue = nil;
     }
 }
 
+- (void)updatePasteboard {
+    [_pasteboardVC updatePasteboard];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	if (deviceIsPhone_ish){
