@@ -23,6 +23,7 @@
 		3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -118,6 +119,7 @@
 		3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		3E9A376314DCBAC7007B6DD7 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -210,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7962720A14DC799000E5D17A /* liblibSwyp.a in Frameworks */,
+				3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */,
 				3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */,
 				796271D214DC788200E5D17A /* UIKit.framework in Frameworks */,
 				796271D414DC788200E5D17A /* Foundation.framework in Frameworks */,
@@ -283,6 +286,7 @@
 		796271D014DC788200E5D17A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */,
 				3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */,
 				7962720B14DC79A300E5D17A /* GameKit.framework */,
 				7962720C14DC79A300E5D17A /* SystemConfiguration.framework */,
