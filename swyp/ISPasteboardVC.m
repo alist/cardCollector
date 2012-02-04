@@ -80,7 +80,7 @@
             
             NSArray *matches = [addressDetector matchesInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
             
-            if ([matches objectAtIndex:0]) {
+            if ([matches count] > 0) {
                 CLGeocoder *geocoder = [[CLGeocoder alloc] init];
                 [geocoder geocodeAddressString:[matches objectAtIndex:0] completionHandler:^(NSArray *plcemarks, NSError *error){
                     NSLog(@"%@", [matches objectAtIndex:0]);
