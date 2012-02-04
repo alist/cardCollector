@@ -8,6 +8,7 @@
 
 #import "ISPasteboardVC.h"
 #import "UIImage+Resize.h"
+#import "NSString+URLEncoding.h"
 #import <CoreLocation/CoreLocation.h>
 
 @implementation ISPasteboardVC
@@ -23,13 +24,13 @@
     }
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.view.frame = CGRectMake(0, screenSize.height-(120+49+20), 320, 120);
+    self.view.frame = CGRectMake(0, screenSize.height-(210+49+20), 320, 210);
     
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 120)];
+    imageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 210)];
     imageView.hidden = YES;
     [self.view addSubview:imageView];
     
-    textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 120)];
+    textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 210)];
     textView.hidden = YES;
     [self.view addSubview:textView];
     
@@ -78,20 +79,23 @@
             
             NSDataDetector *addressDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:NULL];
             
-            NSArray *matches = [addressDetector matchesInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
+            NSTextCheckingResult *match = [addressDetector firstMatchInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
             
-            if ([matches count] > 0) {
-                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                [geocoder geocodeAddressString:[matches objectAtIndex:0] completionHandler:^(NSArray *plcemarks, NSError *error){
-                    NSLog(@"%@", [matches objectAtIndex:0]);
-                }];
+            if (match) {
+                NSString *addressString = [pasteBoard.string substringWithRange:match.range];
+                NSString *urlEncodedAddress = [addressString urlEncodeUsingEncoding:NSUTF8StringEncoding];
+                NSInteger scale = [UIScreen mainScreen].scale;
+                [imageView setPathToNetworkImage:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=320x210&center=%@&zoom=13&scale=%i&markers=blue%%7C%@",
+                        urlEncodedAddress, scale, urlEncodedAddress]];
+                imageView.hidden = NO;
+                textView.text = nil;
+            } else {
+                textView.text = pasteBoard.string;
             }
-            
-            textView.text = pasteBoard.string;
         }
             
         textView.hidden = (textView.text) ? NO : YES;
-        imageView.hidden = (imageView.image) ? NO : YES;
+        // imageView.hidden = (imageView.image) ? NO : YES;
     } else {
         self.tabBarItem.badgeValue = nil;
     }

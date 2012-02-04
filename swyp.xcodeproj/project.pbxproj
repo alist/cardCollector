@@ -25,6 +25,9 @@
 		3E9A376714DCBAC7007B6DD7 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */; };
 		3EC3F0AA14DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */; };
+		3EC3F0BB14DD905700BAFD1A /* NINetworkImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3F0B814DD905700BAFD1A /* NINetworkImageRequest.m */; };
+		3EC3F0BC14DD905700BAFD1A /* NINetworkImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3F0BA14DD905700BAFD1A /* NINetworkImageView.m */; };
+		3EC3F0C014DD9B3600BAFD1A /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3F0BF14DD9B3600BAFD1A /* NSString+URLEncoding.m */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -129,6 +132,14 @@
 		3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3EC3F0A814DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISDoodleRecognizingGestureRecognizer.h; path = swyp/ISDoodleRecognizingGestureRecognizer.h; sourceTree = "<group>"; };
 		3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISDoodleRecognizingGestureRecognizer.m; path = swyp/ISDoodleRecognizingGestureRecognizer.m; sourceTree = "<group>"; };
+		3EC3F0B514DD905700BAFD1A /* NimbusNetworkImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NimbusNetworkImage.h; path = nimbus/src/networkimage/src/NimbusNetworkImage.h; sourceTree = "<group>"; };
+		3EC3F0B614DD905700BAFD1A /* NimbusNetworkImage+Namespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NimbusNetworkImage+Namespace.h"; path = "nimbus/src/networkimage/src/NimbusNetworkImage+Namespace.h"; sourceTree = "<group>"; };
+		3EC3F0B714DD905700BAFD1A /* NINetworkImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NINetworkImageRequest.h; path = nimbus/src/networkimage/src/NINetworkImageRequest.h; sourceTree = "<group>"; };
+		3EC3F0B814DD905700BAFD1A /* NINetworkImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NINetworkImageRequest.m; path = nimbus/src/networkimage/src/NINetworkImageRequest.m; sourceTree = "<group>"; };
+		3EC3F0B914DD905700BAFD1A /* NINetworkImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NINetworkImageView.h; path = nimbus/src/networkimage/src/NINetworkImageView.h; sourceTree = "<group>"; };
+		3EC3F0BA14DD905700BAFD1A /* NINetworkImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NINetworkImageView.m; path = nimbus/src/networkimage/src/NINetworkImageView.m; sourceTree = "<group>"; };
+		3EC3F0BE14DD9B3600BAFD1A /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; name = "NSString+URLEncoding.h"; path = "NSString Additions/NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		3EC3F0BF14DD9B3600BAFD1A /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncoding.m"; path = "NSString Additions/NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -273,6 +284,7 @@
 		3E9A375714DCB93C007B6DD7 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				3EC3F0BD14DD9B0600BAFD1A /* NSString Additions */,
 				3E9A375E14DCBAC7007B6DD7 /* UIImage Additions */,
 			);
 			name = Additions;
@@ -289,6 +301,28 @@
 				3E9A376414DCBAC7007B6DD7 /* UIImage+RoundedCorner.m */,
 			);
 			path = "UIImage Additions";
+			sourceTree = "<group>";
+		};
+		3EC3F0B414DD902A00BAFD1A /* network image src */ = {
+			isa = PBXGroup;
+			children = (
+				3EC3F0B514DD905700BAFD1A /* NimbusNetworkImage.h */,
+				3EC3F0B614DD905700BAFD1A /* NimbusNetworkImage+Namespace.h */,
+				3EC3F0B714DD905700BAFD1A /* NINetworkImageRequest.h */,
+				3EC3F0B814DD905700BAFD1A /* NINetworkImageRequest.m */,
+				3EC3F0B914DD905700BAFD1A /* NINetworkImageView.h */,
+				3EC3F0BA14DD905700BAFD1A /* NINetworkImageView.m */,
+			);
+			name = "network image src";
+			sourceTree = "<group>";
+		};
+		3EC3F0BD14DD9B0600BAFD1A /* NSString Additions */ = {
+			isa = PBXGroup;
+			children = (
+				3EC3F0BE14DD9B3600BAFD1A /* NSString+URLEncoding.h */,
+				3EC3F0BF14DD9B3600BAFD1A /* NSString+URLEncoding.m */,
+			);
+			name = "NSString Additions";
 			sourceTree = "<group>";
 		};
 		796271C214DC788200E5D17A = {
@@ -395,6 +429,7 @@
 		7962721514DC7A3D00E5D17A /* Nimbus */ = {
 			isa = PBXGroup;
 			children = (
+				3EC3F0B414DD902A00BAFD1A /* network image src */,
 				796272D414DC887500E5D17A /* model src */,
 				7962729114DC865700E5D17A /* core src */,
 			);
@@ -671,6 +706,9 @@
 				7962735F14DCBF3500E5D17A /* ISImageHistoryCell.m in Sources */,
 				7962736214DCBF3500E5D17A /* ISTextHistoryCell.m in Sources */,
 				3EC3F0AA14DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
+				3EC3F0BB14DD905700BAFD1A /* NINetworkImageRequest.m in Sources */,
+				3EC3F0BC14DD905700BAFD1A /* NINetworkImageView.m in Sources */,
+				3EC3F0C014DD9B3600BAFD1A /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

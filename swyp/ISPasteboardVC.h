@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "NINetworkImageView.h"
 
 @interface ISPasteboardVC : UIViewController {
-    UIImageView *imageView;
+    NINetworkImageView *imageView;
     UILabel     *textView;
     NSArray     *pasteboardItems;
 }
