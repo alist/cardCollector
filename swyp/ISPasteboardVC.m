@@ -17,6 +17,10 @@
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Pasteboard", @"The pasteboard.") 
                                                         image:[UIImage imageNamed:@"paperclip"] tag:3];
     }
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.frame = CGRectMake(0, screenSize.height-(120+49+20), 320, 120);
+    
     return self;
 }
 
@@ -32,6 +36,7 @@
 
 - (void)loadView
 {
+    [super loadView];
 }
 
 /*
