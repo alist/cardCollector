@@ -15,10 +15,10 @@
 #pragma mark - public
 -(UIView*)swypDropZoneView{
 	if (_swypDropZoneView == nil){
-		_swypDropZoneView = [[swypWorkspaceBackgroundView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, (deviceIsPad)?300:200)];
-		[_swypDropZoneView setAutoresizingMask:UIViewAutoresizingNone];
 		
-		
+		_swypDropZoneView = [_swypWorkspace workspaceViewForEmbeddedSwypInWithFrame:CGRectMake(0, 0, self.view.size.width, (deviceIsPad)?300:200)];
+		[_swypDropZoneView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+
 		ISDoodleRecognizingGestureRecognizer * doodleGest	=	[[ISDoodleRecognizingGestureRecognizer alloc] initWithTarget:nil action:nil];		
 		[[self view] addGestureRecognizer:doodleGest];
 		
@@ -32,9 +32,7 @@
 }
 
 -(NSFetchedResultsController*)resultsController{
-	if (_resultsController == nil)
-	{
-		
+	if (_resultsController == nil){
 		NSFetchRequest *request = [self _newOrUpdatedFetchRequest];
 		_resultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:_objectContext sectionNameKeyPath:nil cacheName:nil];
 		[_resultsController setDelegate:self];

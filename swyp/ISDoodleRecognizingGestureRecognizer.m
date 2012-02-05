@@ -14,12 +14,16 @@
 	[super touchesBegan:touches withEvent:event];
 	
 	CGPoint location	=	[self locationInView:self.view];
-	UIView * hitTest	=	[self.view hitTest:location withEvent:event];
-	if (hitTest == nil || [hitTest isKindOfClass:[swypWorkspaceBackgroundView class]] == NO){
-		self.state	=	UIGestureRecognizerStateFailed;
-	}else{
-		startPoint	=	[self locationInView:self.view];
+	UIView * hitTestView	= nil;
+	for (hitTestView = 	[self.view hitTest:location withEvent:event]; hitTestView != self.view && hitTestView != nil; hitTestView = [hitTestView superview]){
+		if ([hitTestView isKindOfClass:[swypWorkspaceView class]]){
+			startPoint	=	[self locationInView:self.view];
+			return;
+		}
 	}
+
+	//otherwise we fail
+	self.state	=	UIGestureRecognizerStateFailed;
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
 	[super touchesMoved:touches withEvent:event];
@@ -42,7 +46,5 @@
 	
 	[super reset];
 }
-
-
 
 @end
