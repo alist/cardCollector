@@ -127,7 +127,7 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 	CGFloat height	=	0;
 	
-	id object	=	[[self sectionedDataModel] objectAtIndexPath:indexPath];
+	id object  =  [(NITableViewModel*)[tableView dataSource] objectAtIndexPath:indexPath];
 	id class	=	[object cellClass];
 	if ([class respondsToSelector:@selector(heightForObject:atIndexPath:tableView:)]){
 		height	=	[class heightForObject:object atIndexPath:indexPath tableView:tableView];
