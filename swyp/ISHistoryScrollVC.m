@@ -8,6 +8,8 @@
 
 #import "ISHistoryScrollVC.h"
 #import "ISDoodleRecognizingGestureRecognizer.h"
+#include <QuartzCore/QuartzCore.h>
+
 
 @implementation ISHistoryScrollVC
 @synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel, resultsController = _resultsController, objectContext = _objectContext;
@@ -20,6 +22,13 @@
 		_swypDropZoneView = [_swypWorkspace workspaceViewForEmbeddedSwypInWithFrame:CGRectMake(0, 0, self.view.size.width, (deviceIsPad)?300:200)];
 		[_swypDropZoneView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 
+		UIView * workspacePromptImageView	=	[_swypDropZoneView swypPromptImageView];
+		CGPoint center	=	[workspacePromptImageView center];
+		if (deviceIsPhone_ish){
+			workspacePromptImageView.transform = CGAffineTransformScale([workspacePromptImageView transform], .7, .7);
+			[workspacePromptImageView setCenter:center];
+		}
+		
 		ISDoodleRecognizingGestureRecognizer * doodleGest	=	[[ISDoodleRecognizingGestureRecognizer alloc] initWithTarget:nil action:nil];		
 		[[self view] addGestureRecognizer:doodleGest];
 		

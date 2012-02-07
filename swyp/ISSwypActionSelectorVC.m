@@ -41,10 +41,12 @@
     [super viewDidLoad];
 	
 	[self.view setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+		
 	
 	_historyScrollView	=	[[ISHistoryScrollVC alloc] initWithObjectContext:_objectContext swypWorkspace:[self swypWorkspace]];
 	[_historyScrollView.view setFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height-49)];//tab bar height
 	[self.view addSubview:_historyScrollView.view];
+    
     
     ISContactVC *contactVC = [[ISContactVC alloc] initWithNibName:nil bundle:nil];
     ISPhotoVC *photoVC = [[ISPhotoVC alloc] initWithNibName:nil bundle:nil];
@@ -113,4 +115,13 @@
     [self _reframeTabBar];
 }
 
+
+#pragma mark - delegation
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+	if ( viewController == _historyScrollView ) {
+		[navigationController setNavigationBarHidden:YES animated:animated];
+	} else if ( [navigationController isNavigationBarHidden] ) {
+		[navigationController setNavigationBarHidden:NO animated:animated];
+	}
+}
 @end
