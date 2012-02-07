@@ -79,6 +79,7 @@
 		793517FE14DDD6EB000E406C /* NSString+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BD14DC865700E5D17A /* NSString+NimbusCore.m */; };
 		793517FF14DDD6EB000E406C /* UIView+NimbusCore.h in Sources */ = {isa = PBXBuildFile; fileRef = 796272BE14DC865700E5D17A /* UIView+NimbusCore.h */; };
 		7935180014DDD6EB000E406C /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BF14DC865700E5D17A /* UIView+NimbusCore.m */; };
+		79527C7314E0CD06003002AF /* NSDate+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = 79527C7214E0CD06003002AF /* NSDate+Relative.m */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -181,6 +182,8 @@
 		7935171914DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+ISApplicationAddtions.m"; sourceTree = "<group>"; };
 		7935171B14DDCA73000E406C /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
 		7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
+		79527C7114E0CD06003002AF /* NSDate+Relative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Relative.h"; sourceTree = "<group>"; };
+		79527C7214E0CD06003002AF /* NSDate+Relative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Relative.m"; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -316,6 +319,8 @@
 		3E9A375714DCB93C007B6DD7 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				79527C7114E0CD06003002AF /* NSDate+Relative.h */,
+				79527C7214E0CD06003002AF /* NSDate+Relative.m */,
 				3EC3F0BD14DD9B0600BAFD1A /* NSString Additions */,
 				3E9A375E14DCBAC7007B6DD7 /* UIImage Additions */,
 				7935171814DDA6DC000E406C /* UIApplication+ISApplicationAddtions.h */,
@@ -358,6 +363,13 @@
 				3EC3F0BF14DD9B3600BAFD1A /* NSString+URLEncoding.m */,
 			);
 			name = "NSString Additions";
+			sourceTree = "<group>";
+		};
+		79527C7414E0CE7B003002AF /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "App Icons";
 			sourceTree = "<group>";
 		};
 		796271C214DC788200E5D17A = {
@@ -476,6 +488,7 @@
 		7962726D14DC818A00E5D17A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				79527C7414E0CE7B003002AF /* App Icons */,
 				3E06EB5F14DC9A6400BA055D /* photos.png */,
 				3E06EB6014DC9A6400BA055D /* photos@2x.png */,
 				3E06EB5B14DC99CD00BA055D /* calendar.png */,
@@ -774,6 +787,7 @@
 				7932E64F14DDD74400E1A017 /* NITableViewModel.m in Sources */,
 				7932E65614DDD75400E1A017 /* NINetworkImageRequest.m in Sources */,
 				7932E65714DDD75400E1A017 /* NINetworkImageView.m in Sources */,
+				79527C7314E0CD06003002AF /* NSDate+Relative.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

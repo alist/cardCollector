@@ -10,5 +10,5 @@
 #import "ISHistoryCell.h"
 
 @interface ISImageHistoryCell : ISHistoryCell
-
+@property (nonatomic, retain) UIImageView * contentDisplayView;
 @end

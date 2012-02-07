@@ -10,7 +10,8 @@
 #import "ISDoodleRecognizingGestureRecognizer.h"
 
 @implementation ISHistoryScrollVC
-@synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel, resultsController = _resultsController;
+@synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel, resultsController = _resultsController, objectContext = _objectContext;
+@synthesize datasourceDelegate = _datasourceDelegate;
 
 #pragma mark - public
 -(UIView*)swypDropZoneView{
@@ -56,6 +57,7 @@
 	if (self  = [super initWithNibName:nil bundle:nil]){
 		_objectContext	=	context;
 		_swypWorkspace	=	workspace;
+		[_swypWorkspace setContentDataSource:self];
 	}
 	return self;
 }
@@ -153,5 +155,67 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type{
 }
 
+#pragma mark swypContentDataSourceProtocol
+
+#pragma mark - delegation
+- (NSArray*)	idsForAllContent{
+	return nil;
+}
+- (UIImage *)	iconImageForContentWithID: (NSString*)contentID ofMaxSize:(CGSize)maxIconSize{	
+	return nil;
+	
+}
+- (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
+	return [NSArray arrayWithObjects:[NSString imagePNGFileType],[NSString imageJPEGFileType],nil];
+}
+
+- (NSData*)	dataForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type{
+	NSData *	sendPhotoData	=	nil;	
+	return sendPhotoData;
+}
+
+-(void)	setDatasourceDelegate:			(id<swypContentDataSourceDelegate>)delegate{
+	_datasourceDelegate	=	delegate;
+}
+-(id<swypContentDataSourceDelegate>)	datasourceDelegate{
+	return _datasourceDelegate;
+}
+
+-(void)	contentWithIDWasDraggedOffWorkspace:(NSString*)contentID{
+	
+	EXOLog(@"Dragged content off! %@",contentID);
+	[_datasourceDelegate datasourceRemovedContentWithID:contentID withDatasource:self];
+}
+
+#pragma mark swypConnectionSessionDataDelegate
+-(NSArray*)supportedFileTypesForReceipt{
+	return [NSArray arrayWithObjects:[NSString textPlainFileType],[NSString imageJPEGFileType] ,[NSString imagePNGFileType], nil];
+}
+
+-(BOOL) delegateWillReceiveDataFromDiscernedStream:(swypDiscernedInputStream*)discernedStream ofType:(NSString*)streamType inConnectionSession:(swypConnectionSession*)session{
+	if ([[NSSet setWithArray:[swypContentInteractionManager supportedReceiptFileTypes]] containsObject:[discernedStream streamType]]){
+		return TRUE;
+	}else{
+		return FALSE;
+	}
+}
+
+-(void)	yieldedData:(NSData*)streamData discernedStream:(swypDiscernedInputStream*)discernedStream inConnectionSession:(swypConnectionSession*)session{
+	EXOLog(@" datasource received data of type: %@",[discernedStream streamType]);
+	
+	ISSwypHistoryItem* item	=	[NSEntityDescription insertNewObjectForEntityForName:@"SwypHistoryItem" inManagedObjectContext:[self objectContext]];
+	[item setItemType:[discernedStream streamType]];
+	[item setItemData:streamData];
+
+	NSError * error = nil;
+	if (![[self objectContext] save:&error]){
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+	} 
+	
+	[self _refreshDataModel];
+	[_swypHistoryTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+		
+}
 
 @end
