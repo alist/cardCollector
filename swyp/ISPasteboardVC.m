@@ -21,20 +21,25 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        swypSwypableContentSuperview * contentSuperView	=	[[swypSwypableContentSuperview alloc] initWithContentDelegate:self workspaceDelegate:[self swypWorkspace] frame:self.view.frame];
-        self.view = contentSuperView;
-        
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Pasteboard", @"The pasteboard.") 
                                                         image:[UIImage imageNamed:@"paperclip"] tag:2];
+        
+        swypSwypableContentSuperview * contentSuperView	=	[[swypSwypableContentSuperview alloc] initWithContentDelegate:self workspaceDelegate:[self swypWorkspace] frame:self.view.frame];
+        self.view = contentSuperView;
         
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         self.view.backgroundColor = [UIColor whiteColor];
         self.view.frame = CGRectMake(0, screenSize.height-(212+49+20), 320, 212);
+        self.view.autoresizesSubviews = YES;
         self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin);
+        
+        imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
+        imageScrollView.showsHorizontalScrollIndicator = YES;
+        [self.view addSubview:imageScrollView];
         
         imageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
         imageView.hidden = YES;
-        [self.view addSubview:imageView];
+        [imageScrollView addSubview:imageView];
         
         textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
         textView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];

@@ -12,6 +12,7 @@
 
 @interface ISPasteboardVC : UIViewController <swypSwypableContentSuperviewContentDelegate, swypContentDataSourceProtocol, swypConnectionSessionDataDelegate> {
     __unsafe_unretained id<swypContentDataSourceDelegate>	_delegate;
+    UIScrollView *imageScrollView;
     NINetworkImageView *imageView;
     UITextView  *textView;
     NSArray     *pasteboardItems;
