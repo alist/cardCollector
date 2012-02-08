@@ -11,7 +11,6 @@
 		3E06EB4914DC8CA100BA055D /* paperclip.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB4714DC8CA100BA055D /* paperclip.png */; };
 		3E06EB4A14DC8CA100BA055D /* paperclip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB4814DC8CA100BA055D /* paperclip@2x.png */; };
 		3E06EB4D14DC939100BA055D /* ISContactVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E06EB4C14DC939100BA055D /* ISContactVC.m */; };
-		3E06EB5014DC93A900BA055D /* ISPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E06EB4F14DC93A900BA055D /* ISPhotoVC.m */; };
 		3E06EB5614DC940400BA055D /* ISCalendarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E06EB5514DC940400BA055D /* ISCalendarVC.m */; };
 		3E06EB5914DC94CF00BA055D /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5714DC94CF00BA055D /* user.png */; };
 		3E06EB5A14DC94CF00BA055D /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5814DC94CF00BA055D /* user@2x.png */; };
@@ -141,8 +140,6 @@
 		3E06EB4814DC8CA100BA055D /* paperclip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paperclip@2x.png"; path = "resources/paperclip@2x.png"; sourceTree = SOURCE_ROOT; };
 		3E06EB4B14DC939100BA055D /* ISContactVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISContactVC.h; path = swyp/ISContactVC.h; sourceTree = "<group>"; };
 		3E06EB4C14DC939100BA055D /* ISContactVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISContactVC.m; path = swyp/ISContactVC.m; sourceTree = "<group>"; };
-		3E06EB4E14DC93A900BA055D /* ISPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPhotoVC.h; path = swyp/ISPhotoVC.h; sourceTree = "<group>"; };
-		3E06EB4F14DC93A900BA055D /* ISPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPhotoVC.m; path = swyp/ISPhotoVC.m; sourceTree = "<group>"; };
 		3E06EB5414DC940400BA055D /* ISCalendarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISCalendarVC.h; path = swyp/ISCalendarVC.h; sourceTree = "<group>"; };
 		3E06EB5514DC940400BA055D /* ISCalendarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISCalendarVC.m; path = swyp/ISCalendarVC.m; sourceTree = "<group>"; };
 		3E06EB5714DC94CF00BA055D /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = resources/user.png; sourceTree = SOURCE_ROOT; };
@@ -308,8 +305,6 @@
 				3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */,
 				3E06EB4B14DC939100BA055D /* ISContactVC.h */,
 				3E06EB4C14DC939100BA055D /* ISContactVC.m */,
-				3E06EB4E14DC93A900BA055D /* ISPhotoVC.h */,
-				3E06EB4F14DC93A900BA055D /* ISPhotoVC.m */,
 				3E06EB5414DC940400BA055D /* ISCalendarVC.h */,
 				3E06EB5514DC940400BA055D /* ISCalendarVC.m */,
 			);
@@ -724,7 +719,6 @@
 				7962726C14DC802600E5D17A /* ISHistoryScrollVC.m in Sources */,
 				3E06EB4614DC8A3300BA055D /* ISPasteboardVC.m in Sources */,
 				3E06EB4D14DC939100BA055D /* ISContactVC.m in Sources */,
-				3E06EB5014DC93A900BA055D /* ISPhotoVC.m in Sources */,
 				3E06EB5614DC940400BA055D /* ISCalendarVC.m in Sources */,
 				3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */,
 				3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */,

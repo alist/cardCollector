@@ -30,8 +30,4 @@
 -(id) initWithObjectContext:(NSManagedObjectContext*)context;
 - (void)updatePasteboard;
 
-
-// Private methods
-- (void)_reframeTabBar;
-
 @end

@@ -8,7 +8,6 @@
 
 #import "ISSwypActionSelectorVC.h"
 #import "ISContactVC.h"
-#import "ISPhotoVC.h"
 #import "ISCalendarVC.h"
 #import "NIDeviceOrientation.h"
 
@@ -49,18 +48,21 @@
     
     
     ISContactVC *contactVC = [[ISContactVC alloc] initWithNibName:nil bundle:nil];
-    ISPhotoVC *photoVC = [[ISPhotoVC alloc] initWithNibName:nil bundle:nil];
     ISCalendarVC *calendarVC = [[ISCalendarVC alloc] initWithNibName:nil bundle:nil];
     _pasteboardVC = [[ISPasteboardVC alloc] initWithNibName:nil bundle:nil];
     
-    _viewControllers = [NSArray arrayWithObjects:contactVC, photoVC, calendarVC, _pasteboardVC, nil];
+    _viewControllers = [NSArray arrayWithObjects:contactVC, calendarVC, _pasteboardVC, nil];
     NSMutableArray *tabBarItems = [NSMutableArray array];
     for (UIViewController *VC in _viewControllers) {
         [tabBarItems addObject:VC.tabBarItem];
     }
 	
 	_actionTabBar		=	[[UITabBar alloc] init];
-    [self _reframeTabBar];
+    _actionTabBar.frame = CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49);
+    _actionTabBar.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|
+                                      UIViewAutoresizingFlexibleLeftMargin|
+                                      UIViewAutoresizingFlexibleRightMargin|
+                                      UIViewAutoresizingFlexibleWidth);
     
     _actionTabBar.items = tabBarItems;
     _actionTabBar.delegate = self;
@@ -70,14 +72,6 @@
 	//tab bar at bottom
 	
 	//we get callbacks from tab bar, then add views above the histroy scrollview
-}
-
-- (void)_reframeTabBar {
-    if (NIInterfaceOrientation() == UIInterfaceOrientationPortrait){
-        _actionTabBar.frame = CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49);
-    } else {
-        _actionTabBar.frame = CGRectMake(0, (self.view.size.width - 49), self.view.size.height, 49);
-    }
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
@@ -95,7 +89,7 @@
         [self.view addSubview:VC.view];
     }
     
-    if (item.tag == 3) {
+    if (item.tag == 2) {
         item.badgeValue = nil;
     }
 }
@@ -110,9 +104,6 @@
 	}else{
 		return TRUE;
 	}
-}
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self _reframeTabBar];
 }
 
 

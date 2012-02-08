@@ -10,14 +10,20 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "NINetworkImageView.h"
 
-@interface ISPasteboardVC : UIViewController {
+@interface ISPasteboardVC : UIViewController <swypSwypableContentSuperviewContentDelegate, swypContentDataSourceProtocol, swypConnectionSessionDataDelegate> {
+    __unsafe_unretained id<swypContentDataSourceDelegate>	_delegate;
+    UIScrollView *imageScrollView;
     NINetworkImageView *imageView;
-    UILabel     *textView;
+    UITextView  *textView;
     NSArray     *pasteboardItems;
     NSString    *address;
+    
+    swypWorkspaceViewController*	_swypWorkspace;
 }
 
-@property (nonatomic, strong) NSArray *pasteboardItems;
+@property (strong, nonatomic) NSArray *pasteboardItems;
+@property (strong, nonatomic) swypWorkspaceViewController * swypWorkspace;
+@property (nonatomic, assign) id <swypContentDataSourceDelegate> delegate;
 
 - (void)updatePasteboard;
 
