@@ -36,7 +36,11 @@
         imageView.hidden = YES;
         [self.view addSubview:imageView];
         
-        textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
+        textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
+        textView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
+        textView.editable = NO;
+        textView.font = [UIFont systemFontOfSize:18];
+        
         textView.hidden = YES;
         [self.view addSubview:textView];
         
@@ -100,12 +104,16 @@
                 NSInteger scale = [UIScreen mainScreen].scale;
                 [imageView setPathToNetworkImage:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=320x212&center=%@&zoom=13&scale=%i&markers=blue%%7C%@",
                         urlEncodedAddress, scale, urlEncodedAddress]];
-                textView.text = nil;
+                textView.text = pasteBoard.string;
             } else {
                 textView.text = pasteBoard.string;
                 address = nil;
             }
         }
+        
+        CGRect frame = textView.frame;
+        frame.size.height = textView.contentSize.height;
+        textView.frame = frame;
             
         textView.hidden = (textView.text) ? NO : YES;
         imageView.hidden = (imageView.image || address) ? NO : YES;
