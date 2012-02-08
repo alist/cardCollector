@@ -11,7 +11,7 @@
 #import "NINetworkImageView.h"
 
 @interface ISPasteboardVC : UIViewController <swypSwypableContentSuperviewContentDelegate, swypContentDataSourceProtocol, swypConnectionSessionDataDelegate> {
-    __weak id<swypContentDataSourceDelegate>	_delegate;
+    __unsafe_unretained id<swypContentDataSourceDelegate>	_delegate;
     NINetworkImageView *imageView;
     UILabel     *textView;
     NSArray     *pasteboardItems;
@@ -22,6 +22,7 @@
 
 @property (strong, nonatomic) NSArray *pasteboardItems;
 @property (strong, nonatomic) swypWorkspaceViewController * swypWorkspace;
+@property (nonatomic, assign) id <swypContentDataSourceDelegate> delegate;
 
 - (void)updatePasteboard;
 

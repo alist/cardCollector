@@ -15,6 +15,7 @@
 
 @synthesize pasteboardItems;
 @synthesize swypWorkspace;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

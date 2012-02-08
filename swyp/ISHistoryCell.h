@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) ISSwypHistoryItem	*	historyItem;
 @property (nonatomic, strong) UIView *				contentDisplayView;
+@property (nonatomic, retain) UILabel *				dateLabel;
 
 -(void)	updateCellContents;
 

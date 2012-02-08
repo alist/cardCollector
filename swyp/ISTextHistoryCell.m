@@ -13,10 +13,16 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 	if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
-		UITextView	* textDisplay	=	[[UITextView alloc] initWithFrame:CGRectInset([[self backgroundView] frame],25,25)];
+
+		UITextView	* textDisplay	=	[[UITextView alloc] initWithFrame:CGRectInset([self frame],25,25)];
+		[self addSubview:textDisplay];
+
+		[textDisplay setTextColor:[UIColor blackColor]];
 		[textDisplay setEditable:FALSE];
 		[textDisplay setScrollEnabled:FALSE];
 		[textDisplay setDataDetectorTypes:UIDataDetectorTypeAll];
+		[textDisplay setBackgroundColor:[UIColor clearColor]];
+		
 		
 		[self setContentDisplayView:textDisplay];
 	}
@@ -30,6 +36,7 @@
 }
 
 -(void)	updateCellContents{
-	
+	NSString * contentString = [[NSString  alloc] initWithBytes:[[[self historyItem] itemData] bytes] length:[[[self historyItem] itemData] length] encoding:NSUTF8StringEncoding];
+	[[self contentDisplayView] setText:contentString];
 }
 @end

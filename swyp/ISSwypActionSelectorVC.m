@@ -58,7 +58,11 @@
     }
 	
 	_actionTabBar		=	[[UITabBar alloc] init];
-    [self _reframeTabBar];
+    _actionTabBar.frame = CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49);
+    _actionTabBar.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|
+                                      UIViewAutoresizingFlexibleLeftMargin|
+                                      UIViewAutoresizingFlexibleRightMargin|
+                                      UIViewAutoresizingFlexibleWidth);
     
     _actionTabBar.items = tabBarItems;
     _actionTabBar.delegate = self;
@@ -68,14 +72,6 @@
 	//tab bar at bottom
 	
 	//we get callbacks from tab bar, then add views above the histroy scrollview
-}
-
-- (void)_reframeTabBar {
-    if (NIInterfaceOrientation() == UIInterfaceOrientationPortrait){
-        _actionTabBar.frame = CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49);
-    } else {
-        _actionTabBar.frame = CGRectMake(0, (self.view.size.width - 49), self.view.size.height, 49);
-    }
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
@@ -108,9 +104,6 @@
 	}else{
 		return TRUE;
 	}
-}
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [self _reframeTabBar];
 }
 
 @end
