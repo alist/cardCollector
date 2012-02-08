@@ -25,7 +25,7 @@
         self.view = contentSuperView;
         
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Pasteboard", @"The pasteboard.") 
-                                                        image:[UIImage imageNamed:@"paperclip"] tag:3];
+                                                        image:[UIImage imageNamed:@"paperclip"] tag:2];
         
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         self.view.backgroundColor = [UIColor whiteColor];

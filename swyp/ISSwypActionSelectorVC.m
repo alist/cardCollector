@@ -8,7 +8,6 @@
 
 #import "ISSwypActionSelectorVC.h"
 #import "ISContactVC.h"
-#import "ISPhotoVC.h"
 #import "ISCalendarVC.h"
 #import "NIDeviceOrientation.h"
 
@@ -47,11 +46,10 @@
 	[self.view addSubview:_historyScrollView.view];
     
     ISContactVC *contactVC = [[ISContactVC alloc] initWithNibName:nil bundle:nil];
-    ISPhotoVC *photoVC = [[ISPhotoVC alloc] initWithNibName:nil bundle:nil];
     ISCalendarVC *calendarVC = [[ISCalendarVC alloc] initWithNibName:nil bundle:nil];
     _pasteboardVC = [[ISPasteboardVC alloc] initWithNibName:nil bundle:nil];
     
-    _viewControllers = [NSArray arrayWithObjects:contactVC, photoVC, calendarVC, _pasteboardVC, nil];
+    _viewControllers = [NSArray arrayWithObjects:contactVC, calendarVC, _pasteboardVC, nil];
     NSMutableArray *tabBarItems = [NSMutableArray array];
     for (UIViewController *VC in _viewControllers) {
         [tabBarItems addObject:VC.tabBarItem];
@@ -89,7 +87,7 @@
         [self.view addSubview:VC.view];
     }
     
-    if (item.tag == 3) {
+    if (item.tag == 2) {
         item.badgeValue = nil;
     }
 }
