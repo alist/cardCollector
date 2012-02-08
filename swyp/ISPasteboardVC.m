@@ -30,6 +30,7 @@
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         self.view.backgroundColor = [UIColor whiteColor];
         self.view.frame = CGRectMake(0, screenSize.height-(212+49+20), 320, 212);
+        self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin);
         
         imageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
         imageView.hidden = YES;
