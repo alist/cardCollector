@@ -19,7 +19,7 @@
 -(UIView*)swypDropZoneView{
 	if (_swypDropZoneView == nil){
 		
-		_swypDropZoneView = [_swypWorkspace workspaceViewForEmbeddedSwypInWithFrame:CGRectMake(0, 0, self.view.size.width, (deviceIsPad)?300:200)];
+		_swypDropZoneView = [_swypWorkspace embeddableSwypWorkspaceViewForWithFrame:CGRectMake(0, 0, self.view.size.width, (deviceIsPad)?300:200)];
 		[_swypDropZoneView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 
 		UIView * workspacePromptImageView	=	[_swypDropZoneView swypPromptImageView];
@@ -73,6 +73,10 @@
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+
+-(void) viewWillUnload{
+	[_swypWorkspace removeEmbeddableSwypWorkspaceView:_swypDropZoneView];
 }
 
 - (void)viewDidLoad{
