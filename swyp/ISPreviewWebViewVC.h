@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ISSwypHistoryItem.h"
 
-@interface ISPreviewWebViewVC : UIViewController
+@interface ISPreviewWebViewVC : UIViewController <UIWebViewDelegate>
 @property (nonatomic, strong) UIWebView* webView;
 
 -(id)	loadPreviewImageFromHistoryItem:(ISSwypHistoryItem*)item;

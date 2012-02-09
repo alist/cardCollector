@@ -15,6 +15,8 @@
 	[super viewDidLoad];
 
 	self.webView = [UIWebView new];
+	[self.webView setAlpha:0];
+	[self.webView setDelegate:self];
 	[self.webView setScalesPageToFit:TRUE];
 	[self.webView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
 	[self.webView setClipsToBounds:TRUE];
@@ -36,4 +38,15 @@
 
 	return self;
 }
+
+#pragma mark webViewDelegate
+- (void)webViewDidStartLoad:(UIWebView *)webbyView{
+	[webbyView setAlpha:0];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webbyView{
+	[UIView animateWithDuration:.5 animations:^{
+		[webbyView setAlpha:1];
+	}];
+}
+
 @end
