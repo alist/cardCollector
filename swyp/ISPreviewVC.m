@@ -11,19 +11,33 @@
 
 @implementation ISPreviewVC
 @synthesize displayedHistoryItem = _displayedHistoryItem;
-@synthesize mapPreviewVC = _mapPreviewVC, webPreviewVC = _webPreviewVC;
+@synthesize mapPreviewVC = _mapPreviewVC, webPreviewVC = _webPreviewVC, actionButtonView = _actionButtonView;
 
-//need to add "display from view" property
-//which will screenshot and set SS to background view
 //need to prevent funky uiview scrolling
 //need to add nice button for actions in corner
+
+#pragma mark actions
+-(void)pressedPasteboardButton{
+	
+}
+-(void)pressedSwypButton{
+	
+}
+-(void)pressedExportButton{
+	
+}
 
 #pragma mark previewer
 -(void)setDisplayedHistoryItem:(ISSwypHistoryItem *)displayedHistoryItem{
 	if (_displayedHistoryItem != displayedHistoryItem){
 		_displayedHistoryItem = displayedHistoryItem;
 
-		[self.view addSubview:[self previewVCForHistoryItem:displayedHistoryItem].view];
+		[_mapPreviewVC.view removeFromSuperview];
+		[_webPreviewVC.view removeFromSuperview];
+		
+		UIView * previewView	=	[self previewVCForHistoryItem:displayedHistoryItem].view;
+		[self.view addSubview:previewView];
+		[self.view sendSubviewToBack:previewView];
 	}
 }
 
@@ -41,11 +55,72 @@
 	return swypItemVC;
 }
 
+-(UIView*)	actionButtonView{
+	if (_actionButtonView == nil){
+		UIView * actionView	=	[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
+		[actionView setOrigin:CGPointMake(0, 0)];
+		[actionView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin];
+		[actionView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"previewVCActionButtonsBGTile"]]];
+		[actionView.layer setShadowColor: [[UIColor blackColor] CGColor]];
+		[actionView.layer setShadowOpacity:0.8f];
+		[actionView.layer setShadowOffset: CGSizeMake(0, 3)];
+		[actionView.layer setShadowRadius:4.0];
+		[actionView setClipsToBounds:NO];
+
+		CGFloat viewThirdSize	=	roundf(self.view.width/3);
+
+		UIButton * pastboardButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
+		[pastboardButton setFrame:CGRectMake(0, 0, viewThirdSize, 40)];
+		[pastboardButton setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin];
+		[pastboardButton setShowsTouchWhenHighlighted:TRUE];
+		[pastboardButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+		[pastboardButton setBackgroundColor:[UIColor colorWithWhite:.5 alpha:.4]];
+		[[pastboardButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
+		[pastboardButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
+		[pastboardButton titleLabel].textColor				= [UIColor blackColor];
+		[pastboardButton setTitle:LocStr(@"Copy",@"preview of received swyp item") forState:UIControlStateNormal];
+		
+		[pastboardButton addTarget:self action:@selector(pressedPasteboardButton) forControlEvents:UIControlEventTouchUpInside];
+		[actionView addSubview:pastboardButton];
+		
+		UIButton * swypButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
+		[swypButton setFrame:CGRectMake(viewThirdSize, 0, viewThirdSize, 40)];
+		[swypButton setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin];
+		[swypButton setShowsTouchWhenHighlighted:TRUE];
+		[swypButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+		[swypButton setBackgroundColor:[UIColor colorWithWhite:.5 alpha:.4]];
+		[[swypButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
+		[swypButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
+		[swypButton titleLabel].textColor				= [UIColor blackColor];
+		[swypButton setTitle:LocStr(@"Swÿp",@"preview of received swyp item") forState:UIControlStateNormal];
+		
+		[swypButton addTarget:self action:@selector(pressedSwypButton) forControlEvents:UIControlEventTouchUpInside];
+		[actionView addSubview:swypButton];
+		
+		UIButton * exportButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
+		[exportButton setFrame:CGRectMake(viewThirdSize*2, 0, viewThirdSize, 40)];
+		[exportButton setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleWidth];
+		[exportButton setShowsTouchWhenHighlighted:TRUE];
+		[exportButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+		[exportButton setBackgroundColor:[UIColor colorWithWhite:.5 alpha:.4]];
+		[[exportButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
+		[exportButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
+		[exportButton titleLabel].textColor				= [UIColor blackColor];
+		[exportButton setTitle:LocStr(@"Export",@"preview of received swyp item") forState:UIControlStateNormal];
+		
+		[exportButton addTarget:self action:@selector(pressedExportButton) forControlEvents:UIControlEventTouchUpInside];
+		[actionView addSubview:exportButton];
+		
+		_actionButtonView = actionView;
+	}
+	return _actionButtonView;
+}
+
 -(ISPreviewMapViewVC*)mapPreviewVC{
 	if (_mapPreviewVC == nil){
 		_mapPreviewVC = [[ISPreviewMapViewVC alloc] init];
-		[_mapPreviewVC.view.layer setCornerRadius:10];
-		[_mapPreviewVC.view setBounds:CGRectInset(self.view.bounds, 15, 20)];
+		[_mapPreviewVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+		[_mapPreviewVC.view setFrame:CGRectMake(0, [self actionButtonView].height, self.view.width, self.view.height)];
 
 	}
 	return _mapPreviewVC;
@@ -54,20 +129,20 @@
 -(ISPreviewWebViewVC*)webPreviewVC{
 	if (_webPreviewVC == nil){
 		_webPreviewVC	=	[[ISPreviewWebViewVC alloc] init];
-		[_webPreviewVC.view.layer setCornerRadius:10];
-		[_webPreviewVC.view setBounds:CGRectInset(self.view.bounds, 15, 20)];
+		[_webPreviewVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+		[_webPreviewVC.view setFrame:CGRectMake(0, [self actionButtonView].height, self.view.width, self.view.height - [self actionButtonView].height)];
 
 	}
 	return _webPreviewVC;
 }
 
 #pragma mark - UIViewController
--(void) dismissVC{
-	[self dismissModalViewControllerAnimated:TRUE];
-}
 
 -(void)viewDidLoad{
 	[super viewDidLoad];
+	
+	[[[self navigationController] toolbar] setTintColor:[UIColor lightGrayColor]];
+	[[self navigationItem] setTitle:LocStr(@"Preview", @"History item preview view")];
 	
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reduceMemoryUsage) name: UIApplicationDidReceiveMemoryWarningNotification object: nil];
 	
@@ -78,8 +153,7 @@
 	[self.view setClipsToBounds:TRUE];
 	[self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 	
-	UITapGestureRecognizer * dismissViewRecognizer	=	[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissVC)];
-	[self.view addGestureRecognizer:dismissViewRecognizer];
+	[self.view addSubview:[self actionButtonView]];
 }
 
 -(void) reduceMemoryUsage{

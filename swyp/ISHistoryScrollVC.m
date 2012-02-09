@@ -162,7 +162,7 @@
 	
 	ISSwypHistoryItem* object  =  [(NITableViewModel*)[tableView dataSource] objectAtIndexPath:indexPath];
 	[[self previewVC] setDisplayedHistoryItem:object];
-	[self presentModalViewController:[self previewVC] animated:TRUE];
+	[[self navigationController] pushViewController:[self previewVC] animated:TRUE];
 }
 
 #pragma mark NSFetchedResultsController

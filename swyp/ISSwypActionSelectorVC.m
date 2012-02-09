@@ -44,8 +44,12 @@
 	
 	_historyScrollView	=	[[ISHistoryScrollVC alloc] initWithObjectContext:_objectContext swypWorkspace:[self swypWorkspace]];
 	[_historyScrollView.view setFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height-49)];//tab bar height
-	[self.view addSubview:_historyScrollView.view];
-    
+
+	_historyNavController	=	[[UINavigationController alloc] initWithRootViewController:_historyScrollView];
+	[_historyNavController.view setSize:CGSizeMake(self.view.size.width, self.view.size.height-49)];
+	[_historyNavController setDelegate:self];
+	[self addChildViewController:_historyNavController];
+	[self.view addSubview:_historyNavController.view];
     
     ISContactVC *contactVC = [[ISContactVC alloc] initWithNibName:nil bundle:nil];
     ISCalendarVC *calendarVC = [[ISCalendarVC alloc] initWithNibName:nil bundle:nil];

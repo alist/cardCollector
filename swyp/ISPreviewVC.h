@@ -12,10 +12,10 @@
 #import "ISPreviewWebViewVC.h"
 
 @interface ISPreviewVC : UIViewController
-@property (nonatomic, strong) UINavigationController *		navController;
 @property (nonatomic, strong) ISSwypHistoryItem *			displayedHistoryItem;
 @property (nonatomic, strong) ISPreviewMapViewVC *			mapPreviewVC;
 @property (nonatomic, strong) ISPreviewWebViewVC *			webPreviewVC;
+@property (nonatomic, strong) UIView *						actionButtonView;
 
 -(UIViewController*) previewVCForHistoryItem:(ISSwypHistoryItem*)historyItem;
 @end
