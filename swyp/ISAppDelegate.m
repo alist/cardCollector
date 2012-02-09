@@ -31,8 +31,9 @@
 	if ([[[UIApplication sharedApplication] appRunCount] intValue] == 0){
 		[self prefillDatabase];
 	}
-	[[UIApplication sharedApplication] incrementRunCount];
 	
+	
+	[[UIApplication sharedApplication] incrementRunCount];
     return YES;
 }
 

@@ -79,6 +79,9 @@
 		793517FF14DDD6EB000E406C /* UIView+NimbusCore.h in Sources */ = {isa = PBXBuildFile; fileRef = 796272BE14DC865700E5D17A /* UIView+NimbusCore.h */; };
 		7935180014DDD6EB000E406C /* UIView+NimbusCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 796272BF14DC865700E5D17A /* UIView+NimbusCore.m */; };
 		79527C7314E0CD06003002AF /* NSDate+Relative.m in Sources */ = {isa = PBXBuildFile; fileRef = 79527C7214E0CD06003002AF /* NSDate+Relative.m */; };
+		79527C8A14E36254003002AF /* ISPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79527C8914E36254003002AF /* ISPreviewVC.m */; };
+		79527C9714E3692E003002AF /* ISPreviewMapViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79527C9614E3692E003002AF /* ISPreviewMapViewVC.m */; };
+		79527C9A14E36945003002AF /* ISPreviewWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79527C9914E36944003002AF /* ISPreviewWebViewVC.m */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -181,6 +184,12 @@
 		7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
 		79527C7114E0CD06003002AF /* NSDate+Relative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Relative.h"; sourceTree = "<group>"; };
 		79527C7214E0CD06003002AF /* NSDate+Relative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Relative.m"; sourceTree = "<group>"; };
+		79527C8814E36254003002AF /* ISPreviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPreviewVC.h; path = swyp/ISPreviewVC.h; sourceTree = "<group>"; };
+		79527C8914E36254003002AF /* ISPreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPreviewVC.m; path = swyp/ISPreviewVC.m; sourceTree = "<group>"; };
+		79527C9514E3692D003002AF /* ISPreviewMapViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPreviewMapViewVC.h; path = swyp/ISPreviewMapViewVC.h; sourceTree = "<group>"; };
+		79527C9614E3692E003002AF /* ISPreviewMapViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPreviewMapViewVC.m; path = swyp/ISPreviewMapViewVC.m; sourceTree = "<group>"; };
+		79527C9814E36944003002AF /* ISPreviewWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPreviewWebViewVC.h; path = swyp/ISPreviewWebViewVC.h; sourceTree = "<group>"; };
+		79527C9914E36944003002AF /* ISPreviewWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPreviewWebViewVC.m; path = swyp/ISPreviewWebViewVC.m; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -301,6 +310,8 @@
 		3E06EB4314DC89DE00BA055D /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
+				7962726814DC7D2700E5D17A /* ISSwypActionSelectorVC.h */,
+				7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */,
 				3E06EB4414DC8A3300BA055D /* ISPasteboardVC.h */,
 				3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */,
 				3E06EB4B14DC939100BA055D /* ISContactVC.h */,
@@ -365,6 +376,19 @@
 			children = (
 			);
 			name = "App Icons";
+			sourceTree = "<group>";
+		};
+		79527C8714E3620F003002AF /* history item preview */ = {
+			isa = PBXGroup;
+			children = (
+				79527C8814E36254003002AF /* ISPreviewVC.h */,
+				79527C8914E36254003002AF /* ISPreviewVC.m */,
+				79527C9514E3692D003002AF /* ISPreviewMapViewVC.h */,
+				79527C9614E3692E003002AF /* ISPreviewMapViewVC.m */,
+				79527C9814E36944003002AF /* ISPreviewWebViewVC.h */,
+				79527C9914E36944003002AF /* ISPreviewWebViewVC.m */,
+			);
+			name = "history item preview";
 			sourceTree = "<group>";
 		};
 		796271C214DC788200E5D17A = {
@@ -444,10 +468,9 @@
 		796271F314DC790100E5D17A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				79527C8714E3620F003002AF /* history item preview */,
 				7962735014DCBF0E00E5D17A /* History View */,
 				3E06EB4314DC89DE00BA055D /* Tab Bar */,
-				7962726814DC7D2700E5D17A /* ISSwypActionSelectorVC.h */,
-				7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */,
 			);
 			name = "View Controllers";
 			path = ..;
@@ -595,6 +618,8 @@
 		7962735014DCBF0E00E5D17A /* History View */ = {
 			isa = PBXGroup;
 			children = (
+				7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */,
+				7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */,
 				3EC3F0A814DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.h */,
 				3EC3F0A914DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m */,
 				7962735314DCBF3500E5D17A /* ISHistoryCell.h */,
@@ -603,8 +628,6 @@
 				7962735614DCBF3500E5D17A /* ISImageHistoryCell.m */,
 				7962735B14DCBF3500E5D17A /* ISTextHistoryCell.h */,
 				7962735C14DCBF3500E5D17A /* ISTextHistoryCell.m */,
-				7962726514DC7CD000E5D17A /* ISHistoryScrollVC.h */,
-				7962726B14DC802600E5D17A /* ISHistoryScrollVC.m */,
 			);
 			name = "History View";
 			sourceTree = "<group>";
@@ -782,6 +805,9 @@
 				7932E65614DDD75400E1A017 /* NINetworkImageRequest.m in Sources */,
 				7932E65714DDD75400E1A017 /* NINetworkImageView.m in Sources */,
 				79527C7314E0CD06003002AF /* NSDate+Relative.m in Sources */,
+				79527C8A14E36254003002AF /* ISPreviewVC.m in Sources */,
+				79527C9714E3692E003002AF /* ISPreviewMapViewVC.m in Sources */,
+				79527C9A14E36945003002AF /* ISPreviewWebViewVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@
 
 
 @implementation ISHistoryScrollVC
-@synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel, resultsController = _resultsController, objectContext = _objectContext;
+@synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel, resultsController = _resultsController, objectContext = _objectContext, previewVC = _previewVC;
 @synthesize datasourceDelegate = _datasourceDelegate;
 
 #pragma mark - public
@@ -39,6 +39,13 @@
 		
 	}
 	return _swypDropZoneView;
+}
+
+-(ISPreviewVC*)previewVC{
+	if (_previewVC == nil){
+		_previewVC	=	[[ISPreviewVC alloc] init];
+	}
+	return _previewVC;
 }
 
 -(NSFetchedResultsController*)resultsController{
@@ -148,6 +155,14 @@
 		height	=	[class heightForObject:object atIndexPath:indexPath tableView:tableView];
 	}
 	return height;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	[tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+	
+	ISSwypHistoryItem* object  =  [(NITableViewModel*)[tableView dataSource] objectAtIndexPath:indexPath];
+	[[self previewVC] setDisplayedHistoryItem:object];
+	[self presentModalViewController:[self previewVC] animated:TRUE];
 }
 
 #pragma mark NSFetchedResultsController
