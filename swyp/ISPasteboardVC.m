@@ -15,8 +15,6 @@
 @implementation ISPasteboardVC
 
 @synthesize pasteboardItems;
-@synthesize swypWorkspace;
-@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,9 +22,6 @@
     if (self) {
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Pasteboard", @"The pasteboard.") 
                                                         image:[UIImage imageNamed:@"paperclip"] tag:2];
-        
-        swypSwypableContentSuperview * contentSuperView	=	[[swypSwypableContentSuperview alloc] initWithContentDelegate:self workspaceDelegate:[self swypWorkspace] frame:self.view.frame];
-        self.view = contentSuperView;
         
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         self.view.backgroundColor = [UIColor whiteColor];
@@ -48,9 +43,7 @@
         textView.font = [UIFont systemFontOfSize:18];
         
         textView.hidden = YES;
-        [self.view addSubview:textView];
-        
-        _swypWorkspace = [[swypWorkspaceViewController alloc] init];
+        [self.view addSubview:textView];        
     }
     
     return self;
@@ -78,9 +71,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-	
-	[[_swypWorkspace contentManager] setContentDataSource:self];
+    [super viewDidAppear:animated];	
 }
 
 - (void)updatePasteboard {
@@ -127,9 +118,7 @@
         imageView.hidden = (imageView.image || address) ? NO : YES;
     } else {
         self.tabBarItem.badgeValue = nil;
-    }
-    
-    [_delegate datasourceSignificantlyModifiedContent:self];    
+    }    
 }
 
 - (void)viewDidUnload
@@ -143,73 +132,6 @@
 {
     // Return YES for supported orientations
 	return YES;
-}
-
-
-#pragma mark - swyp
-#pragma mark swypSwypableContentSuperviewContentDelegate
--(NSString*)contentIDForSwypableSubview:(UIView *)view withinSwypableContentSuperview:(swypSwypableContentSuperview *)superview{
-	NSArray * content = [self idsForAllContent];
-	return [content objectAtIndex:0];
-}
--(BOOL)subview:(UIView *)subview isSwypableWithSwypableContentSuperview:(swypSwypableContentSuperview *)superview{
-	if (subview == imageView || subview == textView){
-		NSArray * content = [self idsForAllContent];
-		return (ArrayHasItems(content));
-	}
-	return FALSE;
-}
-
-
-#pragma mark swypConnectionSessionDataDelegate
--(NSArray*)	supportedFileTypesForReceipt{
-	return [NSArray arrayWithObjects:nil];
-}
-
--(BOOL) delegateWillHandleDiscernedStream:(swypDiscernedInputStream*)discernedStream wantsAsData:(BOOL *)wantsProvidedAsNSData inConnectionSession:(swypConnectionSession*)session{
-	if ([[self supportedFileTypesForReceipt] containsObject:[discernedStream streamType]]){
-		*wantsProvidedAsNSData = TRUE;
-		return TRUE;
-	}
-	return FALSE;
-}
-
-#pragma mark swypContentDataSourceProtocol
-- (NSArray*)		idsForAllContent{
-	if (!imageView.image) {
-		return nil;
-    }
-	return [NSArray arrayWithObject:@"MODEL_CURRENT_PASTEBOARD_ITEM"];
-}
-- (UIImage *)		iconImageForContentWithID: (NSString*)contentID ofMaxSize:(CGSize)maxIconSize {
-    UIGraphicsBeginImageContext(self.view.frame.size);
-	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-    
-    return viewImage;
-}
-
-- (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
-	return [NSArray arrayWithObjects:[NSString imageJPEGFileType],[NSString imagePNGFileType], nil];
-}
-- (NSInputStream*)	inputStreamForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type	length: (NSUInteger*)contentLengthDestOrNULL;{
-	NSData * streamData = nil;
-    
-    if ([type isFileType:[NSString imageJPEGFileType]]){
-        streamData = UIImageJPEGRepresentation(imageView.image, 0.8);
-    } else if ([type isFileType:[NSString imagePNGFileType]]){
-		streamData = UIImagePNGRepresentation(imageView.image);
-	}
-	
-	*contentLengthDestOrNULL	=	[streamData length];
-	return [NSInputStream inputStreamWithData:streamData];
-}
--(void)	setDatasourceDelegate:			(id<swypContentDataSourceDelegate>)delegate{
-	_delegate	=	delegate;
-}
--(id<swypContentDataSourceDelegate>)	datasourceDelegate{
-	return _delegate;
 }
 
 @end
