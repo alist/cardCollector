@@ -97,6 +97,7 @@
             }
         }
         
+        
         [pbObjects addObject:pbObject];
 
     } else {
@@ -108,9 +109,9 @@
         ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
                                        CGRectMake(i*self.view.width, 0, self.view.width, self.view.height)];
         [pbScrollView addSubview:pasteView];
-        [pbObject setDelegate:pasteView];
+        pbObject.delegate = pasteView;
         
-        NSLog(@"%@, %@", pbObject.text, pbObject.address);
+        NSLog(@"%@", pbObject.delegate);
         i += 1;
     }
     pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
