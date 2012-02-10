@@ -274,8 +274,6 @@
 		796272BD14DC865700E5D17A /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
 		796272BE14DC865700E5D17A /* UIView+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NimbusCore.h"; sourceTree = "<group>"; };
 		796272BF14DC865700E5D17A /* UIView+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NimbusCore.m"; sourceTree = "<group>"; };
-		7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
-		7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
 		7962735314DCBF3500E5D17A /* ISHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHistoryCell.h; path = swyp/ISHistoryCell.h; sourceTree = "<group>"; };
 		7962735414DCBF3500E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -447,8 +445,6 @@
 		796271F114DC78FF00E5D17A /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */,
-				7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */,
 				796271E214DC788200E5D17A /* ISAppDelegate.h */,
 				796271E314DC788200E5D17A /* ISAppDelegate.m */,
 				796271E514DC788200E5D17A /* swyp.xcdatamodeld */,
