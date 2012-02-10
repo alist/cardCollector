@@ -8,6 +8,7 @@
 
 #import "ISPasteboardVC.h"
 #import "UIImage+Resize.h"
+#import <QuartzCore/QuartzCore.h>
 #import "NSString+URLEncoding.h"
 #import <CoreLocation/CoreLocation.h>
 
@@ -120,7 +121,9 @@
         frame.size.height = textView.contentSize.height;
         textView.frame = frame;
             
-        textView.hidden = (textView.text) ? NO : YES;
+        textView.hidden = (textView.text.length > 0) ? NO : YES;
+        /*  Because the map image is loaded asynchronously, the image may not be set yet.
+            This is why we have to explicitly check for address. */
         imageView.hidden = (imageView.image || address) ? NO : YES;
     } else {
         self.tabBarItem.badgeValue = nil;
@@ -150,7 +153,7 @@
 	return [content objectAtIndex:0];
 }
 -(BOOL)subview:(UIView *)subview isSwypableWithSwypableContentSuperview:(swypSwypableContentSuperview *)superview{
-	if (subview == imageView){
+	if (subview == imageView || subview == textView){
 		NSArray * content = [self idsForAllContent];
 		return (ArrayHasItems(content));
 	}
@@ -171,38 +174,22 @@
 	return FALSE;
 }
 
--(void)	yieldedData:(NSData*)streamData discernedStream:(swypDiscernedInputStream*)discernedStream inConnectionSession:(swypConnectionSession*)session{
-	NSLog(@"GOT DATR %@!", [discernedStream streamType]);
-	/*
-	if ([[discernedStream streamType] isFileType:cardFileFormat]){
-		Card * newCard	=	[NSEntityDescription insertNewObjectForEntityForName:@"Card" inManagedObjectContext:_objectContext];
-		[newCard setValuesFromSerializedData:streamData];
-        
-		NSError * error = nil;
-        if ([_objectContext hasChanges] && ![_objectContext save:&error]){
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 	
-		
-		[self dismissModalViewControllerAnimated:TRUE];
-	}
-     */
-}
-
 #pragma mark swypContentDataSourceProtocol
 - (NSArray*)		idsForAllContent{
 	if (!imageView.image) {
 		return nil;
     }
-	return [NSArray arrayWithObject:@"MODEL_CURRENT_DETAILED_CARD"];
+	return [NSArray arrayWithObject:@"MODEL_CURRENT_PASTEBOARD_ITEM"];
 }
 - (UIImage *)		iconImageForContentWithID: (NSString*)contentID ofMaxSize:(CGSize)maxIconSize {
-    if (!imageView.image){
-        return nil;
-    } else {
-        return imageView.image;
-    }
+    UIGraphicsBeginImageContext(self.view.frame.size);
+	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+    
+    return viewImage;
 }
+
 - (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
 	return [NSArray arrayWithObjects:[NSString imageJPEGFileType],[NSString imagePNGFileType], nil];
 }
