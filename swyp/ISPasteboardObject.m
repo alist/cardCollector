@@ -35,8 +35,9 @@
 }
 
 - (void)setAddress:(NSString *)address {
+    self.text = address;
+    
     if (self.delegate){
-        [self.delegate setText:address];
         [self.delegate setAddress:address];
     }
 }

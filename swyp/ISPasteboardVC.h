@@ -12,11 +12,11 @@
 #import "ISPasteboardView.h"
 
 @interface ISPasteboardVC : UIViewController {
-    UIScrollView *pbScrollView;
-    NSArray     *pasteboardItems;
+    UIScrollView    *pbScrollView;
 }
 
-@property (strong, nonatomic) NSArray *pasteboardItems;
+@property (assign, nonatomic) NSInteger pbChangeCount;
+@property (strong, nonatomic) NSMutableArray *pbObjects;
 
 - (void)updatePasteboard;
 

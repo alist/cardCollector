@@ -14,7 +14,8 @@
 
 @implementation ISPasteboardVC
 
-@synthesize pasteboardItems;
+@synthesize pbChangeCount;
+@synthesize pbObjects;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +33,11 @@
         pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
         pbScrollView.showsHorizontalScrollIndicator = YES;
         [self.view addSubview:pbScrollView];
+        
+        self.pbObjects = [NSMutableArray array];
     }
+    
+    pbChangeCount = 0;
     
     return self;
 }
@@ -64,19 +69,16 @@
 
 - (void)updatePasteboard {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-    if (!pasteboardItems || ![pasteboardItems isEqualToArray:pasteBoard.items]) {
-        pasteboardItems = pasteBoard.items;
+    // go by changecount
+    if (pbChangeCount != pasteBoard.changeCount) {
+        pbChangeCount = pasteBoard.changeCount;
         
         self.tabBarItem.badgeValue = @"!";
         
-        ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:self.view.frame];
-        [pbScrollView addSubview:pasteView];
-        
         ISPasteboardObject *pbObject = [[ISPasteboardObject alloc] init];
-        [pbObject setDelegate:pasteView];
         
         if (pasteBoard.image) {
-            UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:pasteView.size interpolationQuality:0.8];
+            UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:self.view.size interpolationQuality:0.8];
             pbObject.image = croppedImage;
             pbObject.text = nil;
         } else if (pasteBoard.URL) {
@@ -88,15 +90,30 @@
             NSTextCheckingResult *match = [addressDetector firstMatchInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
             
             if (match) {
+                NSLog(@"A match!");
                 pbObject.address = pasteBoard.string;
             } else {
                 pbObject.text = pasteBoard.string;
             }
         }
+        
+        [pbObjects addObject:pbObject];
 
     } else {
         self.tabBarItem.badgeValue = nil;
-    }    
+    }
+    
+    int i = 0;
+    for (ISPasteboardObject *pbObject in pbObjects){
+        ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
+                                       CGRectMake(i*self.view.width, 0, self.view.width, self.view.height)];
+        [pbScrollView addSubview:pasteView];
+        [pbObject setDelegate:pasteView];
+        
+        NSLog(@"%@, %@", pbObject.text, pbObject.address);
+        i += 1;
+    }
+    pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
 }
 
 - (void)viewDidUnload
