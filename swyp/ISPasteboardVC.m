@@ -9,7 +9,6 @@
 #import "ISPasteboardVC.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+URLEncoding.h"
-#import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreLocation/CoreLocation.h>
 
 @implementation ISPasteboardVC
@@ -41,6 +40,8 @@
         [self.view addSubview:pageControl];
         
         self.pbObjects = [NSMutableArray array];
+        
+        library = [[ALAssetsLibrary alloc] init];
     }
     
     pbChangeCount = 0;
@@ -74,39 +75,40 @@
 }
 
 - (void)addMostRecentPhotoTaken {
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop){
-        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop){
+            [group setAssetsFilter:[ALAssetsFilter allPhotos]];
 
-        // only grab the most recent asset
-        [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets]-1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
-            if (alAsset){
-                NSDate *timeTaken = [alAsset valueForProperty:ALAssetPropertyDate];
-                
-                // we only care if the photo was taken in the last 5 minutes
-                if (abs([timeTaken timeIntervalSinceNow]) < 60*5){
-                    __block CGImageRef imgRef = CGImageRetain([[alAsset defaultRepresentation] fullScreenImage]);
+            // only grab the most recent asset
+            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets]-1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
+                if (alAsset){
+                    NSDate *timeTaken = [alAsset valueForProperty:ALAssetPropertyDate];
                     
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        if (alAsset.defaultRepresentation.url != latestAssetURL) {
-                            latestAssetURL = alAsset.defaultRepresentation.url;
-
-                            NSLog(@"Adding image!");
-                            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
-                            pbItem.image = [UIImage imageWithCGImage:imgRef];
-                            [self.pbObjects insertObject:pbItem atIndex:0];
-
-                            [self redisplayPasteboard];
-                        }
+                    // we only care if the photo was taken in the last 5 minutes
+                    if (abs([timeTaken timeIntervalSinceNow]) < 60*5){
+                        __block CGImageRef imgRef = CGImageRetain([[alAsset defaultRepresentation] fullScreenImage]);
                         
-                        CGImageRelease(imgRef);
-                    });                    
-                }                
-            }
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            if (alAsset.defaultRepresentation.url != latestAssetURL){
+                                
+                                latestAssetURL = alAsset.defaultRepresentation.url;
+                                NSLog(@"Adding image!");
+                                ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+                                pbItem.image = [UIImage imageWithCGImage:imgRef];
+                                [self.pbObjects insertObject:pbItem atIndex:0];
+
+                                [self redisplayPasteboard];
+                            }
+                        });                    
+                    }                
+                }
+            }];
+        } failureBlock:^(NSError *error) {
+            NSLog(@"No groups, %@", error);
         }];
-    } failureBlock:^(NSError *error) {
-        NSLog(@"No groups, %@", error);
-    }];
+    });
 }
 
 - (void)redisplayPasteboard {
@@ -150,9 +152,8 @@
             pbItem.text = [pasteBoard.URL absoluteString];
             
             [pbObjects insertObject:pbItem atIndex:0];
-        }
         
-        if (pasteBoard.string) {
+        } else if (pasteBoard.string) {
             
             NSDataDetector *addressDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:NULL];
             
@@ -170,11 +171,8 @@
         }
     } else {
         self.tabBarItem.badgeValue = nil;
-    }
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [self addMostRecentPhotoTaken];
-    });
+    }
     
     [self redisplayPasteboard];
 }

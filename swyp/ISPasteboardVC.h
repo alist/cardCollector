@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
 #import "NINetworkImageView.h"
 #import "ISPasteboardView.h"
 
@@ -15,6 +17,7 @@
     UIScrollView    *pbScrollView;
     UIPageControl   *pageControl;
     NSURL           *latestAssetURL;
+    ALAssetsLibrary *library;
 }
 
 @property (assign, nonatomic) NSInteger pbChangeCount;
