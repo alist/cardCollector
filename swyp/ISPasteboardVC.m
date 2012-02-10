@@ -120,7 +120,7 @@
         frame.size.height = textView.contentSize.height;
         textView.frame = frame;
             
-        textView.hidden = (textView.text) ? NO : YES;
+        textView.hidden = (textView.text.length > 0) ? NO : YES;
         imageView.hidden = (imageView.image || address) ? NO : YES;
     } else {
         self.tabBarItem.badgeValue = nil;
@@ -169,24 +169,6 @@
 		return TRUE;
 	}
 	return FALSE;
-}
-
--(void)	yieldedData:(NSData*)streamData discernedStream:(swypDiscernedInputStream*)discernedStream inConnectionSession:(swypConnectionSession*)session{
-	NSLog(@"GOT DATR %@!", [discernedStream streamType]);
-	/*
-	if ([[discernedStream streamType] isFileType:cardFileFormat]){
-		Card * newCard	=	[NSEntityDescription insertNewObjectForEntityForName:@"Card" inManagedObjectContext:_objectContext];
-		[newCard setValuesFromSerializedData:streamData];
-        
-		NSError * error = nil;
-        if ([_objectContext hasChanges] && ![_objectContext save:&error]){
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 	
-		
-		[self dismissModalViewControllerAnimated:TRUE];
-	}
-     */
 }
 
 #pragma mark swypContentDataSourceProtocol
