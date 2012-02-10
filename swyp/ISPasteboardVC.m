@@ -7,9 +7,9 @@
 //
 
 #import "ISPasteboardVC.h"
-#import "UIImage+Resize.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+URLEncoding.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 #import <CoreLocation/CoreLocation.h>
 
 @implementation ISPasteboardVC
@@ -73,6 +73,61 @@
     [super viewDidAppear:animated];	
 }
 
+- (void)addMostRecentPhotoTaken {
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop){
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+
+        // only grab the most recent asset
+        [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets]-1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
+            if (alAsset){
+                NSDate *timeTaken = [alAsset valueForProperty:ALAssetPropertyDate];
+                
+                // we only care if the photo was taken in the last 5 minutes
+                if (abs([timeTaken timeIntervalSinceNow]) < 60*5){
+                    __block CGImageRef imgRef = CGImageRetain([[alAsset defaultRepresentation] fullScreenImage]);
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (alAsset.defaultRepresentation.url != latestAssetURL) {
+                            latestAssetURL = alAsset.defaultRepresentation.url;
+
+                            NSLog(@"Adding image!");
+                            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+                            pbItem.image = [UIImage imageWithCGImage:imgRef];
+                            [self.pbObjects insertObject:pbItem atIndex:0];
+
+                            [self redisplayPasteboard];
+                        }
+                        
+                        CGImageRelease(imgRef);
+                    });                    
+                }                
+            }
+        }];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"No groups, %@", error);
+    }];
+}
+
+- (void)redisplayPasteboard {
+    for (id subview in [pbScrollView subviews]){
+        if ([subview class] == [ISPasteboardView class]){
+            [subview removeFromSuperview];
+        }
+    }
+    
+    int i = 0;
+    for (ISPasteboardObject *pbObject in pbObjects){
+        ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
+                                       CGRectMake(i*self.view.width, 0, self.view.width, self.view.height)];
+        pbObject.delegate = pasteView;
+        [pbScrollView addSubview:pasteView];
+        i += 1;
+    }
+    pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
+    pageControl.numberOfPages = i;
+}
+
 - (void)updatePasteboard {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
     // go by changecount
@@ -83,9 +138,7 @@
                 
         if (pasteBoard.image) {
             ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
-
-            UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:self.view.size interpolationQuality:0.8];
-            pbItem.image = [croppedImage copy];
+            pbItem.image = [pasteBoard.image copy];
             pbItem.text = nil;
             
             [pbObjects insertObject:pbItem atIndex:0];
@@ -108,7 +161,6 @@
             ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
 
             if (match) {
-                NSLog(@"A match!");
                 pbItem.address = pasteBoard.string;
             } else {
                 pbItem.text = pasteBoard.string;
@@ -116,28 +168,15 @@
             
             [pbObjects insertObject:pbItem atIndex:0];
         }
-        
     } else {
         self.tabBarItem.badgeValue = nil;
     }
     
-    for (id subview in [pbScrollView subviews]){
-        if ([subview class] == [ISPasteboardView class]){
-            [subview removeFromSuperview];
-        }
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [self addMostRecentPhotoTaken];
+    });
     
-    int i = 0;
-    for (ISPasteboardObject *pbObject in pbObjects){
-        ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
-                                       CGRectMake(i*self.view.width, 0, self.view.width, self.view.height)];
-        pbObject.delegate = pasteView;
-        [pbScrollView addSubview:pasteView];
-        NSLog(@"%i: %@", i, pbObject.delegate);        
-        i += 1;
-    }
-    pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
-    pageControl.numberOfPages = i;
+    [self redisplayPasteboard];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

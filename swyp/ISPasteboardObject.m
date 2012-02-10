@@ -7,27 +7,35 @@
 //
 
 #import "ISPasteboardObject.h"
+#import "UIImage+Resize.h"
 
 @implementation ISPasteboardObject
 
 @synthesize delegate = _delegate;
 @synthesize image = _image;
+@synthesize thumbImage = _thumbImage;
 @synthesize text = _text;
 @synthesize address = _address;
 
 - (void)setDelegate:(id)delegete {
-    NSLog(@"Setting delegate");
     _delegate = delegete;
-    if (self.image)   [self.delegate setImage:self.image];
+    if (self.image)   [self setThumbImageFromCurrentImage];
     if (self.text)    [self.delegate setText:self.text];
     if (self.address) [self.delegate setAddress:self.address];
+}
+
+- (void)setThumbImageFromCurrentImage {
+    self.thumbImage = [self.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill 
+                                                       bounds:[self.delegate getSize] 
+                                         interpolationQuality:0.8];
+    [self.delegate setImage:self.thumbImage];
 }
 
 - (void)setImage:(UIImage *)image {
     _image = image;
     
     if (self.delegate && image){
-        [self.delegate setImage:image];
+        [self setThumbImageFromCurrentImage];
     }
 }
 

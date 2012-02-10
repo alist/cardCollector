@@ -20,6 +20,7 @@
 		3E06EB6214DC9A6400BA055D /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB6014DC9A6400BA055D /* photos@2x.png */; };
 		3E2B4F8D14E583890090D948 /* ISPasteboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B4F8C14E583890090D948 /* ISPasteboardView.m */; };
 		3E2B4F9014E58E530090D948 /* ISPasteboardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B4F8F14E58E520090D948 /* ISPasteboardObject.m */; };
+		3E2B4F9314E5CA620090D948 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */; };
 		3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */; };
 		3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -156,6 +157,7 @@
 		3E2B4F8C14E583890090D948 /* ISPasteboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPasteboardView.m; sourceTree = "<group>"; };
 		3E2B4F8E14E58E520090D948 /* ISPasteboardObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardObject.h; path = swyp/ISPasteboardObject.h; sourceTree = "<group>"; };
 		3E2B4F8F14E58E520090D948 /* ISPasteboardObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPasteboardObject.m; path = swyp/ISPasteboardObject.m; sourceTree = "<group>"; };
+		3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3E9A375F14DCBAC7007B6DD7 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7962720A14DC799000E5D17A /* liblibSwyp.a in Frameworks */,
+				3E2B4F9314E5CA620090D948 /* AssetsLibrary.framework in Frameworks */,
 				3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */,
 				3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */,
 				796271D214DC788200E5D17A /* UIKit.framework in Frameworks */,
@@ -414,6 +417,7 @@
 		796271D014DC788200E5D17A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */,
 				3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */,
 				3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */,
 				7962720B14DC79A300E5D17A /* GameKit.framework */,

@@ -19,4 +19,6 @@
 - (void)setText:(NSString *)text;
 - (void)setAddress:(NSString *)address;
 
+- (CGSize)getSize;
+
 @end

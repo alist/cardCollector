@@ -14,11 +14,13 @@
 @interface ISPasteboardVC : UIViewController <UIScrollViewDelegate> {
     UIScrollView    *pbScrollView;
     UIPageControl   *pageControl;
+    NSURL           *latestAssetURL;
 }
 
 @property (assign, nonatomic) NSInteger pbChangeCount;
 @property (strong, nonatomic) NSMutableArray *pbObjects;
 
+- (void)redisplayPasteboard;
 - (void)updatePasteboard;
 
 @end

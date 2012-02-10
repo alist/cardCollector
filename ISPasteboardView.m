@@ -64,6 +64,10 @@ static NSString *googleMapsURL = @"http://maps.googleapis.com/maps/api/staticmap
     _imageView.hidden = image ? NO : YES;
 }
 
+- (CGSize)getSize {
+    return self.frame.size;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
