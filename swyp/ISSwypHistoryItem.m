@@ -30,4 +30,35 @@
 	return UITableViewCellStyleDefault;
 }
 
+-(void) addToPasteboard{
+	//image type
+	if ([[self itemType] isFileType:[NSString imagePNGFileType]]){
+		[[UIPasteboard generalPasteboard] setData:[self itemData] forPasteboardType:@"public.png"];
+	}else if ([[self itemType] isFileType:[NSString imageJPEGFileType]]){
+		[[UIPasteboard generalPasteboard] setData:[self itemData] forPasteboardType:@"public.jpeg"];
+	}else{
+		[[UIPasteboard generalPasteboard] setData:[self itemPreviewImage] forPasteboardType:@"public.jpeg"];
+	}
+	
+	NSString * textRep	=	[self textRepresentation];
+	if (StringHasText(textRep)){
+		[[UIPasteboard generalPasteboard] setString:textRep];
+	}
+
+}
+
+-(NSString*) textRepresentation{
+	NSString * representation = nil;
+	
+	if ([[self itemType] isFileType:[NSString textPlainFileType]]){
+		representation	=	[NSString stringWithCharacters:[[self itemData] bytes] length:[[self itemData] length]];
+	}else if ([[self itemType] isFileType:[NSString swypAddressFileType]]){
+		representation	=	[NSString stringWithCharacters:[[self itemData] bytes] length:[[self itemData] length]];
+	}else if ([[self itemType] isFileType:[NSString swypAddressFileType]]){
+		representation	=	[NSString stringWithCharacters:[[self itemData] bytes] length:[[self itemData] length]];
+	}
+	
+	return representation;
+}
+
 @end

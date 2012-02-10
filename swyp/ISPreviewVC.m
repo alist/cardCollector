@@ -13,15 +13,13 @@
 @synthesize displayedHistoryItem = _displayedHistoryItem;
 @synthesize mapPreviewVC = _mapPreviewVC, webPreviewVC = _webPreviewVC, actionButtonView = _actionButtonView;
 
-//need to prevent funky uiview scrolling
-//need to add nice button for actions in corner
-
 #pragma mark actions
 -(void)pressedPasteboardButton:(UIButton*)sender{
 	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];
 	[UIView animateWithDuration:.75 animations:^{
 		[sender setBackgroundColor:[UIColor clearColor]];
 	}];
+	[[self displayedHistoryItem] addToPasteboard];
 }
 -(void)pressedSwypButton:(UIButton*)sender{
 	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];

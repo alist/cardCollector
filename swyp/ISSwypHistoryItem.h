@@ -18,4 +18,9 @@
 @property (nonatomic, retain) NSString * itemTag;
 @property (nonatomic, retain) NSString * itemType;
 
+///Adds whatever representations possible into pastboard
+-(void) addToPasteboard;
+///Returns a textual representation if possible
+-(NSString*) textRepresentation;
+
 @end
