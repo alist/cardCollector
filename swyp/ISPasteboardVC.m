@@ -125,10 +125,9 @@
     for (ISPasteboardObject *pbObject in pbObjects){
         ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
                                        CGRectMake(i*self.view.width, 0, self.view.width, self.view.height)];
-        [pbScrollView addSubview:pasteView];
         pbObject.delegate = pasteView;
-        
-        NSLog(@"%@", pbObject.delegate);
+        [pbScrollView addSubview:pasteView];
+        NSLog(@"%i: %@", i, pbObject.delegate);        
         i += 1;
     }
     pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);

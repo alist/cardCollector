@@ -18,7 +18,6 @@ static NSString *googleMapsURL = @"http://maps.googleapis.com/maps/api/staticmap
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        self.frame = CGRectMake(0, 0, 320, 212);
         
         _imageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
         _imageView.hidden = YES;
