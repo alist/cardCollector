@@ -17,14 +17,23 @@
 //need to add nice button for actions in corner
 
 #pragma mark actions
--(void)pressedPasteboardButton{
-	
+-(void)pressedPasteboardButton:(UIButton*)sender{
+	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];
+	[UIView animateWithDuration:.75 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+		[sender setBackgroundColor:[UIColor clearColor]];
+	} completion:nil];
 }
--(void)pressedSwypButton{
-	
+-(void)pressedSwypButton:(UIButton*)sender{
+	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];
+	[UIView animateWithDuration:.75 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+		[sender setBackgroundColor:[UIColor clearColor]];
+	} completion:nil];
 }
--(void)pressedExportButton{
-	
+-(void)pressedExportButton:(UIButton*)sender{
+	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];
+	[UIView animateWithDuration:.75 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+		[sender setBackgroundColor:[UIColor clearColor]];
+	} completion:nil];
 }
 
 #pragma mark previewer
@@ -67,34 +76,28 @@
 		[actionView.layer setShadowRadius:4.0];
 		[actionView setClipsToBounds:NO];
 
-		CGFloat viewThirdSize	=	roundf(self.view.width/3);
+		NSInteger viewThirdSize		=	(int)self.view.width/3;
 
 		UIButton * pastboardButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
 		[pastboardButton setFrame:CGRectMake(0, 0, viewThirdSize, 40)];
 		[pastboardButton setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin];
 		[pastboardButton setShowsTouchWhenHighlighted:TRUE];
-		[pastboardButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-		[pastboardButton setBackgroundColor:[UIColor colorWithWhite:.5 alpha:.4]];
 		[[pastboardButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
 		[pastboardButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
-		[pastboardButton titleLabel].textColor				= [UIColor blackColor];
 		[pastboardButton setTitle:LocStr(@"Copy",@"preview of received swyp item") forState:UIControlStateNormal];
 		
-		[pastboardButton addTarget:self action:@selector(pressedPasteboardButton) forControlEvents:UIControlEventTouchUpInside];
+		[pastboardButton addTarget:self action:@selector(pressedPasteboardButton:) forControlEvents:UIControlEventTouchUpInside];
 		[actionView addSubview:pastboardButton];
 		
 		UIButton * swypButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
 		[swypButton setFrame:CGRectMake(viewThirdSize, 0, viewThirdSize, 40)];
 		[swypButton setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin];
 		[swypButton setShowsTouchWhenHighlighted:TRUE];
-		[swypButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-		[swypButton setBackgroundColor:[UIColor colorWithWhite:.5 alpha:.4]];
 		[[swypButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
 		[swypButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
-		[swypButton titleLabel].textColor				= [UIColor blackColor];
 		[swypButton setTitle:LocStr(@"Swÿp",@"preview of received swyp item") forState:UIControlStateNormal];
 		
-		[swypButton addTarget:self action:@selector(pressedSwypButton) forControlEvents:UIControlEventTouchUpInside];
+		[swypButton addTarget:self action:@selector(pressedSwypButton:) forControlEvents:UIControlEventTouchUpInside];
 		[actionView addSubview:swypButton];
 		
 		UIButton * exportButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
@@ -102,13 +105,11 @@
 		[exportButton setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleWidth];
 		[exportButton setShowsTouchWhenHighlighted:TRUE];
 		[exportButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-		[exportButton setBackgroundColor:[UIColor colorWithWhite:.5 alpha:.4]];
 		[[exportButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
 		[exportButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
-		[exportButton titleLabel].textColor				= [UIColor blackColor];
 		[exportButton setTitle:LocStr(@"Export",@"preview of received swyp item") forState:UIControlStateNormal];
 		
-		[exportButton addTarget:self action:@selector(pressedExportButton) forControlEvents:UIControlEventTouchUpInside];
+		[exportButton addTarget:self action:@selector(pressedExportButton:) forControlEvents:UIControlEventTouchUpInside];
 		[actionView addSubview:exportButton];
 		
 		_actionButtonView = actionView;

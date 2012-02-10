@@ -191,7 +191,7 @@
 		79527C9614E3692E003002AF /* ISPreviewMapViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPreviewMapViewVC.m; path = swyp/ISPreviewMapViewVC.m; sourceTree = "<group>"; };
 		79527C9814E36944003002AF /* ISPreviewWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPreviewWebViewVC.h; path = swyp/ISPreviewWebViewVC.h; sourceTree = "<group>"; };
 		79527C9914E36944003002AF /* ISPreviewWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPreviewWebViewVC.m; path = swyp/ISPreviewWebViewVC.m; sourceTree = "<group>"; };
-		79527CB914E46FB4003002AF /* previewVCActionButtonsBGTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previewVCActionButtonsBGTile.png; sourceTree = "<group>"; };
+		79527CB914E46FB4003002AF /* previewVCActionButtonsBGTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = previewVCActionButtonsBGTile.png; path = resources/previewVCActionButtonsBGTile.png; sourceTree = SOURCE_ROOT; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
