@@ -82,7 +82,7 @@
             pbItem.image = [croppedImage copy];
             pbItem.text = nil;
             
-            [pbObjects addObject:pbItem];
+            [pbObjects insertObject:pbItem atIndex:0];
         }
         
         if (pasteBoard.URL) {
@@ -90,7 +90,7 @@
 
             pbItem.text = [pasteBoard.URL absoluteString];
             
-            [pbObjects addObject:pbItem];
+            [pbObjects insertObject:pbItem atIndex:0];
         }
         
         if (pasteBoard.string) {
@@ -108,7 +108,7 @@
                 pbItem.text = pasteBoard.string;
             }
             
-            [pbObjects addObject:pbItem];
+            [pbObjects insertObject:pbItem atIndex:0];
         }
         
     } else {
