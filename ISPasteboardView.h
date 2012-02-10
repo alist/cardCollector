@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "NINetworkImageView.h"
+#import "ISPasteboardObject.h"
 
-@interface ISPasteboardView : UIView {
+@interface ISPasteboardView : UIView <ISPasteboardObjectDelegate>{
     NINetworkImageView *_imageView;
     UITextView *_textView;
 }
 
-@property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) NSString *text;
-@property (nonatomic, strong) NSString *address;
+- (void)setImage:(UIImage *)image;
+- (void)setText:(NSString *)text;
+- (void)setAddress:(NSString *)address;
 
 @end

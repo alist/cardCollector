@@ -12,9 +12,8 @@
 #import "ISPasteboardView.h"
 
 @interface ISPasteboardVC : UIViewController {
-    UIScrollView *imageScrollView;
+    UIScrollView *pbScrollView;
     NSArray     *pasteboardItems;
-    ISPasteboardView *pasteView;
 }
 
 @property (strong, nonatomic) NSArray *pasteboardItems;

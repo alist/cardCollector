@@ -13,10 +13,6 @@ static NSString *googleMapsURL = @"http://maps.googleapis.com/maps/api/staticmap
 
 @implementation ISPasteboardView
 
-@synthesize image = _image;
-@synthesize text = _text;
-@synthesize address = _address;
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -41,7 +37,6 @@ static NSString *googleMapsURL = @"http://maps.googleapis.com/maps/api/staticmap
 }
 
 - (void)setText:(NSString *)text {
-    _text = text;
     _textView.text = text;
     
     CGRect frame = _textView.frame;
@@ -53,20 +48,18 @@ static NSString *googleMapsURL = @"http://maps.googleapis.com/maps/api/staticmap
 
 - (void)setAddress:(NSString *)address {
     NSLog(@"Setting address.");
-    _address = address;
     
-    self.text = [address capitalizedString];
     NSString *urlEncodedAddress = [address urlEncodeUsingEncoding:NSUTF8StringEncoding];
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *fullMapURL = [NSString stringWithFormat:googleMapsURL, 
                             urlEncodedAddress, scale, urlEncodedAddress];
     NSLog(@"%@", fullMapURL);
     [_imageView setPathToNetworkImage:fullMapURL];
+    
     _imageView.hidden = NO;
 }
 
 - (void)setImage:(UIImage *)image {
-    _image = image;
     _imageView.image = image;
     
     _imageView.hidden = image ? NO : YES;

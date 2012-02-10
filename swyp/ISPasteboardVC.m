@@ -29,12 +29,9 @@
         self.view.autoresizesSubviews = YES;
         self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin);
         
-        imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
-        imageScrollView.showsHorizontalScrollIndicator = YES;
-        [self.view addSubview:imageScrollView];
-        
-        pasteView = [[ISPasteboardView alloc] initWithFrame:self.view.frame];
-        [imageScrollView addSubview:pasteView];        
+        pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
+        pbScrollView.showsHorizontalScrollIndicator = YES;
+        [self.view addSubview:pbScrollView];
     }
     
     return self;
@@ -72,14 +69,18 @@
         
         self.tabBarItem.badgeValue = @"!";
         
-        pasteView.image = nil;
+        ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:self.view.frame];
+        [pbScrollView addSubview:pasteView];
+        
+        ISPasteboardObject *pbObject = [[ISPasteboardObject alloc] init];
+        [pbObject setDelegate:pasteView];
         
         if (pasteBoard.image) {
             UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:pasteView.size interpolationQuality:0.8];
-            pasteView.image = croppedImage;
-            pasteView.text = nil;
+            pbObject.image = croppedImage;
+            pbObject.text = nil;
         } else if (pasteBoard.URL) {
-            pasteView.text = [pasteBoard.URL absoluteString];
+            pbObject.text = [pasteBoard.URL absoluteString];
         } else if (pasteBoard.string) {
             
             NSDataDetector *addressDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:NULL];
@@ -87,9 +88,9 @@
             NSTextCheckingResult *match = [addressDetector firstMatchInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
             
             if (match) {
-                pasteView.address = pasteBoard.string;
+                pbObject.address = pasteBoard.string;
             } else {
-                pasteView.text = pasteBoard.string;
+                pbObject.text = pasteBoard.string;
             }
         }
 
