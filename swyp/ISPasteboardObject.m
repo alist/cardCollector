@@ -18,15 +18,15 @@
 - (void)setDelegate:(id)delegete {
     NSLog(@"Setting delegate");
     _delegate = delegete;
-    [self.delegate setImage:self.image];
-    [self.delegate setText:self.text];
-    [self.delegate setAddress:self.address];
+    if (self.image)   [self.delegate setImage:self.image];
+    if (self.text)    [self.delegate setText:self.text];
+    if (self.address) [self.delegate setAddress:self.address];
 }
 
 - (void)setImage:(UIImage *)image {
     _image = image;
     
-    if (self.delegate){
+    if (self.delegate && image){
         [self.delegate setImage:image];
     }
 }
@@ -34,7 +34,7 @@
 - (void)setText:(NSString *)text {
     _text = text;
     
-    if (self.delegate){
+    if (self.delegate && text){
         [self.delegate setText:text];
     }
 }
@@ -43,7 +43,7 @@
     self.text = address;
     _address = address;
     
-    if (self.delegate){
+    if (self.delegate && address){
         [self.delegate setAddress:address];
     }
 }

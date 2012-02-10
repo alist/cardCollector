@@ -28,10 +28,10 @@
         self.view.backgroundColor = [UIColor whiteColor];
         self.view.frame = CGRectMake(0, screenSize.height-(212+49+20), 320, 212);
         self.view.autoresizesSubviews = YES;
-        self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin);
+        self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
         
         pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
-        pbScrollView.showsHorizontalScrollIndicator = YES;
+        pbScrollView.pagingEnabled = YES;
         [self.view addSubview:pbScrollView];
         
         self.pbObjects = [NSMutableArray array];
@@ -74,34 +74,51 @@
         pbChangeCount = pasteBoard.changeCount;
         
         self.tabBarItem.badgeValue = @"!";
-        
-        ISPasteboardObject *pbObject = [[ISPasteboardObject alloc] init];
-        
+                
         if (pasteBoard.image) {
+            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+
             UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:self.view.size interpolationQuality:0.8];
-            pbObject.image = croppedImage;
-            pbObject.text = nil;
-        } else if (pasteBoard.URL) {
-            pbObject.text = [pasteBoard.URL absoluteString];
-        } else if (pasteBoard.string) {
+            pbItem.image = [croppedImage copy];
+            pbItem.text = nil;
+            
+            [pbObjects addObject:pbItem];
+        }
+        
+        if (pasteBoard.URL) {
+            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+
+            pbItem.text = [pasteBoard.URL absoluteString];
+            
+            [pbObjects addObject:pbItem];
+        }
+        
+        if (pasteBoard.string) {
             
             NSDataDetector *addressDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:NULL];
             
             NSTextCheckingResult *match = [addressDetector firstMatchInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
             
+            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+
             if (match) {
                 NSLog(@"A match!");
-                pbObject.address = pasteBoard.string;
+                pbItem.address = pasteBoard.string;
             } else {
-                pbObject.text = pasteBoard.string;
+                pbItem.text = pasteBoard.string;
             }
+            
+            [pbObjects addObject:pbItem];
         }
         
-        
-        [pbObjects addObject:pbObject];
-
     } else {
         self.tabBarItem.badgeValue = nil;
+    }
+    
+    for (id subview in [pbScrollView subviews]){
+        if ([subview class] == [ISPasteboardView class]){
+            [subview removeFromSuperview];
+        }
     }
     
     int i = 0;
