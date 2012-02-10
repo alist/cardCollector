@@ -11,8 +11,9 @@
 #import "NINetworkImageView.h"
 #import "ISPasteboardView.h"
 
-@interface ISPasteboardVC : UIViewController {
+@interface ISPasteboardVC : UIViewController <UIScrollViewDelegate> {
     UIScrollView    *pbScrollView;
+    UIPageControl   *pageControl;
 }
 
 @property (assign, nonatomic) NSInteger pbChangeCount;

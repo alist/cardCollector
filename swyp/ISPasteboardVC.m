@@ -31,8 +31,14 @@
         self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
         
         pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
+        pbScrollView.showsHorizontalScrollIndicator = NO;
         pbScrollView.pagingEnabled = YES;
+        pbScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        pbScrollView.delegate = self;
         [self.view addSubview:pbScrollView];
+        
+        pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 212-24, 320, 24)];
+        [self.view addSubview:pageControl];
         
         self.pbObjects = [NSMutableArray array];
     }
@@ -131,6 +137,11 @@
         i += 1;
     }
     pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
+    pageControl.numberOfPages = i;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    pageControl.currentPage = round(scrollView.contentOffset.x/320);
 }
 
 - (void)viewDidUnload
