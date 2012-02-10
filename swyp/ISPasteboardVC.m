@@ -33,17 +33,8 @@
         imageScrollView.showsHorizontalScrollIndicator = YES;
         [self.view addSubview:imageScrollView];
         
-        imageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
-        imageView.hidden = YES;
-        [imageScrollView addSubview:imageView];
-        
-        textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
-        textView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
-        textView.editable = NO;
-        textView.font = [UIFont systemFontOfSize:18];
-        
-        textView.hidden = YES;
-        [self.view addSubview:textView];        
+        pasteView = [[ISPasteboardView alloc] initWithFrame:self.view.frame];
+        [imageScrollView addSubview:pasteView];        
     }
     
     return self;
@@ -81,14 +72,14 @@
         
         self.tabBarItem.badgeValue = @"!";
         
-        imageView.image = nil;
+        pasteView.image = nil;
         
         if (pasteBoard.image) {
-            UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:imageView.size interpolationQuality:0.8];
-            [imageView setImage:croppedImage];
-            textView.text = nil;
+            UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:pasteView.size interpolationQuality:0.8];
+            pasteView.image = croppedImage;
+            pasteView.text = nil;
         } else if (pasteBoard.URL) {
-            textView.text = [pasteBoard.URL absoluteString];
+            pasteView.text = [pasteBoard.URL absoluteString];
         } else if (pasteBoard.string) {
             
             NSDataDetector *addressDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:NULL];
@@ -96,26 +87,12 @@
             NSTextCheckingResult *match = [addressDetector firstMatchInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
             
             if (match) {
-                address = [pasteBoard.string substringWithRange:match.range];
-                NSString *urlEncodedAddress = [address urlEncodeUsingEncoding:NSUTF8StringEncoding];
-                NSInteger scale = [UIScreen mainScreen].scale;
-                [imageView setPathToNetworkImage:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=320x212&center=%@&zoom=13&scale=%i&markers=blue%%7C%@",
-                        urlEncodedAddress, scale, urlEncodedAddress]];
-                textView.text = pasteBoard.string;
+                pasteView.address = pasteBoard.string;
             } else {
-                textView.text = pasteBoard.string;
-                address = nil;
+                pasteView.text = pasteBoard.string;
             }
         }
-        
-        CGRect frame = textView.frame;
-        frame.size.height = textView.contentSize.height;
-        textView.frame = frame;
-            
-        textView.hidden = (textView.text.length > 0) ? NO : YES;
-        /*  Because the map image is loaded asynchronously, the image may not be set yet.
-            This is why we have to explicitly check for address. */
-        imageView.hidden = (imageView.image || address) ? NO : YES;
+
     } else {
         self.tabBarItem.badgeValue = nil;
     }    

@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "NINetworkImageView.h"
+#import "ISPasteboardView.h"
 
 @interface ISPasteboardVC : UIViewController {
     UIScrollView *imageScrollView;
-    NINetworkImageView *imageView;
-    UITextView  *textView;
     NSArray     *pasteboardItems;
-    NSString    *address;    
+    ISPasteboardView *pasteView;
 }
 
 @property (strong, nonatomic) NSArray *pasteboardItems;

@@ -18,6 +18,7 @@
 		3E06EB5E14DC99CD00BA055D /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5C14DC99CD00BA055D /* calendar@2x.png */; };
 		3E06EB6114DC9A6400BA055D /* photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5F14DC9A6400BA055D /* photos.png */; };
 		3E06EB6214DC9A6400BA055D /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB6014DC9A6400BA055D /* photos@2x.png */; };
+		3E2B4F8D14E583890090D948 /* ISPasteboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B4F8C14E583890090D948 /* ISPasteboardView.m */; };
 		3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */; };
 		3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -150,6 +151,8 @@
 		3E06EB5C14DC99CD00BA055D /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "resources/calendar@2x.png"; sourceTree = SOURCE_ROOT; };
 		3E06EB5F14DC9A6400BA055D /* photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photos.png; path = resources/photos.png; sourceTree = SOURCE_ROOT; };
 		3E06EB6014DC9A6400BA055D /* photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photos@2x.png"; path = "resources/photos@2x.png"; sourceTree = SOURCE_ROOT; };
+		3E2B4F8B14E583890090D948 /* ISPasteboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPasteboardView.h; sourceTree = "<group>"; };
+		3E2B4F8C14E583890090D948 /* ISPasteboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPasteboardView.m; sourceTree = "<group>"; };
 		3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3E9A375F14DCBAC7007B6DD7 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 			children = (
 				3E06EB4414DC8A3300BA055D /* ISPasteboardVC.h */,
 				3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */,
+				3E2B4F8B14E583890090D948 /* ISPasteboardView.h */,
+				3E2B4F8C14E583890090D948 /* ISPasteboardView.m */,
 				3E06EB4B14DC939100BA055D /* ISContactVC.h */,
 				3E06EB4C14DC939100BA055D /* ISContactVC.m */,
 				3E06EB5414DC940400BA055D /* ISCalendarVC.h */,
@@ -796,6 +801,7 @@
 				79527C8A14E36254003002AF /* ISPreviewVC.m in Sources */,
 				79527C9714E3692E003002AF /* ISPreviewMapViewVC.m in Sources */,
 				79527C9A14E36945003002AF /* ISPreviewWebViewVC.m in Sources */,
+				3E2B4F8D14E583890090D948 /* ISPasteboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
