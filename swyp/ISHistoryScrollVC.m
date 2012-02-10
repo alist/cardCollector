@@ -69,6 +69,12 @@
 }
 
 #pragma mark - UIViewController
+-(void) viewDidAppear:(BOOL)animated{
+	[super viewDidAppear:animated];
+	
+	[[swypWorkspaceViewController sharedSwypWorkspace] setContentDataSource:self];
+}
+
 -(id) initWithObjectContext:(NSManagedObjectContext*)context swypWorkspace:(swypWorkspaceViewController*)workspace{
 	if (self  = [super initWithNibName:nil bundle:nil]){
 		self.contentThumbnailForPendingFilesBySession	=	[NSMutableDictionary new];
