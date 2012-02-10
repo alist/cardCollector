@@ -19,21 +19,22 @@
 #pragma mark actions
 -(void)pressedPasteboardButton:(UIButton*)sender{
 	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];
-	[UIView animateWithDuration:.75 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+	[UIView animateWithDuration:.75 animations:^{
 		[sender setBackgroundColor:[UIColor clearColor]];
-	} completion:nil];
+	}];
 }
 -(void)pressedSwypButton:(UIButton*)sender{
 	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];
-	[UIView animateWithDuration:.75 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+	[UIView animateWithDuration:.75 animations:^{
 		[sender setBackgroundColor:[UIColor clearColor]];
-	} completion:nil];
+	}];
+
 }
 -(void)pressedExportButton:(UIButton*)sender{
 	[sender setBackgroundColor:[UIColor colorWithRed:30/255 green:144/255 blue:255/255 alpha:.5]];
-	[UIView animateWithDuration:.75 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+	[UIView animateWithDuration:.75 animations:^{
 		[sender setBackgroundColor:[UIColor clearColor]];
-	} completion:nil];
+	}];
 }
 
 #pragma mark previewer
