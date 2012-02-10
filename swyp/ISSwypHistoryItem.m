@@ -51,11 +51,11 @@
 	NSString * representation = nil;
 	
 	if ([[self itemType] isFileType:[NSString textPlainFileType]]){
-		representation	=	[NSString stringWithCharacters:[[self itemData] bytes] length:[[self itemData] length]];
+		representation	=	[[NSString alloc]  initWithBytes:[[self itemData] bytes] length:[[self itemData] length] encoding: NSUTF8StringEncoding]; 
 	}else if ([[self itemType] isFileType:[NSString swypAddressFileType]]){
-		representation	=	[NSString stringWithCharacters:[[self itemData] bytes] length:[[self itemData] length]];
+		representation	=	[[NSString alloc]  initWithBytes:[[self itemData] bytes] length:[[self itemData] length] encoding: NSUTF8StringEncoding];
 	}else if ([[self itemType] isFileType:[NSString swypAddressFileType]]){
-		representation	=	[NSString stringWithCharacters:[[self itemData] bytes] length:[[self itemData] length]];
+		representation	=	[[NSString alloc]  initWithBytes:[[self itemData] bytes] length:[[self itemData] length] encoding: NSUTF8StringEncoding];
 	}
 	
 	return representation;
