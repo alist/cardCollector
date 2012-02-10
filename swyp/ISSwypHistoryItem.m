@@ -8,8 +8,6 @@
 
 #import "ISSwypHistoryItem.h"
 #import "ISHistoryCell.h"
-#import "ISTextHistoryCell.h"
-#import "ISImageHistoryCell.h"
 
 @implementation ISSwypHistoryItem
 
@@ -25,11 +23,6 @@
 }
 
 - (Class)cellClass{
-	if ([[self itemType] isFileType:[NSString imagePNGFileType]] || [[self itemType] isFileType:[NSString imageJPEGFileType]]){
-		return [ISImageHistoryCell class];
-	}else if ([[self itemType] isFileType:[NSString textPlainFileType]]){
-		return [ISTextHistoryCell class];
-	}
 	return [ISHistoryCell class];
 }
 

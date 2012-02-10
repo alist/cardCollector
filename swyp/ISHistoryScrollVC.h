@@ -28,6 +28,8 @@
 @property (nonatomic, strong) NSManagedObjectContext *			objectContext;
 @property (nonatomic, strong) ISPreviewVC *						previewVC;
 
+@property (nonatomic, strong) NSMutableDictionary *				contentThumbnailForPendingFilesBySession;
+
 -(id) initWithObjectContext:(NSManagedObjectContext*)context swypWorkspace:(swypWorkspaceViewController*)workspace;
 
 

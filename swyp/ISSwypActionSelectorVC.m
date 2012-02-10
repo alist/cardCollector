@@ -16,7 +16,8 @@
 
 -(swypWorkspaceViewController*)swypWorkspace{
 	if (_swypWorkspace == nil){
-		_swypWorkspace = [[swypWorkspaceViewController alloc] init];
+		_swypWorkspace = [swypWorkspaceViewController sharedSwypWorkspace];
+#warning why is _selectedTab here?
         _selectedTab = -1;
 	}
 	return _swypWorkspace;

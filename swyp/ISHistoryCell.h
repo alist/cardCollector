@@ -13,7 +13,7 @@
 @interface ISHistoryCell : UITableViewCell <NICell>
 
 @property (nonatomic, strong) ISSwypHistoryItem	*	historyItem;
-@property (nonatomic, strong) UIView *				contentDisplayView;
+@property (nonatomic, strong) UIImageView *			contentPreviewView;
 @property (nonatomic, retain) UILabel *				dateLabel;
 
 -(void)	updateCellContents;

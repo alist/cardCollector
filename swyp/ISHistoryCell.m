@@ -10,7 +10,7 @@
 #import "NSDate+Relative.h"
 
 @implementation ISHistoryCell
-@synthesize historyItem	=	_historyItem, contentDisplayView = _contentDisplayView;
+@synthesize historyItem	=	_historyItem, contentPreviewView = _contentPreviewView;
 @synthesize dateLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -34,6 +34,14 @@
 		[self.dateLabel setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin];
 		[self addSubview:self.dateLabel];
 		
+		UIImageView* nwImgView		=	[[UIImageView alloc]	initWithFrame:CGRectMake(0, 0, 100, 100)];
+		nwImgView.backgroundColor = [UIColor clearColor];
+		[nwImgView setContentMode:UIViewContentModeScaleAspectFill];
+		[nwImgView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
+		[self addSubview:nwImgView];
+		
+		[self setContentPreviewView:nwImgView];
+		
 	}
 	return self;
 }
@@ -53,6 +61,6 @@
 }
 
 -(void)	updateCellContents{
-	
+	[[self contentPreviewView] setImage:[UIImage imageWithData:[[self historyItem] itemPreviewImage]]];
 }
 @end

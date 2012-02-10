@@ -12,7 +12,7 @@
 
 
 @implementation ISHistoryScrollVC
-@synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel, resultsController = _resultsController, objectContext = _objectContext, previewVC = _previewVC;
+@synthesize swypDropZoneView = _swypDropZoneView, sectionedDataModel = _sectionedDataModel, resultsController = _resultsController, objectContext = _objectContext, previewVC = _previewVC, contentThumbnailForPendingFilesBySession = _contentThumbnailForPendingFilesBySession;
 @synthesize datasourceDelegate = _datasourceDelegate;
 
 #pragma mark - public
@@ -71,6 +71,8 @@
 #pragma mark - UIViewController
 -(id) initWithObjectContext:(NSManagedObjectContext*)context swypWorkspace:(swypWorkspaceViewController*)workspace{
 	if (self  = [super initWithNibName:nil bundle:nil]){
+		self.contentThumbnailForPendingFilesBySession	=	[NSMutableDictionary new];
+		
 		_objectContext	=	context;
 		_swypWorkspace	=	workspace;
 		[_swypWorkspace setContentDataSource:self];
@@ -194,7 +196,7 @@
 	
 }
 - (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
-	return [NSArray arrayWithObjects:[NSString imagePNGFileType],[NSString imageJPEGFileType],nil];
+	return nil;
 }
 
 - (NSData*)	dataForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type{
@@ -217,21 +219,25 @@
 
 #pragma mark swypConnectionSessionDataDelegate
 -(NSArray*)supportedFileTypesForReceipt{
-	return [NSArray arrayWithObjects:[NSString textPlainFileType],[NSString imageJPEGFileType] ,[NSString imagePNGFileType], nil];
-}
-
--(BOOL) delegateWillReceiveDataFromDiscernedStream:(swypDiscernedInputStream*)discernedStream ofType:(NSString*)streamType inConnectionSession:(swypConnectionSession*)session{
-	if ([[NSSet setWithArray:[swypContentInteractionManager supportedReceiptFileTypes]] containsObject:[discernedStream streamType]]){
-		return TRUE;
-	}else{
-		return FALSE;
-	}
+	//everything supported, plus the thumbnail type as a hack
+	return [NSArray arrayWithObjects:[NSString swypAddressFileType],[NSString swypContactFileType], [NSString textPlainFileType],[NSString imagePNGFileType],[NSString imageJPEGFileType],[NSString swypWorkspaceThumbnailFileType], nil];
 }
 
 -(void)	yieldedData:(NSData*)streamData ofType:(NSString *)streamType fromDiscernedStream:(swypDiscernedInputStream *)discernedStream inConnectionSession:(swypConnectionSession *)session{
 	EXOLog(@" datasource received data of type: %@",[discernedStream streamType]);
 	
+	if ([streamType isFileType:[NSString swypWorkspaceThumbnailFileType]]){
+		[self.contentThumbnailForPendingFilesBySession setObject:streamData forKey:[NSValue valueWithNonretainedObject:session]];
+		return;
+	}
+	
 	ISSwypHistoryItem* item	=	[NSEntityDescription insertNewObjectForEntityForName:@"SwypHistoryItem" inManagedObjectContext:[self objectContext]];
+	NSData * thumbnail	=	[self.contentThumbnailForPendingFilesBySession objectForKey:[NSValue valueWithNonretainedObject:session]];
+	if ([thumbnail length] > 0){
+		[item setItemPreviewImage:thumbnail];
+	}
+	[self.contentThumbnailForPendingFilesBySession removeObjectForKey:[NSValue valueWithNonretainedObject:session]];
+	
 	[item setItemType:[discernedStream streamType]];
 	[item setItemData:streamData];
 
