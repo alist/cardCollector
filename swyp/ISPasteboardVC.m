@@ -86,8 +86,8 @@
                 if (alAsset){
                     NSDate *timeTaken = [alAsset valueForProperty:ALAssetPropertyDate];
                     
-                    // we only care if the photo was taken in the last 5 minutes
-                    if (abs([timeTaken timeIntervalSinceNow]) < 60*5){
+                    // we only care if the photo was taken in the last 3 minutes
+                    if (abs([timeTaken timeIntervalSinceNow]) < 60*3){
                         __block CGImageRef imgRef = CGImageRetain([[alAsset defaultRepresentation] fullScreenImage]);
                         
                         dispatch_async(dispatch_get_main_queue(), ^{

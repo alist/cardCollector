@@ -118,8 +118,8 @@
 		7962728E14DC81D100E5D17A /* top_curl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727F14DC81D100E5D17A /* top_curl@2x.png */; };
 		7962729014DC81DD00E5D17A /* historyBGTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962728F14DC81DD00E5D17A /* historyBGTile.png */; };
 		7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735414DCBF3500E5D17A /* ISHistoryCell.m */; };
-		79F213DF14E5E3B800442CD2 /* ISSwypHistoryItem.h in Sources */ = {isa = PBXBuildFile; fileRef = 7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */; };
-		79F213E014E5E3BB00442CD2 /* ISSwypHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */; };
+		79F213DF14E5E3B800442CD2 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		79F213E014E5E3BB00442CD2 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		79F213EC14E6B37D00442CD2 /* UIWindow+ISUXAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F213EB14E6B37D00442CD2 /* UIWindow+ISUXAddons.m */; };
 /* End PBXBuildFile section */
 
@@ -742,8 +742,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				796271E014DC788200E5D17A /* main.m in Sources */,
-				79F213DF14E5E3B800442CD2 /* ISSwypHistoryItem.h in Sources */,
-				79F213E014E5E3BB00442CD2 /* ISSwypHistoryItem.m in Sources */,
+				79F213DF14E5E3B800442CD2 /* (null) in Sources */,
+				79F213E014E5E3BB00442CD2 /* (null) in Sources */,
 				796271E414DC788200E5D17A /* ISAppDelegate.m in Sources */,
 				796271E714DC788200E5D17A /* swyp.xcdatamodeld in Sources */,
 				7962726A14DC7D2700E5D17A /* ISSwypActionSelectorVC.m in Sources */,
