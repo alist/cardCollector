@@ -11,7 +11,7 @@
 #import "ISPreviewMapViewVC.h"
 #import "ISPreviewWebViewVC.h"
 
-@interface ISPreviewVC : UIViewController <swypContentDataSourceProtocol, swypConnectionSessionDataDelegate>{
+@interface ISPreviewVC : UIViewController{
 	id<swypContentDataSourceDelegate>	_datasourceDelegate;
 }
 @property (nonatomic, strong) ISSwypHistoryItem *			displayedHistoryItem;

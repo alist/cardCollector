@@ -64,6 +64,13 @@
 }
 
 
+-(void) displayInSwypWorkspace{
+	swypWorkspaceViewController * swypWorkspace	= [swypWorkspaceViewController sharedSwypWorkspace];
+	[swypWorkspace setContentDataSource:self];
+	[_datasourceDelegate datasourceSignificantlyModifiedContent:self];
+	[swypWorkspace presentContentWorkspaceAtopViewController:[[[UIApplication sharedApplication] keyWindow] rootViewController]];
+}
+
 -(NSIndexSet*)supportedExportActions{
 	NSMutableIndexSet	* actions	=	[NSMutableIndexSet indexSet];
 	if ([[self itemType] isFileType:[NSString imagePNGFileType]] || [[self itemType] isFileType:[NSString imageJPEGFileType]]){
@@ -153,6 +160,67 @@
 	}
 	
 	return parsedDict;
+}
+
+#pragma mark - delegation
+#pragma mark <swypContentDataSourceProtocol, swypConnectionSessionDataDelegate>
+- (NSArray*)	idsForAllContent{
+	return [NSArray arrayWithObject:@"PREVIEW_DISPLAYED_ITEM"];
+}
+- (UIImage *)	iconImageForContentWithID: (NSString*)contentID ofMaxSize:(CGSize)maxIconSize{	
+	UIImage * returnImage	=	[UIImage imageWithData:[self itemPreviewImage]];
+	if (returnImage == nil){
+		returnImage	=	[UIImage imageNamed:@"swypPromptHud.png"];
+	}
+	return returnImage;
+}
+
+- (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
+	return [NSArray arrayWithObjects:[self itemType],[NSString imageJPEGFileType],[NSString imagePNGFileType], nil];
+}
+
+- (NSData*)	dataForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type{
+	NSData *	sendData	=	nil;	
+	
+	if ([type isFileType:[self itemType]]){
+		sendData	=	[self itemData];
+	}else if ([type isFileType:[NSString imagePNGFileType]]){
+		if ([[self itemType] isFileType:[NSString imageJPEGFileType]]){
+			sendData	=	UIImagePNGRepresentation([UIImage imageWithData:[self itemData]]);
+		}else{
+			sendData	=	UIImagePNGRepresentation([UIImage imageWithData:[self itemPreviewImage]]);
+		}
+	}else if ([type isFileType:[NSString imageJPEGFileType]]){
+		if ([[self itemType] isFileType:[NSString imagePNGFileType]]){
+			sendData	=	 UIImageJPEGRepresentation([UIImage imageWithData:[self itemData]],.8);
+		}else{
+			sendData	=	[self itemPreviewImage];//already jpeg
+		}
+	}else{
+		EXOLog(@"No data coverage for content type %@ of ID %@",type,contentID);
+	}
+	
+	
+	return sendData;
+}
+
+-(void)	setDatasourceDelegate:			(id<swypContentDataSourceDelegate>)delegate{
+	_datasourceDelegate	=	delegate;
+}
+-(id<swypContentDataSourceDelegate>)	datasourceDelegate{
+	return _datasourceDelegate;
+}
+
+-(void)	contentWithIDWasDraggedOffWorkspace:(NSString*)contentID{
+	[_datasourceDelegate datasourceRemovedContentWithID:contentID withDatasource:self];
+}
+
+#pragma mark -
+-(NSArray*)supportedFileTypesForReceipt{
+	return nil;
+}
+-(void) yieldedData:(NSData *)streamData ofType:(NSString *)streamType fromDiscernedStream:(swypDiscernedInputStream *)discernedStream inConnectionSession:(swypConnectionSession *)session{
+	
 }
 
 @end

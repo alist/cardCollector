@@ -19,7 +19,9 @@ typedef enum{
 	swypHistoryItemExportActionOpenInMaps
 } swypHistoryItemExportAction;
 
-@interface ISSwypHistoryItem : NSManagedObject <NICellObject>
+@interface ISSwypHistoryItem : NSManagedObject <NICellObject,swypContentDataSourceProtocol, swypConnectionSessionDataDelegate>{
+	id<swypContentDataSourceDelegate>	_datasourceDelegate;
+}
 
 @property (nonatomic, strong) NSDate * dateAdded;
 @property (nonatomic, strong) NSData * itemData;
@@ -42,6 +44,11 @@ typedef enum{
  @param controller :some actions benefit by displaying a modal view of the result, such as contacts or calendars
  */
 -(void) performExportAction:(swypHistoryItemExportAction)exportAction withSendingViewController:(UIViewController*)controller;
+
+/** Sets this object as the sharedSwypWorkspace's dataSource
+ Displays the sharedSwypWorskapce as a modal view atop the root view controller of the UIWindow 
+ */
+-(void) displayInSwypWorkspace;
 
 ///Returns the biggest image representation available to the framework
 -(UIImage*)	biggestImageAvailable;

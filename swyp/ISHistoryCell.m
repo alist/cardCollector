@@ -43,6 +43,10 @@
 		
 		[self setContentPreviewView:nwImgView];
 		
+		UILongPressGestureRecognizer * optionsPress	=	[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressForOptionsMenuOccured)];
+		[optionsPress setMinimumPressDuration:.4];
+		[self addGestureRecognizer:optionsPress];
+		
 	}
 	return self;
 }
@@ -64,4 +68,77 @@
 -(void)	updateCellContents{
 	[[self contentPreviewView] setImage:[UIImage imageWithData:[[self historyItem] itemPreviewImage]]];
 }
+
+
+#pragma mark - export actions
+-(void)swypPressed:(UIMenuController*)sender{
+	[[self historyItem] displayInSwypWorkspace];
+}
+
+-(void)exportPressed:(UIMenuController*)sender{
+	swypHistoryItemExportAction exportAction	=	[[[[self historyItem] localizedActionNamesByExportAction] keyForObject:[[[sender menuItems] lastObject] title]] intValue];
+	
+	if (exportAction > swypHistoryItemExportActionNone){
+		[[self historyItem] performExportAction:exportAction withSendingViewController:nil];
+	}
+}
+
+-(void)copyPressed:(UIMenuController*)sender{
+	[[self historyItem] addToPasteboard];
+}
+
+
+#pragma mark - UIMenuController
+-(void)longPressForOptionsMenuOccured{
+	UIMenuController * selectionMenu = [UIMenuController sharedMenuController];
+	[self setSelected:TRUE];
+	[self becomeFirstResponder];
+	
+	
+	UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:LocStr(@"Copy",@"MenuItem on history scroll view") action:@selector(copyPressed:)] ;
+	UIMenuItem *swypItem = [[UIMenuItem alloc] initWithTitle:LocStr(@"Swÿp",@"MenuItem on history scroll view") action:@selector(swypPressed:)] ;
+
+	UIMenuItem *exportItem =  nil;
+	NSIndexSet * supportedActions = [[self historyItem] supportedExportActions];
+	if ([supportedActions count] > 0){
+		NSString * exportActionName		=	[[[self historyItem] localizedActionNamesByExportAction] objectForKey:[NSNumber numberWithInt:[supportedActions firstIndex]]];
+		exportItem =  [[UIMenuItem alloc] initWithTitle:exportActionName action:@selector(exportPressed:)];
+	}
+	
+	[selectionMenu setMenuItems:[NSArray arrayWithObjects:copyItem,swypItem,exportItem,nil]];
+	[selectionMenu setArrowDirection:UIMenuControllerArrowDown];
+	
+	[selectionMenu setTargetRect:self.bounds inView:self];
+	[selectionMenu setMenuVisible:TRUE animated:FALSE];
+}
+
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+	if (action == @selector(copyPressed:))
+		return YES;
+	if (action == @selector(swypPressed:))
+		return YES;
+	if (action == @selector(exportPressed:))
+		return YES;
+	return NO;
+}
+
+-(BOOL)canBecomeFirstResponder{
+	return TRUE;
+}
+
+-(BOOL)becomeFirstResponder{
+	[super becomeFirstResponder];
+	return TRUE;
+}
+
+
+-(BOOL)resignFirstResponder{
+	[super resignFirstResponder];
+	[self setSelected:FALSE animated:TRUE];
+	return TRUE;
+}
+
+
+
 @end
