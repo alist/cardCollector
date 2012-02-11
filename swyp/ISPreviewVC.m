@@ -11,7 +11,7 @@
 
 @implementation ISPreviewVC
 @synthesize displayedHistoryItem = _displayedHistoryItem;
-@synthesize mapPreviewVC = _mapPreviewVC, webPreviewVC = _webPreviewVC, actionButtonView = _actionButtonView;
+@synthesize mapPreviewVC = _mapPreviewVC, webPreviewVC = _webPreviewVC, actionButtonView = _actionButtonView, exportButton = _exportButton;
 
 #pragma mark actions
 -(void)pressedPasteboardButton:(UIButton*)sender{
@@ -37,19 +37,28 @@
 	[UIView animateWithDuration:.75 animations:^{
 		[sender setBackgroundColor:[UIColor clearColor]];
 	}];
+	
+	swypHistoryItemExportAction exportAction	=	[[[[self displayedHistoryItem] localizedActionNamesByExportAction] keyForObject:[[self exportButton] titleForState:UIControlStateNormal]] intValue];
+	
+	if (exportAction > swypHistoryItemExportActionNone){
+		[[self displayedHistoryItem] performExportAction:exportAction withSendingViewController:self];
+	}
 }
+
 
 #pragma mark previewer
 -(void)setDisplayedHistoryItem:(ISSwypHistoryItem *)displayedHistoryItem{
 	if (_displayedHistoryItem != displayedHistoryItem){
 		_displayedHistoryItem = displayedHistoryItem;
-
+		
 		[_mapPreviewVC.view removeFromSuperview];
 		[_webPreviewVC.view removeFromSuperview];
 		
 		UIView * previewView	=	[self previewVCForHistoryItem:displayedHistoryItem].view;
 		[self.view addSubview:previewView];
 		[self.view sendSubviewToBack:previewView];
+		
+		[self _updateExportButton];
 	}
 }
 
@@ -69,7 +78,10 @@
 
 -(UIView*)	actionButtonView{
 	if (_actionButtonView == nil){
-		UIView * actionView	=	[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
+		UIView * actionView	=	[[UIView alloc] initWithFrame:CGRectZero];
+		_actionButtonView = actionView;
+		[_actionButtonView setFrame:CGRectMake(0, 0, self.view.width, 40)];
+		
 		[actionView setOrigin:CGPointMake(0, 0)];
 		[actionView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin];
 		[actionView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"previewVCActionButtonsBGTile"]]];
@@ -103,19 +115,18 @@
 		[swypButton addTarget:self action:@selector(pressedSwypButton:) forControlEvents:UIControlEventTouchUpInside];
 		[actionView addSubview:swypButton];
 		
-		UIButton * exportButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
-		[exportButton setFrame:CGRectMake(viewThirdSize*2, 0, viewThirdSize, 40)];
-		[exportButton setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleWidth];
-		[exportButton setShowsTouchWhenHighlighted:TRUE];
-		[exportButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-		[[exportButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
-		[exportButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
-		[exportButton setTitle:LocStr(@"Export",@"preview of received swyp item") forState:UIControlStateNormal];
+		_exportButton	=	[UIButton buttonWithType:UIButtonTypeCustom];
+		[_exportButton setFrame:CGRectMake(viewThirdSize*2, 0, viewThirdSize, 40)];
+		[_exportButton setAutoresizingMask:UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleWidth];
+		[_exportButton setShowsTouchWhenHighlighted:TRUE];
+		[_exportButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+		[[_exportButton titleLabel] setFont:[UIFont fontWithName:@"futura" size:12]];
+		[_exportButton titleLabel].highlightedTextColor	= [UIColor lightGrayColor];
+		[_exportButton setTitle:@"" forState:UIControlStateDisabled];
+		[_exportButton setEnabled:NO];
 		
-		[exportButton addTarget:self action:@selector(pressedExportButton:) forControlEvents:UIControlEventTouchUpInside];
-		[actionView addSubview:exportButton];
-		
-		_actionButtonView = actionView;
+		[_exportButton addTarget:self action:@selector(pressedExportButton:) forControlEvents:UIControlEventTouchUpInside];
+		[actionView addSubview:_exportButton];
 	}
 	return _actionButtonView;
 }
@@ -210,7 +221,7 @@
 		if ([[[self displayedHistoryItem] itemType] isFileType:[NSString imagePNGFileType]]){
 			sendData	=	 UIImageJPEGRepresentation([UIImage imageWithData:[[self displayedHistoryItem] itemData]],.8);
 		}else{
-			sendData	=	UIImageJPEGRepresentation([UIImage imageWithData:[[self displayedHistoryItem] itemPreviewImage]],.8);
+			sendData	=	[[self displayedHistoryItem] itemPreviewImage];//already jpeg
 		}
 	}else{
 		EXOLog(@"No data coverage for content type %@ of ID %@",type,contentID);
@@ -237,6 +248,18 @@
 }
 -(void) yieldedData:(NSData *)streamData ofType:(NSString *)streamType fromDiscernedStream:(swypDiscernedInputStream *)discernedStream inConnectionSession:(swypConnectionSession *)session{
 	
+}
+
+#pragma mark - private
+-(void) _updateExportButton{
+	NSIndexSet * supportedActions = [[self displayedHistoryItem] supportedExportActions];
+	if ([supportedActions count] > 0){
+		NSString * exportActionName		=	[[[self displayedHistoryItem] localizedActionNamesByExportAction] objectForKey:[NSNumber numberWithInt:[supportedActions firstIndex]]];
+		[[self exportButton] setEnabled:TRUE];
+		[[self exportButton] setTitle:exportActionName forState:UIControlStateNormal];
+	}else{
+		[[self exportButton] setEnabled:FALSE];
+	}
 }
 
 @end

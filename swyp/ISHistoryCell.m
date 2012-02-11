@@ -37,6 +37,7 @@
 		UIImageView* nwImgView		=	[[UIImageView alloc]	initWithFrame:CGRectMake(0, 0, 100, 100)];
 		nwImgView.backgroundColor = [UIColor clearColor];
 		[nwImgView setContentMode:UIViewContentModeScaleAspectFill];
+		[nwImgView setClipsToBounds:TRUE];
 		[nwImgView setAutoresizingMask:UIViewAutoresizingFlexibleRightMargin];
 		[self addSubview:nwImgView];
 		

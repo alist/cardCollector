@@ -31,7 +31,6 @@
 		7932E65614DDD75400E1A017 /* NINetworkImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7932E65314DDD75400E1A017 /* NINetworkImageRequest.m */; };
 		7932E65714DDD75400E1A017 /* NINetworkImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7932E65514DDD75400E1A017 /* NINetworkImageView.m */; };
 		7935171A14DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7935171914DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m */; };
-		7935171D14DDCA74000E406C /* ISSwypHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */; };
 		793517D314DDD6EB000E406C /* NIBlocks.h in Sources */ = {isa = PBXBuildFile; fileRef = 7962729214DC865700E5D17A /* NIBlocks.h */; };
 		793517D414DDD6EB000E406C /* NICommonMetrics.h in Sources */ = {isa = PBXBuildFile; fileRef = 7962729314DC865700E5D17A /* NICommonMetrics.h */; };
 		793517D514DDD6EB000E406C /* NICommonMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962729414DC865700E5D17A /* NICommonMetrics.m */; };
@@ -116,6 +115,9 @@
 		7962728E14DC81D100E5D17A /* top_curl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962727F14DC81D100E5D17A /* top_curl@2x.png */; };
 		7962729014DC81DD00E5D17A /* historyBGTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7962728F14DC81DD00E5D17A /* historyBGTile.png */; };
 		7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735414DCBF3500E5D17A /* ISHistoryCell.m */; };
+		79F213DF14E5E3B800442CD2 /* ISSwypHistoryItem.h in Sources */ = {isa = PBXBuildFile; fileRef = 7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */; };
+		79F213E014E5E3BB00442CD2 /* ISSwypHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */; };
+		79F213EC14E6B37D00442CD2 /* UIWindow+ISUXAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F213EB14E6B37D00442CD2 /* UIWindow+ISUXAddons.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,8 +181,6 @@
 		7932E65514DDD75400E1A017 /* NINetworkImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NINetworkImageView.m; sourceTree = "<group>"; };
 		7935171814DDA6DC000E406C /* UIApplication+ISApplicationAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+ISApplicationAddtions.h"; sourceTree = "<group>"; };
 		7935171914DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+ISApplicationAddtions.m"; sourceTree = "<group>"; };
-		7935171B14DDCA73000E406C /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
-		7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
 		79527C7114E0CD06003002AF /* NSDate+Relative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Relative.h"; sourceTree = "<group>"; };
 		79527C7214E0CD06003002AF /* NSDate+Relative.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Relative.m"; sourceTree = "<group>"; };
 		79527C8814E36254003002AF /* ISPreviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPreviewVC.h; path = swyp/ISPreviewVC.h; sourceTree = "<group>"; };
@@ -278,6 +278,8 @@
 		7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
 		7962735314DCBF3500E5D17A /* ISHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHistoryCell.h; path = swyp/ISHistoryCell.h; sourceTree = "<group>"; };
 		7962735414DCBF3500E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
+		79F213EA14E6B37D00442CD2 /* UIWindow+ISUXAddons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+ISUXAddons.h"; sourceTree = "<group>"; };
+		79F213EB14E6B37D00442CD2 /* UIWindow+ISUXAddons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+ISUXAddons.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,8 @@
 				3E9A375E14DCBAC7007B6DD7 /* UIImage Additions */,
 				7935171814DDA6DC000E406C /* UIApplication+ISApplicationAddtions.h */,
 				7935171914DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m */,
+				79F213EA14E6B37D00442CD2 /* UIWindow+ISUXAddons.h */,
+				79F213EB14E6B37D00442CD2 /* UIWindow+ISUXAddons.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -452,8 +456,6 @@
 				796271E214DC788200E5D17A /* ISAppDelegate.h */,
 				796271E314DC788200E5D17A /* ISAppDelegate.m */,
 				796271E514DC788200E5D17A /* swyp.xcdatamodeld */,
-				7935171B14DDCA73000E406C /* ISSwypHistoryItem.h */,
-				7935171C14DDCA73000E406C /* ISSwypHistoryItem.m */,
 			);
 			name = Logic;
 			path = ..;
@@ -730,6 +732,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				796271E014DC788200E5D17A /* main.m in Sources */,
+				79F213DF14E5E3B800442CD2 /* ISSwypHistoryItem.h in Sources */,
+				79F213E014E5E3BB00442CD2 /* ISSwypHistoryItem.m in Sources */,
 				796271E414DC788200E5D17A /* ISAppDelegate.m in Sources */,
 				796271E714DC788200E5D17A /* swyp.xcdatamodeld in Sources */,
 				7962726A14DC7D2700E5D17A /* ISSwypActionSelectorVC.m in Sources */,
@@ -743,7 +747,6 @@
 				7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */,
 				3EC3F0AA14DD8BD100BAFD1A /* ISDoodleRecognizingGestureRecognizer.m in Sources */,
 				7935171A14DDA6DC000E406C /* UIApplication+ISApplicationAddtions.m in Sources */,
-				7935171D14DDCA74000E406C /* ISSwypHistoryItem.m in Sources */,
 				3EC3F0C014DD9B3600BAFD1A /* NSString+URLEncoding.m in Sources */,
 				793517D314DDD6EB000E406C /* NIBlocks.h in Sources */,
 				793517D414DDD6EB000E406C /* NICommonMetrics.h in Sources */,
@@ -800,6 +803,7 @@
 				79527C8A14E36254003002AF /* ISPreviewVC.m in Sources */,
 				79527C9714E3692E003002AF /* ISPreviewMapViewVC.m in Sources */,
 				79527C9A14E36945003002AF /* ISPreviewWebViewVC.m in Sources */,
+				79F213EC14E6B37D00442CD2 /* UIWindow+ISUXAddons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

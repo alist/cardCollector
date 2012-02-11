@@ -18,6 +18,11 @@
 @property (nonatomic, strong) ISPreviewMapViewVC *			mapPreviewVC;
 @property (nonatomic, strong) ISPreviewWebViewVC *			webPreviewVC;
 @property (nonatomic, strong) UIView *						actionButtonView;
+@property (nonatomic, strong) UIButton *					exportButton;
 
 -(UIViewController*) previewVCForHistoryItem:(ISSwypHistoryItem*)historyItem;
+
+//
+//private
+-(void) _updateExportButton;
 @end
