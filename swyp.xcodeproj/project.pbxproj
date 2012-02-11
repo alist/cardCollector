@@ -18,6 +18,9 @@
 		3E06EB5E14DC99CD00BA055D /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5C14DC99CD00BA055D /* calendar@2x.png */; };
 		3E06EB6114DC9A6400BA055D /* photos.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB5F14DC9A6400BA055D /* photos.png */; };
 		3E06EB6214DC9A6400BA055D /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB6014DC9A6400BA055D /* photos@2x.png */; };
+		3E2B4F8D14E583890090D948 /* ISPasteboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B4F8C14E583890090D948 /* ISPasteboardView.m */; };
+		3E2B4F9014E58E530090D948 /* ISPasteboardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B4F8F14E58E520090D948 /* ISPasteboardObject.m */; };
+		3E2B4F9314E5CA620090D948 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */; };
 		3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */; };
 		3E9A376514DCBAC7007B6DD7 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3E9A376614DCBAC7007B6DD7 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9A376214DCBAC7007B6DD7 /* UIImage+Resize.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -152,6 +155,11 @@
 		3E06EB5C14DC99CD00BA055D /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "resources/calendar@2x.png"; sourceTree = SOURCE_ROOT; };
 		3E06EB5F14DC9A6400BA055D /* photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photos.png; path = resources/photos.png; sourceTree = SOURCE_ROOT; };
 		3E06EB6014DC9A6400BA055D /* photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photos@2x.png"; path = "resources/photos@2x.png"; sourceTree = SOURCE_ROOT; };
+		3E2B4F8B14E583890090D948 /* ISPasteboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPasteboardView.h; sourceTree = "<group>"; };
+		3E2B4F8C14E583890090D948 /* ISPasteboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPasteboardView.m; sourceTree = "<group>"; };
+		3E2B4F8E14E58E520090D948 /* ISPasteboardObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardObject.h; path = swyp/ISPasteboardObject.h; sourceTree = "<group>"; };
+		3E2B4F8F14E58E520090D948 /* ISPasteboardObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPasteboardObject.m; path = swyp/ISPasteboardObject.m; sourceTree = "<group>"; };
+		3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3E9A375F14DCBAC7007B6DD7 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		3E9A376014DCBAC7007B6DD7 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
@@ -274,8 +282,6 @@
 		796272BD14DC865700E5D17A /* NSString+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NimbusCore.m"; sourceTree = "<group>"; };
 		796272BE14DC865700E5D17A /* UIView+NimbusCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NimbusCore.h"; sourceTree = "<group>"; };
 		796272BF14DC865700E5D17A /* UIView+NimbusCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NimbusCore.m"; sourceTree = "<group>"; };
-		7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
-		7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
 		7962735314DCBF3500E5D17A /* ISHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISHistoryCell.h; path = swyp/ISHistoryCell.h; sourceTree = "<group>"; };
 		7962735414DCBF3500E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
 		79F213EA14E6B37D00442CD2 /* UIWindow+ISUXAddons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+ISUXAddons.h"; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7962720A14DC799000E5D17A /* liblibSwyp.a in Frameworks */,
+				3E2B4F9314E5CA620090D948 /* AssetsLibrary.framework in Frameworks */,
 				3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */,
 				3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */,
 				796271D214DC788200E5D17A /* UIKit.framework in Frameworks */,
@@ -310,6 +317,10 @@
 			children = (
 				3E06EB4414DC8A3300BA055D /* ISPasteboardVC.h */,
 				3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */,
+				3E2B4F8B14E583890090D948 /* ISPasteboardView.h */,
+				3E2B4F8C14E583890090D948 /* ISPasteboardView.m */,
+				3E2B4F8E14E58E520090D948 /* ISPasteboardObject.h */,
+				3E2B4F8F14E58E520090D948 /* ISPasteboardObject.m */,
 				3E06EB4B14DC939100BA055D /* ISContactVC.h */,
 				3E06EB4C14DC939100BA055D /* ISContactVC.m */,
 				3E06EB5414DC940400BA055D /* ISCalendarVC.h */,
@@ -410,6 +421,7 @@
 		796271D014DC788200E5D17A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */,
 				3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */,
 				3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */,
 				7962720B14DC79A300E5D17A /* GameKit.framework */,
@@ -451,8 +463,6 @@
 		796271F114DC78FF00E5D17A /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				7962733514DCB06E00E5D17A /* ISSwypHistoryItem.h */,
-				7962733614DCB06F00E5D17A /* ISSwypHistoryItem.m */,
 				796271E214DC788200E5D17A /* ISAppDelegate.h */,
 				796271E314DC788200E5D17A /* ISAppDelegate.m */,
 				796271E514DC788200E5D17A /* swyp.xcdatamodeld */,
@@ -804,6 +814,8 @@
 				79527C9714E3692E003002AF /* ISPreviewMapViewVC.m in Sources */,
 				79527C9A14E36945003002AF /* ISPreviewWebViewVC.m in Sources */,
 				79F213EC14E6B37D00442CD2 /* UIWindow+ISUXAddons.m in Sources */,
+				3E2B4F8D14E583890090D948 /* ISPasteboardView.m in Sources */,
+				3E2B4F9014E58E530090D948 /* ISPasteboardObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,23 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
-#import "NINetworkImageView.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface ISPasteboardVC : UIViewController <swypSwypableContentSuperviewContentDelegate, swypContentDataSourceProtocol, swypConnectionSessionDataDelegate> {
-    __unsafe_unretained id<swypContentDataSourceDelegate>	_delegate;
-    UIScrollView *imageScrollView;
-    NINetworkImageView *imageView;
-    UITextView  *textView;
-    NSArray     *pasteboardItems;
-    NSString    *address;
-    
-    swypWorkspaceViewController*	_swypWorkspace;
+#import "NINetworkImageView.h"
+#import "ISPasteboardView.h"
+
+@interface ISPasteboardVC : UIViewController <UIScrollViewDelegate> {
+    UIScrollView    *pbScrollView;
+    UIPageControl   *pageControl;
+    NSURL           *latestAssetURL;
+    ALAssetsLibrary *library;
 }
 
-@property (strong, nonatomic) NSArray *pasteboardItems;
-@property (strong, nonatomic) swypWorkspaceViewController * swypWorkspace;
-@property (nonatomic, assign) id <swypContentDataSourceDelegate> delegate;
+@property (assign, nonatomic) NSInteger pbChangeCount;
+@property (strong, nonatomic) NSMutableArray *pbObjects;
 
+- (void)redisplayPasteboard;
 - (void)updatePasteboard;
 
 @end

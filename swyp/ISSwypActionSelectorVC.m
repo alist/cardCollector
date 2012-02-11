@@ -17,8 +17,6 @@
 -(swypWorkspaceViewController*)swypWorkspace{
 	if (_swypWorkspace == nil){
 		_swypWorkspace = [swypWorkspaceViewController sharedSwypWorkspace];
-#warning why is _selectedTab here?
-        _selectedTab = -1;
 	}
 	return _swypWorkspace;
 }
@@ -27,6 +25,7 @@
 -(id) initWithObjectContext:(NSManagedObjectContext*)context{
 	if (self  = [super initWithNibName:nil bundle:nil]){
 		_objectContext	=	context;
+        _selectedTab = -1;
 	}
 	return self;
 }

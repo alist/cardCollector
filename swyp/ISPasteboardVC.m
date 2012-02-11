@@ -7,16 +7,14 @@
 //
 
 #import "ISPasteboardVC.h"
-#import "UIImage+Resize.h"
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+URLEncoding.h"
 #import <CoreLocation/CoreLocation.h>
 
 @implementation ISPasteboardVC
 
-@synthesize pasteboardItems;
-@synthesize swypWorkspace;
-@synthesize delegate = _delegate;
+@synthesize pbChangeCount;
+@synthesize pbObjects;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,33 +23,28 @@
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Pasteboard", @"The pasteboard.") 
                                                         image:[UIImage imageNamed:@"paperclip"] tag:2];
         
-        swypSwypableContentSuperview * contentSuperView	=	[[swypSwypableContentSuperview alloc] initWithContentDelegate:self workspaceDelegate:[self swypWorkspace] frame:self.view.frame];
-        self.view = contentSuperView;
-        
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         self.view.backgroundColor = [UIColor whiteColor];
         self.view.frame = CGRectMake(0, screenSize.height-(212+49+20), 320, 212);
         self.view.autoresizesSubviews = YES;
-        self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin);
+        self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
         
-        imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
-        imageScrollView.showsHorizontalScrollIndicator = YES;
-        [self.view addSubview:imageScrollView];
+        pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
+        pbScrollView.showsHorizontalScrollIndicator = NO;
+        pbScrollView.pagingEnabled = YES;
+        pbScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        pbScrollView.delegate = self;
+        [self.view addSubview:pbScrollView];
         
-        imageView = [[NINetworkImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
-        imageView.hidden = YES;
-        [imageScrollView addSubview:imageView];
+        pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 212-24, 320, 24)];
+        [self.view addSubview:pageControl];
         
-        textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, 212)];
-        textView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.75];
-        textView.editable = NO;
-        textView.font = [UIFont systemFontOfSize:18];
+        self.pbObjects = [NSMutableArray array];
         
-        textView.hidden = YES;
-        [self.view addSubview:textView];
-        
-        _swypWorkspace = [[swypWorkspaceViewController alloc] init];
+        library = [[ALAssetsLibrary alloc] init];
     }
+    
+    pbChangeCount = 0;
     
     return self;
 }
@@ -78,58 +71,114 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-	
-	[[_swypWorkspace contentManager] setContentDataSource:self];
+    [super viewDidAppear:animated];	
+}
+
+- (void)addMostRecentPhotoTaken {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop){
+            [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+
+            // only grab the most recent asset
+            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets]-1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
+                if (alAsset){
+                    NSDate *timeTaken = [alAsset valueForProperty:ALAssetPropertyDate];
+                    
+                    // we only care if the photo was taken in the last 5 minutes
+                    if (abs([timeTaken timeIntervalSinceNow]) < 60*5){
+                        __block CGImageRef imgRef = CGImageRetain([[alAsset defaultRepresentation] fullScreenImage]);
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            if (alAsset.defaultRepresentation.url != latestAssetURL){
+                                
+                                latestAssetURL = alAsset.defaultRepresentation.url;
+                                NSLog(@"Adding image!");
+                                ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+                                pbItem.image = [UIImage imageWithCGImage:imgRef];
+                                [self.pbObjects insertObject:pbItem atIndex:0];
+
+                                [self redisplayPasteboard];
+                            }
+                        });                    
+                    }                
+                }
+            }];
+        } failureBlock:^(NSError *error) {
+            NSLog(@"No groups, %@", error);
+        }];
+    });
+}
+
+- (void)redisplayPasteboard {
+    for (id subview in [pbScrollView subviews]){
+        if ([subview class] == [ISPasteboardView class]){
+            [subview removeFromSuperview];
+        }
+    }
+    
+    int i = 0;
+    for (ISPasteboardObject *pbObject in pbObjects){
+        ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
+                                       CGRectMake(i*self.view.width, 0, self.view.width, self.view.height)];
+        pbObject.delegate = pasteView;
+        [pbScrollView addSubview:pasteView];
+        i += 1;
+    }
+    pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
+    pageControl.numberOfPages = i;
 }
 
 - (void)updatePasteboard {
     UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
-    if (!pasteboardItems || ![pasteboardItems isEqualToArray:pasteBoard.items]) {
-        pasteboardItems = pasteBoard.items;
+    // go by changecount
+    if (pbChangeCount != pasteBoard.changeCount) {
+        pbChangeCount = pasteBoard.changeCount;
         
         self.tabBarItem.badgeValue = @"!";
-        
-        imageView.image = nil;
-        
+                
         if (pasteBoard.image) {
-            UIImage *croppedImage = [pasteBoard.image resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:imageView.size interpolationQuality:0.8];
-            [imageView setImage:croppedImage];
-            textView.text = nil;
-        } else if (pasteBoard.URL) {
-            textView.text = [pasteBoard.URL absoluteString];
+            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+            pbItem.image = [pasteBoard.image copy];
+            pbItem.text = nil;
+            
+            [pbObjects insertObject:pbItem atIndex:0];
+        }
+        
+        if (pasteBoard.URL) {
+            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+
+            pbItem.text = [pasteBoard.URL absoluteString];
+            
+            [pbObjects insertObject:pbItem atIndex:0];
+        
         } else if (pasteBoard.string) {
             
             NSDataDetector *addressDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:NULL];
             
             NSTextCheckingResult *match = [addressDetector firstMatchInString:pasteBoard.string options:0 range:NSMakeRange(0, pasteBoard.string.length)];
             
+            ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+
             if (match) {
-                address = [pasteBoard.string substringWithRange:match.range];
-                NSString *urlEncodedAddress = [address urlEncodeUsingEncoding:NSUTF8StringEncoding];
-                NSInteger scale = [UIScreen mainScreen].scale;
-                [imageView setPathToNetworkImage:[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/staticmap?sensor=false&size=320x212&center=%@&zoom=13&scale=%i&markers=blue%%7C%@",
-                        urlEncodedAddress, scale, urlEncodedAddress]];
-                textView.text = pasteBoard.string;
+                pbItem.address = pasteBoard.string;
             } else {
-                textView.text = pasteBoard.string;
-                address = nil;
+                pbItem.text = pasteBoard.string;
             }
-        }
-        
-        CGRect frame = textView.frame;
-        frame.size.height = textView.contentSize.height;
-        textView.frame = frame;
             
-        textView.hidden = (textView.text.length > 0) ? NO : YES;
-        /*  Because the map image is loaded asynchronously, the image may not be set yet.
-            This is why we have to explicitly check for address. */
-        imageView.hidden = (imageView.image || address) ? NO : YES;
+            [pbObjects insertObject:pbItem atIndex:0];
+        }
     } else {
         self.tabBarItem.badgeValue = nil;
+        [self addMostRecentPhotoTaken];
     }
     
-    [_delegate datasourceSignificantlyModifiedContent:self];    
+    [self redisplayPasteboard];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    pageControl.currentPage = round(scrollView.contentOffset.x/320);
 }
 
 - (void)viewDidUnload
@@ -143,73 +192,6 @@
 {
     // Return YES for supported orientations
 	return YES;
-}
-
-
-#pragma mark - swyp
-#pragma mark swypSwypableContentSuperviewContentDelegate
--(NSString*)contentIDForSwypableSubview:(UIView *)view withinSwypableContentSuperview:(swypSwypableContentSuperview *)superview{
-	NSArray * content = [self idsForAllContent];
-	return [content objectAtIndex:0];
-}
--(BOOL)subview:(UIView *)subview isSwypableWithSwypableContentSuperview:(swypSwypableContentSuperview *)superview{
-	if (subview == imageView || subview == textView){
-		NSArray * content = [self idsForAllContent];
-		return (ArrayHasItems(content));
-	}
-	return FALSE;
-}
-
-
-#pragma mark swypConnectionSessionDataDelegate
--(NSArray*)	supportedFileTypesForReceipt{
-	return [NSArray arrayWithObjects:nil];
-}
-
--(BOOL) delegateWillHandleDiscernedStream:(swypDiscernedInputStream*)discernedStream wantsAsData:(BOOL *)wantsProvidedAsNSData inConnectionSession:(swypConnectionSession*)session{
-	if ([[self supportedFileTypesForReceipt] containsObject:[discernedStream streamType]]){
-		*wantsProvidedAsNSData = TRUE;
-		return TRUE;
-	}
-	return FALSE;
-}
-
-#pragma mark swypContentDataSourceProtocol
-- (NSArray*)		idsForAllContent{
-	if (!imageView.image) {
-		return nil;
-    }
-	return [NSArray arrayWithObject:@"MODEL_CURRENT_PASTEBOARD_ITEM"];
-}
-- (UIImage *)		iconImageForContentWithID: (NSString*)contentID ofMaxSize:(CGSize)maxIconSize {
-    UIGraphicsBeginImageContext(self.view.frame.size);
-	[self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-	UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-    
-    return viewImage;
-}
-
-- (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
-	return [NSArray arrayWithObjects:[NSString imageJPEGFileType],[NSString imagePNGFileType], nil];
-}
-- (NSInputStream*)	inputStreamForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type	length: (NSUInteger*)contentLengthDestOrNULL;{
-	NSData * streamData = nil;
-    
-    if ([type isFileType:[NSString imageJPEGFileType]]){
-        streamData = UIImageJPEGRepresentation(imageView.image, 0.8);
-    } else if ([type isFileType:[NSString imagePNGFileType]]){
-		streamData = UIImagePNGRepresentation(imageView.image);
-	}
-	
-	*contentLengthDestOrNULL	=	[streamData length];
-	return [NSInputStream inputStreamWithData:streamData];
-}
--(void)	setDatasourceDelegate:			(id<swypContentDataSourceDelegate>)delegate{
-	_delegate	=	delegate;
-}
--(id<swypContentDataSourceDelegate>)	datasourceDelegate{
-	return _delegate;
 }
 
 @end
