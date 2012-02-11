@@ -8,26 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
-
 @protocol ISPasteboardObjectDelegate <NSObject>
 
 @required
-    - (void)setImage:(UIImage *)image;
-    - (void)setText:(NSString *)text;
-    - (void)setAddress:(NSString *)address;
-    - (CGSize)getSize;
+- (void)setImage:(UIImage *)image;
+- (void)setText:(NSString *)text;
+- (void)setAddress:(NSString *)address;
+- (void)setDatasource:(id)datasource;
+- (UIImage *)getThumbnail;
+- (CGSize)getSize;
 @end
 
-@interface ISPasteboardObject : NSObject {
+@interface ISPasteboardObject : NSObject <swypContentDataSourceProtocol, swypConnectionSessionDataDelegate> {
     __unsafe_unretained id <ISPasteboardObjectDelegate> delegate;
+    id<swypContentDataSourceDelegate>	_datasourceDelegate;
 }
 
 @property (nonatomic, assign) id <ISPasteboardObjectDelegate> delegate;
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) UIImage *thumbImage;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *itemType;
 
-- (void)setThumbImageFromCurrentImage;
+- (void)displayInSwypWorkspace:(id)sender;
 
 @end

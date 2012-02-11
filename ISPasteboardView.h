@@ -13,12 +13,19 @@
 @interface ISPasteboardView : UIView <ISPasteboardObjectDelegate>{
     NINetworkImageView *_imageView;
     UITextView *_textView;
+    __unsafe_unretained ISPasteboardObject *datasource;
+    UIButton *_button;
+    UIImage *_generatedThumbnail;
 }
+
+@property (nonatomic, assign) ISPasteboardObject *datasource;
+
+- (id)initWithFrame:(CGRect)frame andDataSource:(ISPasteboardObject *)theDatasource;
 
 - (void)setImage:(UIImage *)image;
 - (void)setText:(NSString *)text;
 - (void)setAddress:(NSString *)address;
-
+- (void)setDatasource:(ISPasteboardObject *)datasource;
 - (CGSize)getSize;
 
 @end

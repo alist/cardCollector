@@ -120,6 +120,8 @@
         }
     }
     
+    NSLog(@"%@", pbObjects);
+    
     int i = 0;
     for (ISPasteboardObject *pbObject in pbObjects){
         ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
@@ -128,6 +130,7 @@
         [pbScrollView addSubview:pasteView];
         i += 1;
     }
+    
     pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
     pageControl.numberOfPages = i;
 }
@@ -143,14 +146,12 @@
         if (pasteBoard.images) {
             for (UIImage *image in pasteBoard.images){
                 ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
-                pbItem.image = [image copy];
+                pbItem.image = image;
                 pbItem.text = nil;
                 
                 [pbObjects insertObject:pbItem atIndex:0];
             }
-        }
-        
-        if (pasteBoard.URL) {
+        }else if (pasteBoard.URL) {
             ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
 
             pbItem.text = [pasteBoard.URL absoluteString];
