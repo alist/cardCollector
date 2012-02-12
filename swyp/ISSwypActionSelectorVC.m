@@ -14,12 +14,34 @@
 @implementation ISSwypActionSelectorVC
 @synthesize objectContext = _objectContext, swypWorkspace = _swypWorkspace;
 @synthesize calendarVC = _calendarVC, contactVC = _contactVC, pasteboardVC = _pasteboardVC;
-
+#pragma mark - public
 -(swypWorkspaceViewController*)swypWorkspace{
 	if (_swypWorkspace == nil){
 		_swypWorkspace = [swypWorkspaceViewController sharedSwypWorkspace];
 	}
 	return _swypWorkspace;
+}
+
+-(ISContactVC*) contactVC{
+	if (_contactVC == nil){
+		_contactVC		=	[[ISContactVC alloc] initWithNibName:nil bundle:nil];
+		[_contactVC.view	setFrame:CGRectMake(0, 0, self.view.width, self.view.height-[_actionTabBar height])];
+	}
+	return _contactVC;
+}
+-(ISCalendarVC*)calendarVC{
+	if (_calendarVC ==nil){
+		_calendarVC		=	[[ISCalendarVC alloc] initWithNibName:nil bundle:nil];
+		[_calendarVC.view	setFrame:CGRectMake(0, 0, self.view.width, self.view.height-[_actionTabBar height])];
+	}
+	return _calendarVC;
+}
+-(ISPasteboardVC*) pasteboardVC{
+	if (_pasteboardVC == nil){
+		_pasteboardVC = [[ISPasteboardVC alloc] initWithNibName:nil bundle:nil];
+		[_pasteboardVC.view	setFrame:CGRectMake(0, 0, self.view.width, self.view.height-[_actionTabBar height])];
+	}
+	return _pasteboardVC;
 }
 
 #pragma mark - NSObject
@@ -52,16 +74,12 @@
 	[self addChildViewController:_historyNavController];
 	[self.view addSubview:_historyNavController.view];
     
-    ISContactVC *contactVC = [[ISContactVC alloc] initWithNibName:nil bundle:nil];
-    ISCalendarVC *calendarVC = [[ISCalendarVC alloc] initWithNibName:nil bundle:nil];
-    _pasteboardVC = [[ISPasteboardVC alloc] initWithNibName:nil bundle:nil];
     
-    _viewControllers = [NSArray arrayWithObjects:contactVC, calendarVC, _pasteboardVC, nil];
     NSMutableArray *tabBarItems = [NSMutableArray array];
-    for (UIViewController *VC in _viewControllers) {
-        [tabBarItems addObject:VC.tabBarItem];
-    }
-	
+	[tabBarItems addObject:[ISContactVC tabBarItem]];
+	[tabBarItems addObject:[ISCalendarVC tabBarItem]];
+	[tabBarItems addObject:[ISPasteboardVC tabBarItem]];
+
 	_actionTabBar		=	[[UITabBar alloc] init];
     _actionTabBar.frame = CGRectMake(0, (self.view.size.height - 49), self.view.size.width, 49);
     _actionTabBar.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|
@@ -81,8 +99,9 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     if (_selectedTab != -1){
-        UIViewController *formerVC = [_viewControllers objectAtIndex:_selectedTab];
-        [formerVC.view removeFromSuperview];
+		[_calendarVC.view removeFromSuperview];
+		[_contactVC.view removeFromSuperview];
+		[_pasteboardVC.view removeFromSuperview];
     }
     
     if (tabBar.selectedItem.tag == _selectedTab) {
@@ -90,13 +109,19 @@
         _selectedTab = -1;
     } else {
         _selectedTab = item.tag;
-        UIViewController *VC = [_viewControllers objectAtIndex:item.tag];
-        [self.view addSubview:VC.view];
+        ISTabVC * selectedVC	=	nil;
+		if (_selectedTab == [[ISCalendarVC tabBarItem] tag]){
+			selectedVC	=	[self calendarVC];
+		}else if (_selectedTab == [[ISContactVC tabBarItem] tag]){
+			selectedVC	=	[self contactVC];			
+		}else if (_selectedTab == [[ISPasteboardVC tabBarItem] tag]){
+			selectedVC	=	[self pasteboardVC];
+			item.badgeValue = nil;
+		}
+		
+        [self.view addSubview:selectedVC.view];
     }
     
-    if (item.tag == 2) {
-        item.badgeValue = nil;
-    }
 }
 
 - (void)updatePasteboard {
