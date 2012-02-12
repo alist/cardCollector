@@ -88,6 +88,9 @@
 		7959A54714E7698100020F6B /* libKal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959A54414E7696800020F6B /* libKal.a */; };
 		7959A55714E769F000020F6B /* ISTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7959A55614E769F000020F6B /* ISTabVC.m */; };
 		7959A55914E7729100020F6B /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7959A55814E7729100020F6B /* Kal.bundle */; };
+		7959A56214E779F500020F6B /* ISEventKitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7959A56114E779F500020F6B /* ISEventKitDataSource.m */; };
+		7959A57914E77B9B00020F6B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959A57514E77B8700020F6B /* EventKit.framework */; };
+		7959A57A14E77B9B00020F6B /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959A57614E77B8700020F6B /* EventKitUI.framework */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -219,6 +222,10 @@
 		7959A55514E769EF00020F6B /* ISTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISTabVC.h; path = swyp/ISTabVC.h; sourceTree = "<group>"; };
 		7959A55614E769F000020F6B /* ISTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISTabVC.m; path = swyp/ISTabVC.m; sourceTree = "<group>"; };
 		7959A55814E7729100020F6B /* Kal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kal.bundle; path = ../kal/src/Kal.bundle; sourceTree = "<group>"; };
+		7959A56014E779F500020F6B /* ISEventKitDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISEventKitDataSource.h; path = swyp/ISEventKitDataSource.h; sourceTree = "<group>"; };
+		7959A56114E779F500020F6B /* ISEventKitDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISEventKitDataSource.m; path = swyp/ISEventKitDataSource.m; sourceTree = "<group>"; };
+		7959A57514E77B8700020F6B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		7959A57614E77B8700020F6B /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -318,6 +325,8 @@
 			files = (
 				7959A54714E7698100020F6B /* libKal.a in Frameworks */,
 				7962720A14DC799000E5D17A /* liblibSwyp.a in Frameworks */,
+				7959A57914E77B9B00020F6B /* EventKit.framework in Frameworks */,
+				7959A57A14E77B9B00020F6B /* EventKitUI.framework in Frameworks */,
 				3E2B4F9314E5CA620090D948 /* AssetsLibrary.framework in Frameworks */,
 				3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */,
 				3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */,
@@ -455,6 +464,8 @@
 		796271D014DC788200E5D17A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7959A57514E77B8700020F6B /* EventKit.framework */,
+				7959A57614E77B8700020F6B /* EventKitUI.framework */,
 				3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */,
 				3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */,
 				3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */,
@@ -497,6 +508,8 @@
 		796271F114DC78FF00E5D17A /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				7959A56014E779F500020F6B /* ISEventKitDataSource.h */,
+				7959A56114E779F500020F6B /* ISEventKitDataSource.m */,
 				79925D5D14E6C34900FE2412 /* ISSwypHistoryItem.h */,
 				79925D5E14E6C34900FE2412 /* ISSwypHistoryItem.m */,
 				796271E214DC788200E5D17A /* ISAppDelegate.h */,
@@ -868,6 +881,7 @@
 				3E2B4F8D14E583890090D948 /* ISPasteboardView.m in Sources */,
 				3E2B4F9014E58E530090D948 /* ISPasteboardObject.m in Sources */,
 				7959A55714E769F000020F6B /* ISTabVC.m in Sources */,
+				7959A56214E779F500020F6B /* ISEventKitDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
