@@ -119,6 +119,7 @@
 			item.badgeValue = nil;
 		}
 		
+		[selectedVC.view	setFrame:CGRectMake(0, 0, self.view.width, self.view.height-[_actionTabBar height])];
         [self.view addSubview:selectedVC.view];
     }
     

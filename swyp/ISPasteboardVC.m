@@ -26,29 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBarItem = [[self class] tabBarItem];
-
-#warning this file has several delegation-related compilation warnings related to "setDatasource" and the pastboard items
-		
-#warning move all this initialization to viewdidload
-        CGSize screenSize = [UIScreen mainScreen].bounds.size;
-        self.view.backgroundColor = [UIColor whiteColor];
-#warning use variables to calculate frame; use superview frame during viewdidload to avoid issues with UIWindow's orientation when launching in landscape
-        self.view.frame = CGRectMake(0, screenSize.height-(212+49+20), screenSize.width, 212);
-        self.view.autoresizesSubviews = YES;
-#warning add autoresizing mask item for flexibleTopMargin to maintain the stickiness to the bottom of the screen
-        self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
-        
-#warning init the frame of the view with the bounds of the self.view.bounds for your convenience withFrame:self.view.bounds
-        pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
-        pbScrollView.showsHorizontalScrollIndicator = NO;
-        pbScrollView.pagingEnabled = YES;
-        pbScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        pbScrollView.delegate = self;
-        [self.view addSubview:pbScrollView];
-        
-        pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 212-24, screenSize.width, 24)];
-        [self.view addSubview:pageControl];
-        
+	
         self.pbObjects = [NSMutableArray array];
         
         library = [[ALAssetsLibrary alloc] init];
@@ -63,6 +41,17 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+	
+	pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.height-(212), self.view.width, 212)];
+	pbScrollView.showsHorizontalScrollIndicator = NO;
+	pbScrollView.pagingEnabled = YES;
+	pbScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
+	pbScrollView.delegate = self;
+	[self.view addSubview:pbScrollView];
+	
+	pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 212-24, self.view.width, 24)];
+	[self.view addSubview:pageControl];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
