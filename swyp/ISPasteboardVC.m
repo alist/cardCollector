@@ -20,15 +20,21 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Pasteboard", @"The pasteboard.") 
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Relevant", @"Tab bar item for relevant things") 
                                                         image:[UIImage imageNamed:@"paperclip"] tag:2];
-        
+
+#warning this file has several delegation-related compilation warnings related to "setDatasource" and the pastboard items
+		
+#warning move all this initialization to viewdidload
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         self.view.backgroundColor = [UIColor whiteColor];
+#warning use variables to calculate frame; use superview frame during viewdidload to avoid issues with UIWindow's orientation when launching in landscape
         self.view.frame = CGRectMake(0, screenSize.height-(212+49+20), screenSize.width, 212);
         self.view.autoresizesSubviews = YES;
+#warning add autoresizing mask item for flexibleTopMargin to maintain the stickiness to the bottom of the screen
         self.view.autoresizingMask = (UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleWidth);
         
+#warning init the frame of the view with the bounds of the self.view.bounds for your convenience withFrame:self.view.bounds
         pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.size.width, self.view.size.height)];
         pbScrollView.showsHorizontalScrollIndicator = NO;
         pbScrollView.pagingEnabled = YES;
@@ -49,23 +55,9 @@
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
-#pragma mark - View lifecycle
 
-- (void)loadView
-{
-    [super loadView];
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 }
 
@@ -184,13 +176,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     pageControl.currentPage = round(scrollView.contentOffset.x/320);
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
