@@ -49,7 +49,8 @@
 	pbScrollView.delegate = self;
 	[self.view addSubview:pbScrollView];
 	
-	pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 212-24, self.view.width, 24)];
+	pageControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+	pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.height-24, self.view.width, 24)];
 	[self.view addSubview:pageControl];
 
 }

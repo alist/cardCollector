@@ -74,6 +74,7 @@
 	[self addChildViewController:_historyNavController];
 	[self.view addSubview:_historyNavController.view];
     
+	[[self pasteboardVC] updatePasteboard];
     
     NSMutableArray *tabBarItems = [NSMutableArray array];
 	[tabBarItems addObject:[ISContactVC tabBarItem]];
