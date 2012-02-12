@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISTabVC.h"
 
-@interface ISContactVC : UIViewController
+@interface ISContactVC : ISTabVC
 
 @end

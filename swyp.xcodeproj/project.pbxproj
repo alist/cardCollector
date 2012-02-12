@@ -86,6 +86,7 @@
 		79527C9A14E36945003002AF /* ISPreviewWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 79527C9914E36944003002AF /* ISPreviewWebViewVC.m */; };
 		79527CBA14E46FB4003002AF /* previewVCActionButtonsBGTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 79527CB914E46FB4003002AF /* previewVCActionButtonsBGTile.png */; };
 		7959A54714E7698100020F6B /* libKal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959A54414E7696800020F6B /* libKal.a */; };
+		7959A55714E769F000020F6B /* ISTabVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7959A55614E769F000020F6B /* ISTabVC.m */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -214,6 +215,8 @@
 		79527C9914E36944003002AF /* ISPreviewWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPreviewWebViewVC.m; path = swyp/ISPreviewWebViewVC.m; sourceTree = "<group>"; };
 		79527CB914E46FB4003002AF /* previewVCActionButtonsBGTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = previewVCActionButtonsBGTile.png; path = resources/previewVCActionButtonsBGTile.png; sourceTree = SOURCE_ROOT; };
 		7959A53C14E7696700020F6B /* Kal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kal.xcodeproj; path = kal/src/Kal.xcodeproj; sourceTree = "<group>"; };
+		7959A55514E769EF00020F6B /* ISTabVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISTabVC.h; path = swyp/ISTabVC.h; sourceTree = "<group>"; };
+		7959A55614E769F000020F6B /* ISTabVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISTabVC.m; path = swyp/ISTabVC.m; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -344,6 +347,8 @@
 				3E06EB4C14DC939100BA055D /* ISContactVC.m */,
 				3E06EB5414DC940400BA055D /* ISCalendarVC.h */,
 				3E06EB5514DC940400BA055D /* ISCalendarVC.m */,
+				7959A55514E769EF00020F6B /* ISTabVC.h */,
+				7959A55614E769F000020F6B /* ISTabVC.m */,
 			);
 			name = "Tab Bar";
 			sourceTree = "<group>";
@@ -858,6 +863,7 @@
 				79F213EC14E6B37D00442CD2 /* UIWindow+ISUXAddons.m in Sources */,
 				3E2B4F8D14E583890090D948 /* ISPasteboardView.m in Sources */,
 				3E2B4F9014E58E530090D948 /* ISPasteboardObject.m in Sources */,
+				7959A55714E769F000020F6B /* ISTabVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,7 +946,10 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/libSwyp\"/**",
+					"\"$(SRCROOT)/kal\"/**",
+				);
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
@@ -956,7 +965,10 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "swyp/swyp-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libSwyp\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/libSwyp\"/**",
+					"\"$(SRCROOT)/kal\"/**",
+				);
 				INFOPLIST_FILE = "swyp/swyp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";

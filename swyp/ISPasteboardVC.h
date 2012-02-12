@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "ISTabVC.h"
 
 #import "NINetworkImageView.h"
 #import "ISPasteboardView.h"
 
-@interface ISPasteboardVC : UIViewController <UIScrollViewDelegate> {
+@interface ISPasteboardVC : ISTabVC <UIScrollViewDelegate> {
     UIScrollView    *pbScrollView;
     UIPageControl   *pageControl;
     NSURL           *latestAssetURL;

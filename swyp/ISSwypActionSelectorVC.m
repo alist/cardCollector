@@ -13,6 +13,7 @@
 
 @implementation ISSwypActionSelectorVC
 @synthesize objectContext = _objectContext, swypWorkspace = _swypWorkspace;
+@synthesize calendarVC = _calendarVC, contactVC = _contactVC, pasteboardVC = _pasteboardVC;
 
 -(swypWorkspaceViewController*)swypWorkspace{
 	if (_swypWorkspace == nil){

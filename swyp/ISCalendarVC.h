@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISTabVC.h"
 
-@interface ISCalendarVC : UIViewController
+@interface ISCalendarVC : ISTabVC
 
 @end

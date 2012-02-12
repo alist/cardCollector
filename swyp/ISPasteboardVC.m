@@ -16,12 +16,16 @@
 @synthesize pbChangeCount;
 @synthesize pbObjects;
 
++(UITabBarItem*)tabBarItem{
+	return [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Relevant", @"Tab bar item for relevant things") image:[UIImage imageNamed:@"paperclip"] tag:2];
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Relevant", @"Tab bar item for relevant things") 
-                                                        image:[UIImage imageNamed:@"paperclip"] tag:2];
+        self.tabBarItem = [[self class] tabBarItem];
 
 #warning this file has several delegation-related compilation warnings related to "setDatasource" and the pastboard items
 		

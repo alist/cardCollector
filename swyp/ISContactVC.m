@@ -10,12 +10,16 @@
 
 @implementation ISContactVC
 
++(UITabBarItem*)tabBarItem{
+	return [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Contact", @"Your contact card on tab bar.") image:[UIImage imageNamed:@"user"] tag:0];
+}
+
+#pragma mark -
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Contact", @"Your contact card.") 
-                                                        image:[UIImage imageNamed:@"user"] tag:0];
+        self.tabBarItem = [[self class] tabBarItem];
     }
     return self;
 }
