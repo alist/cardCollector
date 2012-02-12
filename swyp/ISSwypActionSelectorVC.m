@@ -119,7 +119,11 @@
 			item.badgeValue = nil;
 		}
 		
-		[selectedVC.view	setFrame:CGRectMake(0, 0, self.view.width, self.view.height-[_actionTabBar height])];
+		
+		CGRect orientationRect	=	CGRectZero;;
+		orientationRect.size	=	(UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])? [self view].frame:CGRectMake(0, 0,[self view].frame.size.height, [self view].frame.size.width)).size;
+		orientationRect.size.height -= [_actionTabBar height];
+		[selectedVC.view	setFrame:orientationRect];
         [self.view addSubview:selectedVC.view];
     }
     
