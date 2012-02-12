@@ -120,6 +120,8 @@
 		7962735E14DCBF3500E5D17A /* ISHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7962735414DCBF3500E5D17A /* ISHistoryCell.m */; };
 		79925D5F14E6C34900FE2412 /* ISSwypHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 79925D5E14E6C34900FE2412 /* ISSwypHistoryItem.m */; };
 		79925D6014E6C35E00FE2412 /* ISSwypHistoryItem.h in Sources */ = {isa = PBXBuildFile; fileRef = 79925D5D14E6C34900FE2412 /* ISSwypHistoryItem.h */; };
+		79925DAB14E7601900FE2412 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79925DA714E75FBC00FE2412 /* EventKit.framework */; };
+		79925DAC14E7601900FE2412 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79925DA814E75FBD00FE2412 /* EventKitUI.framework */; };
 		79F213EC14E6B37D00442CD2 /* UIWindow+ISUXAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F213EB14E6B37D00442CD2 /* UIWindow+ISUXAddons.m */; };
 /* End PBXBuildFile section */
 
@@ -155,8 +157,8 @@
 		3E06EB5C14DC99CD00BA055D /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "resources/calendar@2x.png"; sourceTree = SOURCE_ROOT; };
 		3E06EB5F14DC9A6400BA055D /* photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photos.png; path = resources/photos.png; sourceTree = SOURCE_ROOT; };
 		3E06EB6014DC9A6400BA055D /* photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photos@2x.png"; path = "resources/photos@2x.png"; sourceTree = SOURCE_ROOT; };
-		3E2B4F8B14E583890090D948 /* ISPasteboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPasteboardView.h; sourceTree = "<group>"; };
-		3E2B4F8C14E583890090D948 /* ISPasteboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPasteboardView.m; sourceTree = "<group>"; };
+		3E2B4F8B14E583890090D948 /* ISPasteboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardView.h; path = swyp/ISPasteboardView.h; sourceTree = "<group>"; };
+		3E2B4F8C14E583890090D948 /* ISPasteboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; name = ISPasteboardView.m; path = swyp/ISPasteboardView.m; sourceTree = "<group>"; };
 		3E2B4F8E14E58E520090D948 /* ISPasteboardObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardObject.h; path = swyp/ISPasteboardObject.h; sourceTree = "<group>"; };
 		3E2B4F8F14E58E520090D948 /* ISPasteboardObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPasteboardObject.m; path = swyp/ISPasteboardObject.m; sourceTree = "<group>"; };
 		3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -286,6 +288,8 @@
 		7962735414DCBF3500E5D17A /* ISHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISHistoryCell.m; path = swyp/ISHistoryCell.m; sourceTree = "<group>"; };
 		79925D5D14E6C34900FE2412 /* ISSwypHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISSwypHistoryItem.h; path = swyp/ISSwypHistoryItem.h; sourceTree = "<group>"; };
 		79925D5E14E6C34900FE2412 /* ISSwypHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISSwypHistoryItem.m; path = swyp/ISSwypHistoryItem.m; sourceTree = "<group>"; };
+		79925DA714E75FBC00FE2412 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		79925DA814E75FBD00FE2412 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		79F213EA14E6B37D00442CD2 /* UIWindow+ISUXAddons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+ISUXAddons.h"; sourceTree = "<group>"; };
 		79F213EB14E6B37D00442CD2 /* UIWindow+ISUXAddons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+ISUXAddons.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -296,6 +300,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7962720A14DC799000E5D17A /* liblibSwyp.a in Frameworks */,
+				79925DAB14E7601900FE2412 /* EventKit.framework in Frameworks */,
+				79925DAC14E7601900FE2412 /* EventKitUI.framework in Frameworks */,
 				3E2B4F9314E5CA620090D948 /* AssetsLibrary.framework in Frameworks */,
 				3E9A376D14DCC0EB007B6DD7 /* CoreLocation.framework in Frameworks */,
 				3E9A375614DCB377007B6DD7 /* MobileCoreServices.framework in Frameworks */,
@@ -423,6 +429,8 @@
 		796271D014DC788200E5D17A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79925DA714E75FBC00FE2412 /* EventKit.framework */,
+				79925DA814E75FBD00FE2412 /* EventKitUI.framework */,
 				3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */,
 				3E9A376B14DCC0E3007B6DD7 /* CoreLocation.framework */,
 				3E9A375414DCB350007B6DD7 /* MobileCoreServices.framework */,
