@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Kal.h>
 #import "ISTabVC.h"
+#import "ISEventKitDataSource.h"
 
-@interface ISCalendarVC : ISTabVC
+@interface ISCalendarVC : ISTabVC <UITableViewDelegate>
+@property (nonatomic, strong) ISEventKitDataSource *	calendarDataSource;
+@property (nonatomic, strong) KalViewController *		kalVC;
+
+///temporary
+@property (nonatomic, strong) UIImage*					exportingCalImage;
 
 @end

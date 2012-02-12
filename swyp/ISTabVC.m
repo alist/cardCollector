@@ -9,6 +9,7 @@
 #import "ISTabVC.h"
 
 @implementation ISTabVC
+@synthesize datasourceDelegate = _datasourceDelegate;
 
 +(UITabBarItem*)tabBarItem{
 	return nil;
@@ -25,15 +26,54 @@
 -(void) viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	
-	self.view.alpha	=	0;
 }
 
 -(void) viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
-	
-	[UIView animateWithDuration:.5 animations:^{
-		self.view.alpha	=	1;
-	}];
 }
+
+#pragma mark - delegation
+#pragma mark <swypContentDataSourceProtocol, swypConnectionSessionDataDelegate>
+- (NSArray*)	idsForAllContent{
+	return nil;
+}
+- (UIImage *)	iconImageForContentWithID: (NSString*)contentID ofMaxSize:(CGSize)maxIconSize{	
+	UIImage * returnImage	=	nil;
+	if (returnImage == nil){
+		returnImage	=	[UIImage imageNamed:@"swypPromptHud.png"];
+	}
+	return returnImage;
+}
+
+- (NSArray*)		supportedFileTypesForContentWithID: (NSString*)contentID{
+	return nil;
+}
+
+- (NSData*)	dataForContentWithID: (NSString*)contentID fileType:	(swypFileTypeString*)type{
+	NSData *	sendData	=	nil;	
+	
+	return sendData;
+}
+
+-(void)	setDatasourceDelegate:			(id<swypContentDataSourceDelegate>)delegate{
+	_datasourceDelegate	=	delegate;
+}
+-(id<swypContentDataSourceDelegate>)	datasourceDelegate{
+	return _datasourceDelegate;
+}
+
+-(void)	contentWithIDWasDraggedOffWorkspace:(NSString*)contentID{
+	[_datasourceDelegate datasourceRemovedContentWithID:contentID withDatasource:self];
+}
+
+#pragma mark -
+-(NSArray*)supportedFileTypesForReceipt{
+	return nil;
+}
+-(void) yieldedData:(NSData *)streamData ofType:(NSString *)streamType fromDiscernedStream:(swypDiscernedInputStream *)discernedStream inConnectionSession:(swypConnectionSession *)session{
+	
+}
+
+
 
 @end

@@ -124,7 +124,12 @@
 		orientationRect.size	=	(UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])? [self view].frame:CGRectMake(0, 0,[self view].frame.size.height, [self view].frame.size.width)).size;
 		orientationRect.size.height -= [_actionTabBar height];
 		[selectedVC.view	setFrame:orientationRect];
+
+		selectedVC.view.alpha	=	0;
         [self.view addSubview:selectedVC.view];
+		[UIView animateWithDuration:.5 animations:^{
+			selectedVC.view.alpha	=	1;
+		}];
     }
     
 }

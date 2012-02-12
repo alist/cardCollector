@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ISTabVC : UIViewController
+@interface ISTabVC : UIViewController <swypContentDataSourceProtocol, swypConnectionSessionDataDelegate>
+@property (nonatomic, assign) id<swypContentDataSourceDelegate>	datasourceDelegate;
+
 +(UITabBarItem*)tabBarItem;
 @end
