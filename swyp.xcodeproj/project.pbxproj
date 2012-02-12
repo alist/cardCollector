@@ -155,8 +155,8 @@
 		3E06EB5C14DC99CD00BA055D /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "resources/calendar@2x.png"; sourceTree = SOURCE_ROOT; };
 		3E06EB5F14DC9A6400BA055D /* photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = photos.png; path = resources/photos.png; sourceTree = SOURCE_ROOT; };
 		3E06EB6014DC9A6400BA055D /* photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photos@2x.png"; path = "resources/photos@2x.png"; sourceTree = SOURCE_ROOT; };
-		3E2B4F8B14E583890090D948 /* ISPasteboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPasteboardView.h; sourceTree = "<group>"; };
-		3E2B4F8C14E583890090D948 /* ISPasteboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPasteboardView.m; sourceTree = "<group>"; };
+		3E2B4F8B14E583890090D948 /* ISPasteboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardView.h; path = swyp/ISPasteboardView.h; sourceTree = "<group>"; };
+		3E2B4F8C14E583890090D948 /* ISPasteboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; name = ISPasteboardView.m; path = swyp/ISPasteboardView.m; sourceTree = "<group>"; };
 		3E2B4F8E14E58E520090D948 /* ISPasteboardObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardObject.h; path = swyp/ISPasteboardObject.h; sourceTree = "<group>"; };
 		3E2B4F8F14E58E520090D948 /* ISPasteboardObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPasteboardObject.m; path = swyp/ISPasteboardObject.m; sourceTree = "<group>"; };
 		3E2B4F9114E5CA520090D948 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
