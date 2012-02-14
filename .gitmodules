@@ -6,4 +6,4 @@
 	url = git@github.com:swyp/nimbus.git
 [submodule "kal"]
 	path = kal
-	url = https://github.com/klazuka/Kal.git
+	url = git@github.com:swyp/Kal.git

@@ -33,11 +33,14 @@
 	
 	
 	_calendarDataSource			=	[ISEventKitDataSource dataSource];
+
+	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, 270):self.view.bounds.size;
+	CGRect calFrame	=	CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height);
 	_kalVC	=	[[KalViewController alloc] initWithSelectedDate:[NSDate date]];
 	[_kalVC setDataSource:_calendarDataSource];
 	[_kalVC setDelegate:self];
-	[_kalVC.view setFrame:self.view.bounds];
-	[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+	[_kalVC.view setFrame:calFrame];
+	[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
 	[self.view addSubview:_kalVC.view];
 }
 
@@ -46,11 +49,12 @@
 }
 
 #pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	UITableViewCell * cell	=	[tableView cellForRowAtIndexPath:indexPath];
-	UIGraphicsBeginImageContextWithOptions(cell.size,YES, 0);
-	[cell.layer renderInContext:UIGraphicsGetCurrentContext()];
+-(void)tappedOnEvent:(EKEvent *)event withController:(KalViewController *)controller{
+	
+	UIView * viewToRender	=	[controller dayView];
+	
+	UIGraphicsBeginImageContextWithOptions(viewToRender.size,YES, 0);
+	[viewToRender.layer renderInContext:UIGraphicsGetCurrentContext()];
 	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	self.exportingCalImage	=	image;
@@ -58,6 +62,8 @@
 	[[swypWorkspaceViewController sharedSwypWorkspace] setContentDataSource:self];
 	[[self datasourceDelegate] datasourceSignificantlyModifiedContent:self];
 	[[swypWorkspaceViewController sharedSwypWorkspace] presentContentWorkspaceAtopViewController:[[[UIApplication sharedApplication] keyWindow] rootViewController]];
+
+	
 }
 
 #pragma mark <swypContentDataSourceProtocol, swypConnectionSessionDataDelegate>

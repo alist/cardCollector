@@ -11,7 +11,7 @@
 #import "ISTabVC.h"
 #import "ISEventKitDataSource.h"
 
-@interface ISCalendarVC : ISTabVC <UITableViewDelegate>
+@interface ISCalendarVC : ISTabVC <KalViewControllerDelegate>
 @property (nonatomic, strong) ISEventKitDataSource *	calendarDataSource;
 @property (nonatomic, strong) KalViewController *		kalVC;
 

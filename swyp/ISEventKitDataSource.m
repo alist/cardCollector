@@ -99,6 +99,16 @@ static BOOL IsDateBetweenInclusive(NSDate *date, NSDate *begin, NSDate *end)
   [items addObjectsFromArray:[self eventsFrom:fromDate to:toDate]];
 }
 
+- (NSArray *)eventsFrom:(NSDate *)fromDate to:(NSDate *)toDate
+{
+	NSMutableArray *matches = [NSMutableArray array];
+	for (EKEvent *event in events)
+		if (IsDateBetweenInclusive(event.startDate, fromDate, toDate))
+			[matches addObject:event];
+	
+	return matches;
+}
+
 - (void)removeAllItems
 {
   // synchronous callback on the main thread
@@ -106,16 +116,6 @@ static BOOL IsDateBetweenInclusive(NSDate *date, NSDate *begin, NSDate *end)
 }
 
 #pragma mark -
-
-- (NSArray *)eventsFrom:(NSDate *)fromDate to:(NSDate *)toDate
-{
-  NSMutableArray *matches = [NSMutableArray array];
-  for (EKEvent *event in events)
-    if (IsDateBetweenInclusive(event.startDate, fromDate, toDate))
-      [matches addObject:event];
-  
-  return matches;
-}
 
 - (void)dealloc
 {
