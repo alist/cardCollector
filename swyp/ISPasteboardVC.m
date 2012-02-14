@@ -11,6 +11,9 @@
 #import "NSString+URLEncoding.h"
 #import <CoreLocation/CoreLocation.h>
 
+#define PBHEIGHT 212
+#define PBWIDTH 320
+
 @implementation ISPasteboardVC
 
 @synthesize pbChangeCount;
@@ -42,7 +45,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
 	
-	pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.height-(212), self.view.width, 212)];
+	pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.height-PBHEIGHT, self.view.width, PBHEIGHT)];
 	pbScrollView.showsHorizontalScrollIndicator = NO;
     pbScrollView.showsVerticalScrollIndicator = NO;
 	pbScrollView.pagingEnabled = YES;
@@ -112,13 +115,13 @@
     int i = 0;
     for (ISPasteboardObject *pbObject in pbObjects){
         ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
-                                       CGRectMake(i*320, 0, 320, 212)];
+                                       CGRectMake(i*PBWIDTH, 0, PBWIDTH, PBHEIGHT)];
         pbObject.delegate = pasteView;
         [pbScrollView addSubview:pasteView];
         i += 1;
     }
     
-    pbScrollView.contentSize = CGSizeMake(i*320, 212);
+    pbScrollView.contentSize = CGSizeMake(i*PBWIDTH, PBHEIGHT);
     pageControl.numberOfPages = i;
 }
 
@@ -170,7 +173,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    pageControl.currentPage = round(scrollView.contentOffset.x/320);
+    pageControl.currentPage = round(scrollView.contentOffset.x/PBWIDTH);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
