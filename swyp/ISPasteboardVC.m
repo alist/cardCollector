@@ -44,13 +44,14 @@
 	
 	pbScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.view.height-(212), self.view.width, 212)];
 	pbScrollView.showsHorizontalScrollIndicator = NO;
+    pbScrollView.showsVerticalScrollIndicator = NO;
 	pbScrollView.pagingEnabled = YES;
 	pbScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
 	pbScrollView.delegate = self;
 	[self.view addSubview:pbScrollView];
 	
-	pageControl.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-	pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.height-24, self.view.width, 24)];
+	pageControl.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+	pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.view.height-80, self.view.width, 24)];
 	[self.view addSubview:pageControl];
 
 }
@@ -111,13 +112,13 @@
     int i = 0;
     for (ISPasteboardObject *pbObject in pbObjects){
         ISPasteboardView *pasteView = [[ISPasteboardView alloc] initWithFrame:
-                                       CGRectMake(i*320, 0, 320, self.view.height)];
+                                       CGRectMake(i*320, 0, 320, 212)];
         pbObject.delegate = pasteView;
         [pbScrollView addSubview:pasteView];
         i += 1;
     }
     
-    pbScrollView.contentSize = CGSizeMake(i*self.view.width, self.view.height);
+    pbScrollView.contentSize = CGSizeMake(i*320, 212);
     pageControl.numberOfPages = i;
 }
 
