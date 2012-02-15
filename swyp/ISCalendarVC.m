@@ -35,8 +35,10 @@ static double iPadCalendarHeight	=	408;
 	
 	
 	_calendarDataSource			=	[ISEventKitDataSource dataSource];
-
+	
 	_kalVC	=	[[KalViewController alloc] initWithSelectedDate:[NSDate date]];
+	[_kalVC setDataSource:_calendarDataSource];
+	[_kalVC setDelegate:self];
 	
 	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, iPadCalendarHeight):self.view.bounds.size;
 	CGRect calFrame	=	CGRectZero;
@@ -48,8 +50,6 @@ static double iPadCalendarHeight	=	408;
 		[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin];
 	}
 
-	[_kalVC setDataSource:_calendarDataSource];
-	[_kalVC setDelegate:self];
 	[_kalVC.view setFrame:calFrame];
 ///	[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 	[self.view addSubview:_kalVC.view];
