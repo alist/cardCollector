@@ -22,11 +22,15 @@ static const NSInteger kEmailField = 2;
 - (id)init {
     self = [super init];
     if (self){
+        NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
+        NSString *number = [[NSUserDefaults standardUserDefaults] objectForKey:@"Number"];
+        NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:@"Email"];
+        
         NSArray* tableContents =
         [NSArray arrayWithObjects:
-         [NITextInputFormElement textInputElementWithID:kNameField placeholderText:@"Name" value:nil delegate:self],
-         [NITextInputFormElement textInputElementWithID:kNumberField placeholderText:@"Phone Number" value:nil delegate:self],
-         [NITextInputFormElement textInputElementWithID:kEmailField placeholderText:@"Email" value:nil delegate:self],
+         [NITextInputFormElement textInputElementWithID:kNameField placeholderText:@"Name" value:name delegate:self],
+         [NITextInputFormElement textInputElementWithID:kNumberField placeholderText:@"Phone Number" value:number delegate:self],
+         [NITextInputFormElement textInputElementWithID:kEmailField placeholderText:@"Email" value:email delegate:self],
          nil];
         
         _model = [[NITableViewModel alloc] initWithSectionedArray:tableContents
