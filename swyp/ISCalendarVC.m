@@ -61,11 +61,7 @@ static double iPadCalendarHeight	=	408;
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
 	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-	
-//	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, iPadCalendarHeight):self.view.bounds.size;
-//	CGRect calFrame	=	(deviceIsPad)?CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height):CGRectMake(0, 0, calSize.width, calSize.height);
-//	[[_kalVC view] setFrame:calFrame];
-	
+		
 	[[self kalVC] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
