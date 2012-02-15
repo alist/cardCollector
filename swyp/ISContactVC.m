@@ -65,8 +65,8 @@
     [super viewDidLoad];
     
     contactView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
-    contactView.autoresizingMask = UIViewAutoresizingFlexibleMargins;
-    contactView.backgroundColor = [UIColor whiteColor];
+    contactView.autoresizingMask = UIViewAutoresizingFlexibleMargins|UIViewAutoresizingFlexibleWidth;
+    contactView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"handmadepaper"]];
     contactView.clipsToBounds = NO;
     CALayer *layer = contactView.layer;
     layer.shadowRadius = 8;
