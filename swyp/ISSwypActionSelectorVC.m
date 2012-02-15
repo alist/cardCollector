@@ -149,9 +149,9 @@
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
 	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 	
-	[[self contactVC] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-	[[self pasteboardVC] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-	[[self calendarVC] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	[_contactVC didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	[_pasteboardVC didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	[_calendarVC didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
 #pragma mark - delegation

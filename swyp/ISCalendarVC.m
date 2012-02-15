@@ -37,8 +37,17 @@ static double iPadCalendarHeight	=	408;
 	_calendarDataSource			=	[ISEventKitDataSource dataSource];
 
 	_kalVC	=	[[KalViewController alloc] initWithSelectedDate:[NSDate date]];
+	
 	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, iPadCalendarHeight):self.view.bounds.size;
-	CGRect calFrame	=	(deviceIsPad)?CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height):CGRectMake(0, 0, calSize.width, calSize.height);
+	CGRect calFrame	=	CGRectZero;
+	if(deviceIsPad){
+		calFrame	= CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height);
+		[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
+	}else{
+		calFrame = CGRectMake(0, 0, calSize.width, calSize.height);
+		[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin];
+	}
+
 	[_kalVC setDataSource:_calendarDataSource];
 	[_kalVC setDelegate:self];
 	[_kalVC.view setFrame:calFrame];
@@ -53,9 +62,9 @@ static double iPadCalendarHeight	=	408;
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
 	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 	
-	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, iPadCalendarHeight):self.view.bounds.size;
-	CGRect calFrame	=	(deviceIsPad)?CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height):CGRectMake(0, 0, calSize.width, calSize.height);
-	[[_kalVC view] setFrame:calFrame];
+//	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, iPadCalendarHeight):self.view.bounds.size;
+//	CGRect calFrame	=	(deviceIsPad)?CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height):CGRectMake(0, 0, calSize.width, calSize.height);
+//	[[_kalVC view] setFrame:calFrame];
 	
 	[[self kalVC] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
