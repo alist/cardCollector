@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ISTabVC.h"
 
-@interface ISContactVC : ISTabVC
+@interface ISContactVC : ISTabVC {
+    UIView *contactView;
+}
 
 @end
