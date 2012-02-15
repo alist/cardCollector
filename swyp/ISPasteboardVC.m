@@ -71,32 +71,34 @@
         [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop){
             [group setAssetsFilter:[ALAssetsFilter allPhotos]];
 
+			if ([group numberOfAssets] > 0){
             // only grab the most recent asset
-            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets]-1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
-                if (alAsset){
-                    NSDate *timeTaken = [alAsset valueForProperty:ALAssetPropertyDate];
-                    
-                    // we only care if the photo was taken in the last 3 minutes
-                    if (abs([timeTaken timeIntervalSinceNow]) < 60*3){
-                        __block CGImageRef imgRef = CGImageRetain([[alAsset defaultRepresentation] fullScreenImage]);
-                        
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            if (alAsset.defaultRepresentation.url != latestAssetURL){
-                                
-                                self.tabBarItem.badgeValue = @"!";
-                                
-                                latestAssetURL = alAsset.defaultRepresentation.url;
-                                NSLog(@"Adding image!");
-                                ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
-                                pbItem.image = [UIImage imageWithCGImage:imgRef];
-                                [self.pbObjects insertObject:pbItem atIndex:0];
+				[group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:([group numberOfAssets]-1)] options:0 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop){
+					if (alAsset){
+						NSDate *timeTaken = [alAsset valueForProperty:ALAssetPropertyDate];
+						
+						// we only care if the photo was taken in the last 3 minutes
+						if (abs([timeTaken timeIntervalSinceNow]) < 60*3){
+							__block CGImageRef imgRef = CGImageRetain([[alAsset defaultRepresentation] fullScreenImage]);
+							
+							dispatch_async(dispatch_get_main_queue(), ^{
+								if (alAsset.defaultRepresentation.url != latestAssetURL){
+									
+									self.tabBarItem.badgeValue = @"!";
+									
+									latestAssetURL = alAsset.defaultRepresentation.url;
+									NSLog(@"Adding image!");
+									ISPasteboardObject *pbItem = [[ISPasteboardObject alloc] init];
+									pbItem.image = [UIImage imageWithCGImage:imgRef];
+									[self.pbObjects insertObject:pbItem atIndex:0];
 
-                                [self redisplayPasteboard];
-                            }
-                        });                    
-                    }                
-                }
-            }];
+									[self redisplayPasteboard];
+								}
+							});                    
+						}                
+					}
+				}];
+			}
         } failureBlock:^(NSError *error) {
             NSLog(@"No groups, %@", error);
         }];

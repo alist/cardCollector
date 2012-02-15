@@ -121,13 +121,13 @@
 		}
 		
 		
-		CGRect orientationRect	=	CGRectZero;;
+		CGRect orientationRect	=	CGRectZero;
 		orientationRect.size	=	(UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])? [self view].frame:CGRectMake(0, 0,[self view].frame.size.height, [self view].frame.size.width)).size;
 		orientationRect.size.height -= [_actionTabBar height];
 		[selectedVC.view	setFrame:orientationRect];
 
 		selectedVC.view.alpha	=	0;
-        [self.view addSubview:selectedVC.view];
+        [self.view insertSubview:selectedVC.view belowSubview:_actionTabBar];
 		[UIView animateWithDuration:.5 animations:^{
 			selectedVC.view.alpha	=	1;
 		}];
@@ -146,7 +146,13 @@
 		return TRUE;
 	}
 }
-
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	
+	[_contactVC didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	[_pasteboardVC didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	[_calendarVC didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+}
 
 #pragma mark - delegation
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{

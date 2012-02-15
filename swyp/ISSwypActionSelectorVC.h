@@ -23,7 +23,6 @@
 	NSManagedObjectContext *		_objectContext;
 	
 	swypWorkspaceViewController *	_swypWorkspace;
-    NSArray *                       _viewControllers;
     
 }
 @property (nonatomic, strong) ISPasteboardVC *				pasteboardVC;

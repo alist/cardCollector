@@ -9,6 +9,8 @@
 #import "ISCalendarVC.h"
 #import <QuartzCore/QuartzCore.h>
 
+static double iPadCalendarHeight	=	408;
+
 @implementation ISCalendarVC
 @synthesize calendarDataSource = _calendarDataSource, kalVC = _kalVC;
 //temp
@@ -33,19 +35,34 @@
 	
 	
 	_calendarDataSource			=	[ISEventKitDataSource dataSource];
-
-	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, 270):self.view.bounds.size;
-	CGRect calFrame	=	CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height);
+	
 	_kalVC	=	[[KalViewController alloc] initWithSelectedDate:[NSDate date]];
 	[_kalVC setDataSource:_calendarDataSource];
 	[_kalVC setDelegate:self];
+	
+	CGSize	calSize	=	(deviceIsPad)?CGSizeMake(self.view.width, iPadCalendarHeight):self.view.bounds.size;
+	CGRect calFrame	=	CGRectZero;
+	if(deviceIsPad){
+		calFrame	= CGRectMake(0, self.view.height - calSize.height, calSize.width, calSize.height);
+		[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
+	}else{
+		calFrame = CGRectMake(0, 0, calSize.width, calSize.height);
+		[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleBottomMargin];
+	}
+
 	[_kalVC.view setFrame:calFrame];
-	[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
+///	[_kalVC.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
 	[self.view addSubview:_kalVC.view];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
 	return YES;
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+		
+	[[self kalVC] didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 }
 
 #pragma mark - UITableViewDelegate
