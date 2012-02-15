@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ISTabVC.h"
+#import "ISContactCardVC.h"
 
 @interface ISContactVC : ISTabVC {
-    UIView *contactView;
+    ISContactCardVC *contactCard;
 }
 
 @end

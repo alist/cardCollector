@@ -43,8 +43,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
-        CGFloat ty = self.view.origin.y - contactView.origin.y + (self.view.height-contactView.height)/2;
-        contactView.transform = CGAffineTransformTranslate(contactView.transform, 0, ty);
+        CGFloat ty = self.view.origin.y - contactCard.view.origin.y + 
+                    (self.view.height-contactCard.view.height)/2;
+        contactCard.view.transform = CGAffineTransformTranslate(contactCard.view.transform, 0, ty);
     }completion:^(BOOL finished){
         
     }];
@@ -54,7 +55,7 @@
     [super viewWillDisappear:animated];
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
         CGFloat ty = self.view.size.height;
-        contactView.transform = CGAffineTransformTranslate(contactView.transform, 0, ty);
+        contactCard.view.transform = CGAffineTransformTranslate(contactCard.view.transform, 0, ty);
     }completion:^(BOOL finished){
         
     }];
@@ -64,17 +65,9 @@
 {
     [super viewDidLoad];
     
-    contactView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
-    contactView.autoresizingMask = UIViewAutoresizingFlexibleMargins|UIViewAutoresizingFlexibleWidth;
-    contactView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"handmadepaper"]];
-    contactView.clipsToBounds = NO;
-    CALayer *layer = contactView.layer;
-    layer.shadowRadius = 8;
-    layer.shadowColor = [UIColor whiteColor].CGColor;
-    layer.shadowOffset = CGSizeMake(0, 20);
-    layer.shadowPath = [UIBezierPath bezierPathWithRect:contactView.bounds].CGPath;
-    [self.view addSubview:contactView];
-    contactView.origin = CGPointMake((self.view.width - 300)/2, self.view.size.height);
+    contactCard = [[ISContactCardVC alloc] init];
+    contactCard.view.origin = CGPointMake((self.view.width - 300)/2, self.view.size.height);
+    [self.view addSubview:contactCard.view];
 }
 
 - (void)viewDidUnload
