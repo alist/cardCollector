@@ -111,12 +111,15 @@ static const NSInteger kEmailField = 2;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    textField.returnKeyType = UIReturnKeyNext;
+
     switch (textField.tag) {
         case kNumberField:
-            textField.keyboardType = UIKeyboardTypeNumberPad;
+            textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
             break;
         case kEmailField:
             textField.keyboardType = UIKeyboardTypeEmailAddress;
+            textField.returnKeyType = UIReturnKeyDone;
             break;
         default:
             textField.keyboardType = UIKeyboardTypeDefault;
