@@ -21,6 +21,9 @@
 	self.view.autoresizingMask	=	UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	
 	self.view.backgroundColor	=	[UIColor colorWithWhite:0 alpha:.5];
+    
+    UITapGestureRecognizer *tapOutsideRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOutside:)];
+    [self.view addGestureRecognizer:tapOutsideRecognizer];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -74,6 +77,9 @@
 	
 }
 
-
+-(void)tappedOutside:(UITapGestureRecognizer *)tap{
+    NSNotification *notification = [NSNotification notificationWithName:@"tappedOutside" object:tap];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
 
 @end

@@ -57,12 +57,15 @@ static const NSInteger kEmailField = 2;
     self.tableView.scrollEnabled = NO;
     
     self.tableView.dataSource = _model;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tappedOutside:) name:@"tappedOutside" object:NULL];
 }
 
 #pragma mark -
 #pragma mark UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell 
+forRowAtIndexPath:(NSIndexPath *)indexPath {
     // Customize the presentation of certain types of cells.
     if ([cell isKindOfClass:[NITextInputFormElementCell class]]) {
         NITextInputFormElementCell* textInputCell = (NITextInputFormElementCell *)cell;
@@ -107,11 +110,13 @@ static const NSInteger kEmailField = 2;
         [cell.textField becomeFirstResponder];
         return NO;
     }
+    _activeField = nil;
     return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     textField.returnKeyType = UIReturnKeyNext;
+    _activeField = textField;
 
     switch (textField.tag) {
         case kNumberField:
@@ -130,6 +135,19 @@ static const NSInteger kEmailField = 2;
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [[NSUserDefaults standardUserDefaults] 
      setObject:textField.text forKey:[self nameForTag:textField.tag]];
+}
+
+#pragma mark- Other Functions
+
+-(void)tappedOutside:(NSNotification *)notification{
+    UITapGestureRecognizer *tap = (UITapGestureRecognizer *)[notification object];
+    CGPoint touchPoint = [tap locationInView:self.view];
+    if (touchPoint.x < 0 || touchPoint.x > self.view.width || 
+        touchPoint.y < 0 || touchPoint.y > self.view.height){
+        if (_activeField){
+            [_activeField resignFirstResponder];
+        }
+    }
 }
 
 

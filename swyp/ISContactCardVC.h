@@ -11,6 +11,7 @@
 
 @interface ISContactCardVC : UITableViewController <UITextFieldDelegate> {
     NITableViewModel* _model;
+    UITextField* _activeField;
 }
 
 @end
