@@ -32,11 +32,18 @@
 	
 	return self;
 }
+
 -(id)	loadContentFromHistoryItem:		(ISSwypHistoryItem*)item{
 	if (self.view)
 		[self.webView loadData:[item itemData] MIMEType:[item itemType] textEncodingName:@"utf-8" baseURL:nil];
 
 	return self;
+}
+
+- (void)loadContentFromItem:(ISSwypHistoryItem *)items {
+  
+  
+  
 }
 
 #pragma mark webViewDelegate

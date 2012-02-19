@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E951DF614F0CBEC0074EAAC /* CardContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E951DF514F0CBEC0074EAAC /* CardContactViewController.m */; };
 		3E06EB4614DC8A3300BA055D /* ISPasteboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */; };
 		3E06EB4914DC8CA100BA055D /* paperclip.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB4714DC8CA100BA055D /* paperclip.png */; };
 		3E06EB4A14DC8CA100BA055D /* paperclip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB4814DC8CA100BA055D /* paperclip@2x.png */; };
@@ -163,6 +164,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E951DF414F0CBEC0074EAAC /* CardContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardContactViewController.h; sourceTree = "<group>"; };
+		2E951DF514F0CBEC0074EAAC /* CardContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardContactViewController.m; sourceTree = "<group>"; };
 		3E06EB4414DC8A3300BA055D /* ISPasteboardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardVC.h; path = swyp/ISPasteboardVC.h; sourceTree = "<group>"; };
 		3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPasteboardVC.m; path = swyp/ISPasteboardVC.m; sourceTree = "<group>"; };
 		3E06EB4714DC8CA100BA055D /* paperclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paperclip.png; path = resources/paperclip.png; sourceTree = SOURCE_ROOT; };
@@ -432,6 +435,8 @@
 		79527C8714E3620F003002AF /* history item preview */ = {
 			isa = PBXGroup;
 			children = (
+				2E951DF414F0CBEC0074EAAC /* CardContactViewController.h */,
+				2E951DF514F0CBEC0074EAAC /* CardContactViewController.m */,
 				79527C8814E36254003002AF /* ISPreviewVC.h */,
 				79527C8914E36254003002AF /* ISPreviewVC.m */,
 				79527C9514E3692D003002AF /* ISPreviewMapViewVC.h */,
@@ -892,6 +897,7 @@
 				7959A55714E769F000020F6B /* ISTabVC.m in Sources */,
 				7959A56214E779F500020F6B /* ISEventKitDataSource.m in Sources */,
 				3E8E301614EB3CC2008F08B5 /* ISContactCardVC.m in Sources */,
+				2E951DF614F0CBEC0074EAAC /* CardContactViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
