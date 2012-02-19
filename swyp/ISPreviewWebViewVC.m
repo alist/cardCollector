@@ -40,7 +40,7 @@
 	return self;
 }
 
-- (void)loadContentFromItem:(ISSwypHistoryItem *)items {
+- (id)loadContentFromItem:(ISSwypHistoryItem *)items {
   
   
   

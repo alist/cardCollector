@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E951DF614F0CBEC0074EAAC /* CardContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E951DF514F0CBEC0074EAAC /* CardContactViewController.m */; };
+		2EA305E414F0D119000A08FB /* CardContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA305E314F0D119000A08FB /* CardContactViewController.m */; };
 		3E06EB4614DC8A3300BA055D /* ISPasteboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */; };
 		3E06EB4914DC8CA100BA055D /* paperclip.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB4714DC8CA100BA055D /* paperclip.png */; };
 		3E06EB4A14DC8CA100BA055D /* paperclip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E06EB4814DC8CA100BA055D /* paperclip@2x.png */; };
@@ -94,6 +94,7 @@
 		7959A56214E779F500020F6B /* ISEventKitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7959A56114E779F500020F6B /* ISEventKitDataSource.m */; };
 		7959A57914E77B9B00020F6B /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959A57514E77B8700020F6B /* EventKit.framework */; };
 		7959A57A14E77B9B00020F6B /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7959A57614E77B8700020F6B /* EventKitUI.framework */; };
+		7959A5C214F0CC7A00020F6B /* SwypCollectorCardsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7959A5C114F0CC7A00020F6B /* SwypCollectorCardsItem.m */; };
 		796271D214DC788200E5D17A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D114DC788200E5D17A /* UIKit.framework */; };
 		796271D414DC788200E5D17A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D314DC788200E5D17A /* Foundation.framework */; };
 		796271D614DC788200E5D17A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796271D514DC788200E5D17A /* CoreGraphics.framework */; };
@@ -164,8 +165,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2E951DF414F0CBEC0074EAAC /* CardContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardContactViewController.h; sourceTree = "<group>"; };
-		2E951DF514F0CBEC0074EAAC /* CardContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardContactViewController.m; sourceTree = "<group>"; };
+		2EA305E214F0D119000A08FB /* CardContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardContactViewController.h; sourceTree = "<group>"; };
+		2EA305E314F0D119000A08FB /* CardContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardContactViewController.m; sourceTree = "<group>"; };
 		3E06EB4414DC8A3300BA055D /* ISPasteboardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISPasteboardVC.h; path = swyp/ISPasteboardVC.h; sourceTree = "<group>"; };
 		3E06EB4514DC8A3300BA055D /* ISPasteboardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISPasteboardVC.m; path = swyp/ISPasteboardVC.m; sourceTree = "<group>"; };
 		3E06EB4714DC8CA100BA055D /* paperclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paperclip.png; path = resources/paperclip.png; sourceTree = SOURCE_ROOT; };
@@ -234,6 +235,8 @@
 		7959A56114E779F500020F6B /* ISEventKitDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISEventKitDataSource.m; path = swyp/ISEventKitDataSource.m; sourceTree = "<group>"; };
 		7959A57514E77B8700020F6B /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		7959A57614E77B8700020F6B /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		7959A5C014F0CC7A00020F6B /* SwypCollectorCardsItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwypCollectorCardsItem.h; path = swyp/SwypCollectorCardsItem.h; sourceTree = "<group>"; };
+		7959A5C114F0CC7A00020F6B /* SwypCollectorCardsItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwypCollectorCardsItem.m; path = swyp/SwypCollectorCardsItem.m; sourceTree = "<group>"; };
 		796271CD14DC788200E5D17A /* swyp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swyp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796271D114DC788200E5D17A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		796271D314DC788200E5D17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -435,8 +438,6 @@
 		79527C8714E3620F003002AF /* history item preview */ = {
 			isa = PBXGroup;
 			children = (
-				2E951DF414F0CBEC0074EAAC /* CardContactViewController.h */,
-				2E951DF514F0CBEC0074EAAC /* CardContactViewController.m */,
 				79527C8814E36254003002AF /* ISPreviewVC.h */,
 				79527C8914E36254003002AF /* ISPreviewVC.m */,
 				79527C9514E3692D003002AF /* ISPreviewMapViewVC.h */,
@@ -520,6 +521,8 @@
 		796271F114DC78FF00E5D17A /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				7959A5C014F0CC7A00020F6B /* SwypCollectorCardsItem.h */,
+				7959A5C114F0CC7A00020F6B /* SwypCollectorCardsItem.m */,
 				7959A56014E779F500020F6B /* ISEventKitDataSource.h */,
 				7959A56114E779F500020F6B /* ISEventKitDataSource.m */,
 				79925D5D14E6C34900FE2412 /* ISSwypHistoryItem.h */,
@@ -535,6 +538,8 @@
 		796271F314DC790100E5D17A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2EA305E214F0D119000A08FB /* CardContactViewController.h */,
+				2EA305E314F0D119000A08FB /* CardContactViewController.m */,
 				7962726814DC7D2700E5D17A /* ISSwypActionSelectorVC.h */,
 				7962726914DC7D2700E5D17A /* ISSwypActionSelectorVC.m */,
 				79527C8714E3620F003002AF /* history item preview */,
@@ -897,7 +902,8 @@
 				7959A55714E769F000020F6B /* ISTabVC.m in Sources */,
 				7959A56214E779F500020F6B /* ISEventKitDataSource.m in Sources */,
 				3E8E301614EB3CC2008F08B5 /* ISContactCardVC.m in Sources */,
-				2E951DF614F0CBEC0074EAAC /* CardContactViewController.m in Sources */,
+				7959A5C214F0CC7A00020F6B /* SwypCollectorCardsItem.m in Sources */,
+				2EA305E414F0D119000A08FB /* CardContactViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
