@@ -40,11 +40,6 @@
 	return self;
 }
 
-- (id)loadContentFromItem:(ISSwypHistoryItem *)items {
-  
-  
-  
-}
 
 #pragma mark webViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webbyView{

@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "ISSwypHistoryItem.h"
 
+@class SwypCollectorCardsItem;
+
 @interface CardContactViewController : UIViewController
 
 @property(retain, nonatomic) UIImageView *imageView;
 @property(retain, nonatomic) UILabel  *nameLabel;
 @property(retain, nonatomic) UIProgressView  *powerBar;
+@property(retain, nonatomic) SwypCollectorCardsItem *item;
 
--(id)	loadContentFromHistoryItem: (ISSwypHistoryItem*)item;
+-(void)	loadContent: (SwypCollectorCardsItem*)anItem;
 
 @end

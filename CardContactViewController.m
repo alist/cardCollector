@@ -7,16 +7,20 @@
 //
 
 #import "CardContactViewController.h"
+#import "SwypCollectorCardsItem.h"
+
+@interface CardContactViewController(Private) 
+- (void)refresh;
+@end
 
 @implementation CardContactViewController
 
-@synthesize imageView, nameLabel, powerBar;
+@synthesize imageView, nameLabel, powerBar, item;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
       
     }
     return self;
@@ -38,18 +42,35 @@
 {
     [super viewDidLoad];
     imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    imageView.frame = CGRectOffset(imageView.frame, 0, 44);
     nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
     nameLabel.font = [UIFont systemFontOfSize:18];
     nameLabel.backgroundColor = [UIColor clearColor];
   
-  [self.view addSubview:imageView];
-  [self.view addSubview:nameLabel];
+    [self.view addSubview:imageView];
+    [self.view addSubview:nameLabel];
+    [self refresh];
 }
 
+-(void)	loadContent: (SwypCollectorCardsItem*)anItem {
+ 
+  item = anItem;
+  [self refresh];
+  
+}
+
+- (void)refresh {
+  if ([self isViewLoaded] && item) {
+    imageView.image = item.personImage;
+    nameLabel.text = item.personName;
+  }
+}
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+  imageView = nil;
+  nameLabel = nil;
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -60,4 +81,6 @@
 	return YES;
 }
 
+
+  
 @end

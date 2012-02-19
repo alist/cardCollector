@@ -8,6 +8,7 @@
 
 #import "ISPreviewVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CardContactViewController.h"
 
 @implementation ISPreviewVC
 @synthesize displayedHistoryItem = _displayedHistoryItem;
@@ -65,7 +66,10 @@
 	if ([[historyItem itemType] isFileType:[NSString swypAddressFileType]]){
 		swypItemVC	=	[[self webPreviewVC] loadPreviewImageFromHistoryItem:historyItem];
 	}else if ([[historyItem itemType] isFileType:[NSString swypContactFileType]]){
-		swypItemVC	=	[[self webPreviewVC] loadPreviewImageFromHistoryItem:historyItem];		
+    CardContactViewController *vc = [self cardContactVC];
+    [vc loadContent:(SwypCollectorCardsItem *)historyItem];
+    swypItemVC = vc;
+		//swypItemVC	=	[[self webPreviewVC] loadPreviewImageFromHistoryItem:historyItem];		
 	}else{
 		swypItemVC	=	[[self webPreviewVC] loadContentFromHistoryItem:historyItem];
 	}
@@ -146,6 +150,10 @@
 
 	}
 	return _webPreviewVC;
+}
+
+- (CardContactViewController *)cardContactVC {
+  return [[CardContactViewController alloc] init];
 }
 
 #pragma mark - UIViewController

@@ -11,6 +11,8 @@
 #import "ISPreviewMapViewVC.h"
 #import "ISPreviewWebViewVC.h"
 
+@class CardContactViewController;
+
 @interface ISPreviewVC : UIViewController{
 	id<swypContentDataSourceDelegate>	_datasourceDelegate;
 }
@@ -21,7 +23,7 @@
 @property (nonatomic, strong) UIButton *					exportButton;
 
 -(UIViewController*) previewVCForHistoryItem:(ISSwypHistoryItem*)historyItem;
-
+- (CardContactViewController *)cardContactVC;
 //
 //private
 -(void) _updateExportButton;
